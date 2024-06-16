@@ -1,0 +1,8 @@
+name: Detect Evil
+level: 1
+reversible: false
+range: 120'
+duration: 6 turns
+effect: Everything within 120'
+description: |-
+    When this spell is cast, the cleric will see evilly enchanted objects within 120' glow. It will also cause creatures that want to harm the cleric to glow when they are within range. The actual thoughts of the creatures cannot be heard. Remember that a Chaotic alignment does not automatically mean Evil, although many Chaotic monsters have evil intentions. Traps and poison are neither good nor evil, merely dangerous; this spell does not reveal them.

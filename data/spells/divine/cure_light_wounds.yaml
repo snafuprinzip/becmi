@@ -1,0 +1,10 @@
+name: Cure Light Wounds
+level: 1
+reversible: true
+range: Touch
+duration: Permanent
+effect: Any one living Creature
+description: |-
+    This spell either heals damage or removes paralysis. If used to heal, it can cure 2-7 (1d6 + 1) points of damage. It cannot heal damage if used to cure paralysis. The cleric may cast it on himself if desired.
+    This spell cannot increase a creature's total hit points above the original amount.
+    When reversed, this spell, cause light wounds, causes 1d6+1 (2-7) points of damage to any creature or character touched (no saving throw is allowed). The cleric must make a normal attack roll to inflict this damage.

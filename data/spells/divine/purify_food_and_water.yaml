@@ -1,0 +1,8 @@
+name: Purify Food and Water
+level: 1
+reversible: false
+range: 10'
+duration: Permanent
+effect: See below
+description: |-
+    This spell will make spoiled or poisoned food and water safe and usable. It will purify one ration of preserved food (either iron or standard rations), or six waterskins of water, or enough normal food to feed a dozen people. If cast at mud, the spell will cause the dirt to settle, leaving a pool of pure, clear water. The spell will not affect any living creature.

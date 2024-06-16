@@ -1,0 +1,9 @@
+name: Remove Fear
+level: 1
+reversible: true
+range: Touch
+duration: 2 turns
+effect: Any one living creature
+description: |-
+    When the cleric casts this spell and then touches any living creature, the spell will calm the creature and remove any fear. If the creature has been affected by a fear spell or effect which does not normally allow a saving throw, the remove fear spell can still be useful. If the cleric casts the spell on someone afflicted by a magical fear effect, the victim gets to make a saving throw vs. spells, adding a bonus to the roll equal to the cleric's level of experience (up to a maximum bonus of +6). If the saving throw is successful, the victim's fear is negated. Regardless of the cleric's level or any bonuses, a roll of 1 will always fail.
+    The reversed form of the spell, cause fear, will make any one creature flee for two turns. The victim may make a saving throw vs. spells to avoid the effect. This reversed spell has a range of 120'.

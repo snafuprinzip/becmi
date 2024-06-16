@@ -1,0 +1,9 @@
+name: Detect Magic
+level: 1
+reversible: false
+range: 0
+duration: 2 turns
+effect: Everything within 60'
+description: |-
+    When this spell is cast, die cleric will see a glow surround magical objects, creatures, and places within the spell's effect. The glow will not last very long; clerics should normally use the spell only when they want to know if particular objects already within sight are, in fact, magical.
+    For example, a door may be held shut magically, a stranger might actually be an enchanted monster, or a treasure might be enchanted.

@@ -1,0 +1,8 @@
+name: Resist Cold
+level: 1
+reversible: false
+range: 0
+duration: 6 turns
+effect: All creatures within 30'
+description: |-
+    When this spell is cast, all creatures within 30' of the cleric can withstand freezing temperatures without harm. In addition, those affected gain a bonus of + 2 to all saving throws against cold attacks. Furthermore, any damage from cold is reduced by 1 point per die of damage (but with a minimum of 1 point of damage per die). The effect will move with the cleric.

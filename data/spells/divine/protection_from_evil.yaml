@@ -1,0 +1,11 @@
+name: Protection from Evil
+level: 1
+reversible: false
+range: 0
+duration: 12 turns
+effect: The cleric only
+description: |-
+    This spell creates an invisible magical barrier all around the cleric's body (less than an inch away). While the spell lasts, characters and monsters attacking the cleric are penalized by — 1 to their attack rolls, and the cleric gains a +1 bonus to all saving throws.
+    In addition, enchanted creatures cannot even touch the cleric! (An enchanted creature is one that normal weapons will not affect, one which only magical weapons can hit. A creature that can only be hit by a silver weapon—a werewolf, for example—is not an enchanted creature. Any creature that is magically summoned or controlled, such as a charmed character, is also considered to be an enchanted creature.) The barrier thus completely protects the cleric from all melee or hand-to-hand attacks from such creatures; however, it cannot prevent attacks from missile weapons. Enchanted creatures using missile weapons still suffer the - 1 penalty to the attack roll, but they can hit the cleric.
+    This spell will not affect a magic missile spell used by magic-users.
+    If the cleric attacks an enchanted creature during the spell's duration, the spell's effect changes slightly. Enchanted creatures are then able to touch the magic-user, but still suffer the attack roll penalty; the penalty and the cleric's saving throw adjustments still apply until the spell duration ends.
