@@ -1,0 +1,63 @@
+id: Fighter
+class: Fighter
+race: Human
+hitdice: 8
+hitpoints: 2
+maxlevel: 36
+maxinternallevel: 36
+armor: Any; shields allowed.
+weapons: Any.
+abilities:
+  - id: Lance Attack
+    name: Lance Attack
+    minlevel: 1
+    table: ""
+    description: |-
+      f a character is on a riding steed (such as a horse) and is using a lance, he can perform the lance attack if his mount runs (flies, swims) for 20 yards or more toward the fighter's target.
+      The character gets his Strength and magic adjustments to the attack roll and damage with the lance attack maneuver. The lance, if it hits, will inflict double damage with a successful hit—roll the damage for the lance, multiply the result by 2, and then apply all appropriate adjustments. Without enough room to charge—if the mountmoves less than 20 yards or is stationary—the lance does normal damage only.
+      Fighters, dwarves and elves can use a lance attack, but no other character class can do so. If a character has the multiple attacks maneuver, he may choose the lance attack maneuver for any attack he makes in a round. However, he cannot hit the same target time after time; he must choose a new target along his mount's line of movement for each attack, and therefore he must be capable of hitting each target with an attack roll of 2.
+  - id: Set Spear vs. Charge
+    name: Set Spear vs. Charge
+    minlevel: 1
+    table: ""
+    description: |-
+      A character on foot and carrying a spear, pike, sword shield, or lance can set the weapon vs. a charge. A charge is when a monster charges the character—that is, runs toward him for 20 or more yards before its attack. A character can also set his spear vs. another character's lance attack against him.
+      When the character "sets vs. charge," he holds the weapon firm, braced against the ground and toward the onrushing enemy. The character gets his Strength and magic adjustments to his attack and damage rolls. If the character's attack hits, he inflicts double damage on his target, adding damage adjustments after doubling.
+      The character must declare a set spear vs. charge before he is in hand-to-hand combat with the creature charging him. For example, if the character's party wins initiative in the round and the character suspects the monster will charge, he could declare his set spear vs. charge maneuver. Likewise, the characters might see a group of charging monsters several rounds before they arrive, and set their spears against the charge one or more rounds ahead of time.
+      Normally, the character makes his attack on the monster's movement phase, when the monster first moves within range of the weapon. If his attack hits and kills the monster, the monster cannot hurt him in return. If his attack fails to kill the monster, the monster will be able to attack on its own hand-to-hand combat phase of the combat sequence.
+  - id: Smash
+    name: Smash
+    minlevel: 9
+    table: ""
+    description: |-
+      This is a Fighter Combat Option maneuver, first available at 9th level to fighters and mystics, and at other experience point totals to demihumans (see their experience tables). With this hand-to-hand maneuver, the character automatically loses initiative and takes a — 5 penalty to the attack roll (he still gets his Strength and magic adjustments to his attack roll).
+      If attack hits, the character adds his Strength bonus, magic bonuses, and his entire Strength score to his weapon's normal damage.
+  - id: Parry
+    name: Parry
+    minlevel: 9
+    table: ""
+    description: With this maneuver, the fighter does not make any attack roll. Instead, he blocks incoming attacks for the entire combat round; all enemies attacking him suffer a —4 penalty to hit him with melee and thrown (but not missile) weapons.
+  - id: Disarm
+    name: Disarm
+    minlevel: 9
+    table: ""
+    description: This maneuver can only be used when the fighter attacks a weapon-using opponent. The fighter gets his normal Strength and magic adjustments to his attack roll. If he hits, he inflicts no damage. Instead, the victim rolls 1d20, minus his Dexterity bonuses, plus his attacker's Dexterity bonuses. If the final roll is greater than the victim's Dexterity score, the victim drops his weapon.
+  - id: Additional Attack 2
+    name: Multiple Attacks
+    minlevel: 12
+    table: ""
+    description: |-
+      In melee combat, if the fighter can hit his opponent with an attack roll of 2 (modified by all bonuses), he can make two attacks per round against that target (three per round at level 24, four per round at level 36).
+      Each attack of a multiple attacks maneuver can be a throw, attack, lance attack, or disarm. A character can mix and match his maneuvers; for instance, a character with three attacks per round could perform an attack, disarm, attack combination against his foe, or throw three knives instead of one. This maneuver applies to ideal circumstances, and the character can use movement or some other action instead of another attack.
+  - id: Additional Attack 3
+    name: Additional Attack
+    minlevel: 24
+    table: ""
+    description: |-
+      In melee combat, if the fighter can hit his opponent with an attack roll of 2 (modified by all bonuses), he can make three attacks per round against that target.
+  - id: Additional Attack 4
+    name: Additional Attack
+    minlevel: 36
+    table: ""
+    description: |-
+      In melee combat, if the fighter can hit his opponent with an attack roll of 2 (modified by all bonuses), he can make four attacks per round against that target.

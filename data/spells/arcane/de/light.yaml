@@ -1,8 +1,9 @@
+id: Light
 name: Light
 level: 1
 reversible: true
 range: 120'
-duration: 12 turns
+duration: 6 turns + 1 turn/level of the caster
 effect: Volume of 30' diameter
 description: |-
     This spell creates a large ball of light, as if cast by a bright torch or lamp. If the spell is cast on an object (such as the cleric's weapon), the light will move with the object.

@@ -1,0 +1,9 @@
+id: Ventriloquism
+name: Ventriloquism
+level: 1
+reversible: false
+range: 60'
+duration: 2 turns
+effect: One item or location
+description: |-
+    This spell will allow the spellcaster to make the sound of his or her voice come from somewhere else, such as a statue, animal, a dark corner, and so forth. The "somewhere else" must be within range of the spell.

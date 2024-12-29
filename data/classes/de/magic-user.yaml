@@ -1,0 +1,24 @@
+id: Magic-User
+class: Zauberkundiger
+race: Human
+hitdice: 4
+hitpoints: 1
+maxlevel: 36
+maxinternallevel: 36
+armor: Keine; kein Schild erlaubt.
+weapons: Nur Dolch. Wahlweise (nach Ermessen des SL) Blasrohr, Feueröl, Kampfstab , Netz, Peitsche, Schleuder, geworfene Steine, Weihwasser.
+abilities:
+  - id: Spell Slots
+    name: Zauber pro Stufe nach Grad
+    minlevel: 1
+    table: |
+      1. Grad:  %2d
+      2. Grad:  %2d
+      3. Grad:  %2d
+      4. Grad:  %2d
+      5. Grad:  %2d
+      6. Grad:  %2d
+      7. Grad:  %2d
+      8. Grad:  %2d
+      9. Grad:  %2d
+    description: ""

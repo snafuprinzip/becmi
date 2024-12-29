@@ -1,0 +1,20 @@
+id: Charm Person
+name: Charm Person
+level: 1
+reversible: false
+range: 120'
+duration: See below
+effect: One living person (see below)
+description: |-
+    This spell will only affect humans, demihumans, and certain other creatures. The victim is allowed a saving throw vs. spells. If the savingthrow is successful, the spell has no effect. If it fails, the victim will believe that the spellcaster is its "best friend," and will try to defend the spell- caster against any threat, whether real or imagined. The victim is charmed.
+    As a general rule, the spell only affects creatures which look similar to humans in various ways—humans, demihumans, certain giantclass creatures, etc. It will not affect animals, magical creatures (such as living statues), undead monsters, or human-like creatures larger than ogres.
+    If the spellcaster can speak a language that the charmed victim understands, the spellcaster may give orders to the victim. These orders should sound like suggestions, as if "just between friends." The chaxmed victim will usually obey, but the victim may resist orders that are contrary to the victim's nature (alignment and habits)— he doesn't need to roll anything to resist. A victim will refuse to obey if ordered to kill itself.
+    A charm may last for months. The victim may make another saving throw every so often, depending on its Intelligence score.
+    Charm Person Duration
+    If the Victim Has:               He Saves Every:
+    High Intelligence (13-18):       1 day
+    Average Intelligence (9-12):     1 week
+    Low Intelligence (3-8):          1 month
+    A more complex system for determining the duration of a charm spell appears in Chapter 13, on page 144.
+    A victim who is given conflicting orders and impressions by his old adventuring friends and his new "best friend" should react as any person would in real life: with confusion. He will not automatically assume that one party or the other is lying . . . even if the player wants him to.
+    The charm is automatically broken if the spellcaster attacks the victim, whether by spell or by weapon. The victim will fight normally if attacked by the spellcaster's allies.

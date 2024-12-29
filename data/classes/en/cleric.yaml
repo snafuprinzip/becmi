@@ -1,0 +1,62 @@
+id: Cleric
+class: Cleric
+race: Human
+hitdice: 6
+hitpoints: 2
+maxlevel: 36
+maxinternallevel: 36
+armor: Any; shields allowed.
+weapons: No edged or pointed weapons; all others permitted.
+abilities:
+  - id: Turn Undead
+    name: Turn Undead
+    minlevel: 1
+    table: |
+      Skeleton   	 %s
+      Zombie     	 %s
+      Ghoul      	 %s
+      Wight      	 %s
+      Wraith     	 %s
+      Mummy      	 %s
+      Spectre    	 %s
+      Vampire    	 %s
+      Phantom    	 %s
+      Haunt      	 %s
+      Spirit     	 %s
+      Nightshade 	 %s
+      Lich       	 %s
+      Special    	 %s
+      ----------
+      7, 9, or 11 number needed to turn successfully
+      T           automatic turn, 2d6 Hit Dice of undead
+      D           automatic Destroy, 2d6 Hit Dice of undead
+      D+          automatic Destroy, 3d6 Hit Dice of undead
+      D#          automatic Destroy, 4d6 Hit Dice of undead
+    description: |
+      A cleric has the power to force certain monsters called the "undead" (skeletons, zombies, ghouls, wights, and other types) to run away, or even to perish. This special ability is called "turning undead."
+      When a cleric encounters an undead monster, the cleric may either attack it normally (with a weapon or spell), or try to turn it. The cleric cannot both attack and turn undead in one round.
+      When you want your cleric to try to turn undead, just tell your Dungeon Master "I'll try to turn undead this round." The power to turn undead is inherent in the cleric; he does not need the symbol of his faith or any other device to do it, unless the DM declares otherwise.
+      Undead monsters are not automatically turned by the cleric. When the encounter occurs, the player must refer to the cleric's Turning Undead table to find the effect the cleric has.
+      When the cleric tries to turn an undead monster, find the cleric's level of experience across the top of the table. Read down the left column until you find the name of the undead monster.
+      If you see a "—"in the column, then you can not turn the monster. If you see anything else, you have a chance to turn the monster, or perhaps several monsters. See immediately below, under "Explanation of Results," to learn how to find out if you have turned the monster.
+      Apply the results immediately. If the attempt succeeds, one or more of the undead monsters will retreat or be destroyed. But don't forget, if the monster is turned, it hasn't been destroyed; it may decide to return soon...
+      If you try to turn a specific undead monster (for instance, one specific vampire) and fail, you cannot try again to turn it in the same fight. At some later encounter, you can try to turn that individual again.
+  
+      7, 9, or 11: Whenever a number is listed, the cleric has a chance to turn the undead monsters. The player rolls 2d6 (two six-sided dice). If the total is equal to or greater than the number given, the attempt at turning undead is successful.
+      When the attempt at turning undead is successful, the Dungeon Master (not the player) will roll 2d6 to determine the number of Hit Dice of undead monsters that turn away. At least one monster will be turned, regardless of what the DM rolls on his dice.
+      T: The attempt at turning the undead automatically succeeds; the cleric's player does not need to roll for success. To determine how many undead will be turned, the DM rolls 2d6 as described above; regardless of his roll, at least one undead will be turned.
+      D: The attempt at turning the undead automatically succeeds—in fact, it succeeds so well that the affected monsters are destroyed instead of merely turned. To determine how many Hit Dice of undead will be destroyed, the DM rolls 2d6 as described above; regardless of his roll, at least one undead will be destroyed. (The DM decides what happens when the monsters are destroyed: They might fade away, burst into flame and crumble away, or disintegrate like a vampire in sunlight, for instance.)
+      D + : This is the same as the " D " result above, except that the DM rolls 3d6 to find out how many Hit Dice of undead will be destroyed. Regardless of the roll, at least one undead will be destroyed.
+      D#: This is the same as the "D" result above, except that the DM rolls 4d6 to find out how many Hit Dice of undead will be destroyed. Regardless of the roll, at least one undead will be destroyed.
+  - id: Spell Slots
+    name: Spell Slots
+    minlevel: 2
+    table: |
+      1st:  %2d
+      2nd:  %2d
+      3rd:  %2d
+      4th:  %2d
+      5th:  %2d
+      6th:  %2d
+      7th:  %2d
+    description: ""

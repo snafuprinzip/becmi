@@ -16,25 +16,28 @@ type Class interface {
 	Name() string
 	Requirement(attr attributes.Attributes) bool
 	Level(xp int) int
-	NextLevelAt(currentLevel int) int
+	Rank(xp int) rune
+	NextLevelAt(xp int) int
 	CheckXPModifier(a attributes.Attributes) int
 	HitDice() (dice, point int)
 	BaseMovement() int
 	MaxLevel() int
 	ArmorProficiency() string
 	WeaponProficiency() string
-	SavingThrows(currentLevel int) savingthrows.SavingThrows
-	SpecialAbilities(currentLevel int) ClassAbilities
-	ThAC0(currentLevel int) int
-	ThAC0Table(currentLevel int) string
+	SavingThrows(xp int) savingthrows.SavingThrows
+	SpecialAbilities(xp int) ClassAbilities
+	ThAC0(xp int) int
+	ThAC0Table(xp int) string
 	Race() string
 	Magic() string
-	Grimoire(currentLevel int) *magic.Spellbook
-	SpellList(currentLevel int, spellbook *magic.Spellbook) string
-	SpellDescriptions(currentLevel int, spellbook *magic.Spellbook) string
+	Grimoire(xp int) *magic.Spellbook
+	SpellList(xp int, spellbook *magic.Spellbook) string
+	SpellDescriptions(xp int, spellbook *magic.Spellbook) string
+	Load() Class
 }
 
 type ClassAbility struct {
+	ID          string
 	Name        string
 	MinLevel    int
 	Table       string
@@ -44,7 +47,7 @@ type ClassAbility struct {
 type ClassAbilities []ClassAbility
 
 func (ca *ClassAbilities) Add(name string, minLevel int, table, description string) {
-	var a ClassAbility = ClassAbility{name, minLevel, table, description}
+	var a ClassAbility = ClassAbility{name, name, minLevel, table, description}
 	*ca = append(*ca, a)
 }
 
@@ -92,4 +95,13 @@ func AvailableClasses() string {
 		}
 	}
 	return classesstr
+}
+
+func containsString(slice []string, item string) bool {
+	for _, a := range slice {
+		if a == item {
+			return true
+		}
+	}
+	return false
 }

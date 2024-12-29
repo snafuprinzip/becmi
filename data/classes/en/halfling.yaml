@@ -1,0 +1,88 @@
+id: Halfling
+class: Halfling
+race: Halfling
+hitdice: 6
+hitpoints: 0
+maxlevel: 8
+maxinternallevel: 18
+armor: Any; shield is permitted; armor must be designed specifically for halflings.
+weapons: Any Small melee weapon; shortbow; light crossbow.
+abilities:
+  - id: Woodland Abilities
+    name: Woodland Abilities
+    minlevel: 1
+    table: ""
+    description: |
+      Outdoors, halflings are difficult to spot, having the ability to hide in woods or underbrush.
+      In such cover, they have a 90% chance to remain unseen (the DM will roll). Halflings can even hide in building interiors such as dungeons, though not with as much success. In such situations, if a halfling finds some deep shadows or cover to hide in, his chance drops to 33 %; if he cannot find shadows or cover, he has no chance at all.
+      This ability is not the same as the thiefs Move Silently or Hide in Shadows abilities. To use his ability, the halfling must stay motionless. If he tries to move to another site, anyone can see him.
+      When your halfling uses this ability, inform the DM. He'll roll percentile dice (d%) for the halfling. On a roll of 90 or less, the halfling will remain unnoticed. On a 91 or greater, observers with a chance to detect the halfling will do so. In a dungeon or other building interior, the DM will roll d%. On a roll of 33 or less, the halfling remains undetected; on a 34 or greater, an observer who has a chance to detect him will do so.
+      Indoors, a light bright enough to banish shadows and illuminate everything well (such as magical light) will ruin the hiding attempt. Naturally, if the halfling character is himself carrying a light, it will be impossible for him to hide.
+  - id: Combat Bonuses
+    name: Combat Bonuses
+    minlevel: 1
+    table: ""
+    description: |
+      All halflings gain the following bonuses when in combat:
+        -2 bonus to armor class when attacked by creatures larger than man-sized (i.e., an AC of 6 becomes a 4)
+        +1 bonus to the attack roll when using any missile weapon
+        +1 bonus to individual initiative (see Chapter 8 for details on Initiative)
+      A creature is larger than man-sized when it is referred to as "giant," "gargantuan," or "enormous" in a monster description. It is likewise larger than man-sized if it is a real-world creature which the DM considers bigger than a man (for example, a horse). As a rule of thumb, any non-human-shaped creature whose size is not otherwise given in a description can be presumed to be larger than man-sized if it has 4 or more HD.
+  - id: Set Spear vs. Charge
+    name: Set Spear vs. Charge
+    minlevel: 1
+    table: ""
+    description: |
+      A character on foot and carrying a spear, pike, sword shield, or lance can set the weapon vs. a charge. A charge is when a monster charges the character—that is, runs toward him for 20 or more yards before its attack. A character can also set his spear vs. another character's lance attack against him.
+      When the character "sets vs. charge," he holds the weapon firm, braced against the ground and toward the onrushing enemy. The character gets his Strength and magic adjustments to his attack and damage rolls. If the character's attack hits, he inflicts double damage on his target, adding damage adjustments after doubling.
+      The character must declare a set spear vs. charge before he is in hand-to-hand combat with the creature charging him. For example, if the character's party wins initiative in the round and the character suspects the monster will charge, he could declare his set spear vs. charge maneuver. Likewise, the characters might see a group of charging monsters several rounds before they arrive, and set their spears against the charge one or more rounds ahead of time.
+      Normally, the character makes his attack on the monster's movement phase, when the monster first moves within range of the weapon. If his attack hits and kills the monster, the monster cannot hurt him in return. If his attack fails to kill the monster, the monster will be able to attack on its own hand-to-hand combat phase of the combat sequence.
+  - id: Resistance to Magic
+    name: Resistance to Magic
+    minlevel: 9
+    table: ""
+    description: |
+      Experienced halflings become more resistant to both magic and breath weapons. The halfling automatically takes only half damage from any damage-causing spell or spell-like effect (such as from a magical item). If the effect allows a saving throw, a successful roll indicates that he takes only 1/4 damage.
+      When modifying sustained damage, always round fractions down. If the result is 1/2 point of damage or less, the character takes 1 point of damage.
+  - id: Smash
+    name: Smash
+    minlevel: 11
+    table: ""
+    description: |
+      This is a Fighter Combat Option maneuver, first available at 9th level to fighters and mystics, and at other experience point totals to demihumans (see their experience tables). 
+      With this hand-to-hand maneuver, the character automatically loses initiative and takes a -5 penalty to the attack roll (he still gets his Strength and magic adjustments to his attack roll).
+      If attack hits, the character adds his Strength bonus, magic bonuses, and his entire Strength score to his weapon's normal damage.
+  - id: Parry
+    name: Parry
+    minlevel: 11
+    table: ""
+    description: With this maneuver, the Halfling does not make any attack roll. Instead, he blocks incoming attacks for the entire combat round; all enemies attacking him suffer a —4 penalty to hit him with melee and thrown (but not missile) weapons.
+  - id: Disarm
+    name: Disarm
+    minlevel: 11
+    table: ""
+    description: This maneuver can only be used when the Halfling attacks a weapon-using opponent. The Halfling gets his normal Strength and magic adjustments to his attack roll. If he hits, he inflicts no damage. Instead, the victim rolls 1d20, minus his Dexterity bonuses, plus his attacker's Dexterity bonuses. If the final roll is greater than the victim's Dexterity score, the victim drops his weapon. A Halfling annot use the disarm option against a giant-sized opponent.
+  - id: Multiple Attacks
+    name: Multiple Attacks
+    minlevel: 11
+    table: ""
+    description: |
+      In melee combat, if the Halfling can hit his opponent with an attack roll of 2 (modified by all bonuses), he can make two attacks per round against that target (three per round at attack rank K).
+      Each attack of a multiple attacks maneuver can be a throw, attack, lance attack, or disarm. A character can mix and match his maneuvers; for instance, a character with three attacks per round could perform an attack, disarm, attack combination against his foe, or throw three knives instead of one. This maneuver applies to ideal circumstances, and the character can use movement or some other action instead of another attack.
+  - id: Additional Attack +1
+    name: Additional Attack
+    minlevel: 11
+    table: ""
+    description: The Halfling can attack twice each round.
+  - id: Resistance to Breath Weapons
+    name: Resistance to Breath Weapons
+    minlevel: 15
+    table: ""
+    description: |
+      The halfling automatically takes only half damage from breath weapons (most notably dragon breath, but including all sorts of breath weapon attacks), and takes only 1/4 damage if he successfully makes a saving throw (if the attack allows one).
+      When modifying sustained damage, always round fractions down. If the result is 1/2 point of damage or less, the character takes 1 point of damage.
+  - id: Additional Attack +2
+    name: Additional Attack
+    minlevel: 18
+    table: ""
+    description: The Halfling can attack three times each round.

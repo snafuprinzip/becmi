@@ -1,0 +1,11 @@
+id: Resist Cold
+name: Kälte widerstehen
+level: 1
+reversible: false
+range: 0
+duration: 6 Phasen
+effect: Alle Wesen innerhalb von 9m / 30e
+description: |
+    Dieser Zau ber befähigt alle Wesen im Umkreis von 9m des Klerikers dazu, für die Dauer des Zaubers Frosttemperaturen ohne Schaden zu widerstehen. Zusätzlich erhalten diejenigen, die der Wirkung unterliegen, +2 auf alle RW gegen Kälteangriffe.
+    
+    Jeder Kälteschaden wird um -1 pro Schadenswürfel vermindert (jedoch mit einem Minimum von 1 Schadenspunkt pro Würfel). Diese Wirkung bewegt sich mit dem Kleriker. Ein RW ist nicht zulässig.

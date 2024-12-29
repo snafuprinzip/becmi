@@ -1,0 +1,13 @@
+id: Protection from Evil
+name: Schutz vor Bösem
+level: 1
+reversible: false
+range: 0
+duration: 12 Phasen
+effect: Nur der Kleriker
+description: |
+    Dieser Zauber erschafft um den ganzen Körper (weniger als 2 ,5 cm entfernt) des Klerikers herum eine unsichtbare magische Barriere. Alle Angriffe gegen den Kleriker werden für die Dauer des Zaubers mit -1 belegt und der Kleriker erhält während dieser Zeit +1 auf alle RW.
+    
+    Außerdem können verzauberte Kreaturen den Kleriker nicht einmal berühren! (Eine verzauberte Kreatur ist eine Kreatur, bei der normale Waffen keine Wirkung zeigen, also eine Kreatur, die nur von magischen Waffen getroffen werden kann. Eine Kreatur, die nur von Silberwaffen getroffen werden kann - beispielsweise ein Werwolf - ist keine verzauberte Kreatur. Alle Kreaturen, die magisch beschworen oder kontrolliert werden, wie ein bezauberter Charakter, werden ebenfalls als verzauberte Kreaturen betrachtet.) Die Barriere schützt also den Kleriker vollständig vor allen Nahkampfangriffen oder Angriffen mit Handwaffen solcher Kreaturen; sie kann allerdings nicht vor Fernkampfangriffen schützen. Verzauberte Kreaturen, die Fernkampfwaffen benutzen, erleiden zwar -1 auf den Trefferwurf, sie können den Kleriker jedoch treffen.
+
+    Dieser Zauber hat keine Auswirkungen auf den Zauber Magisches Geschoß.

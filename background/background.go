@@ -3,9 +3,6 @@ package background
 type Background interface {
 	Nation() string
 	Nationality() string
-	//Ethnicity() string
-	//SocialStatus() (string, bool)
-	//Hometown() string
 	String() string
 }
 

@@ -4,14 +4,21 @@ import (
 	"becmi"
 	"becmi/background"
 	"becmi/classes"
+	"becmi/localization"
 	"becmi/magic"
 	"flag"
 	"fmt"
+	"os"
 )
 
 func main() {
 	var name, player, class, alignment, sex, bg string
 	var xp int
+
+	language := "en"
+	if lang, ok := os.LookupEnv("LANG"); ok {
+		language = lang[:2]
+	}
 
 	flag.StringVar(&name, "n", "Bargle", "character's name")
 	flag.StringVar(&player, "p", "NPC", "player's name")
@@ -20,9 +27,13 @@ func main() {
 	flag.StringVar(&sex, "s", "male", "sex of the character [male, female, other]")
 	flag.StringVar(&bg, "b", "Karameikos", "campaign background "+background.AvailableBackgrounds())
 	flag.IntVar(&xp, "xp", 0, "experience points")
+	flag.StringVar(&language, "lang", language, "application language [en, de]")
 	flag.Parse()
 
-	magic.LoadSpells("en")
+	localization.LanguageSetting = language
+
+	//	classes.LoadClasses()
+	magic.LoadSpells()
 
 	char := becmi.NewCharacter(name, player, alignment, sex, class, bg, xp)
 	fmt.Printf("%s\n", char)

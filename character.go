@@ -5,11 +5,13 @@ import (
 	"becmi/background"
 	"becmi/classes"
 	"becmi/dice"
+	"becmi/localization"
 	"becmi/magic"
 	"becmi/proficiencies"
 	"becmi/savingthrows"
 	"becmi/weaponmastery"
 	"fmt"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"os"
 	"strings"
 	"unicode"
@@ -64,11 +66,12 @@ func NewCharacter(name, player, alignment, sex, class, campaign string, xp int) 
 	class = toUpperFirst(class)
 	campaign = toUpperFirst(campaign)
 
-	for {
+	for { // reroll until class requirements are met
 		ch.Attributes = dice.RollAttributes()
 		if c, ok := classes.Classes[class]; ok {
 			if c.Requirement(ch.Attributes) {
-				ch.Class = c
+				ch.Class = c.Load()
+				//fmt.Println(ch.Class)
 				break
 			}
 		}
@@ -96,71 +99,83 @@ func NewCharacter(name, player, alignment, sex, class, campaign string, xp int) 
 		}
 	}
 	ch.HitPoints = hp
-	ch.SavingThrows = ch.Class.SavingThrows(level)
-	ch.ThAC0 = ch.Class.ThAC0(level)
+	ch.SavingThrows = ch.Class.SavingThrows(xp)
+	ch.ThAC0 = ch.Class.ThAC0(xp)
 
 	switch campaign {
 	case "Karameikos":
 		ch.Background = background.NewBGKarameikos(ch.Class.Race(), ch.Class.Name())
 	}
 
+	ch.Grimoire = ch.Class.Grimoire(ch.XP)
+
 	return &ch
 }
 
 func (c Character) String() string {
-	abilities := c.Class.SpecialAbilities(c.Class.Level(c.XP))
+	abilities := c.Class.SpecialAbilities(c.XP)
 	var classabilities, abilitydescriptions string
 	for _, ab := range abilities {
-		classabilities += ab.ListString() + "\n"
-		abilitydescriptions += ab.DescriptionString() + "\n"
+		if ab.MinLevel <= c.Class.Level(c.XP) {
+			classabilities += ab.ListString() + "\n"
+			abilitydescriptions += ab.DescriptionString() + "\n"
+		}
 	}
 
-	output := fmt.Sprintf(""+
-		"Name:  %-32s \t Player:        %s\n"+
-		"Class: %-32s \t Alignment:     %s\n"+
-		"Level: %2d (max. %2d) \t XP: %8d (%s%%) \t Next Level at: %d\n"+
-		"\n"+
-		"%s\n"+
-		"%s\n"+
-		"Armor Class: %3d \t Hitpoints: %d\n"+
-		"Movement:    %3d \t ThAC0:     %d\n"+
-		"\n"+
-		"%s\n"+
-		"Armor Proficiencies:  %s\n"+
-		"Weapon Proficiencies: %s\n"+
-		"\n"+
-		"Background\n"+
-		"==========\n"+
-		"Sex:    %-12s \t Age:    %4d (%s)\n"+
-		"Height: %s \t Weight: %d cn\n"+
-		"%s"+
-		"\n"+
-		"Special Abilities\n"+
-		"=================\n"+
-		"%s\n"+
-		"%s\n"+
-		"Descriptions\n"+
-		"============\n"+
-		"%s\n"+
-		"%s\n",
+	outputMessage := &i18n.Message{
+		ID:          "CharacterRecordSheet",
+		Description: "Character record sheet",
+		Other: "" +
+			"Name:  %-32s \t Player:        %s\n" +
+			"Class: %-32s \t Alignment:     %s\n" +
+			"Level: %2d %c (max. %2d) \t XP: %8d (%s%%) \t Next Level at: %d\n" +
+			"\n" +
+			"%s\n" +
+			"%s\n" +
+			"Armor Class: %3d \t Hitpoints: %d\n" +
+			"Movement:    %3d \t ThAC0:     %d\n" +
+			"\n" +
+			"%s\n" +
+			"Armor Proficiencies:  %s\n" +
+			"Weapon Proficiencies: %s\n" +
+			"\n" +
+			"Background\n" +
+			"==========\n" +
+			"Sex:    %-12s \t Age:    %4d (%s)\n" +
+			"Height: %s \t\t Weight: %d cn (%d lb)\n" +
+			"%s" +
+			"\n" +
+			"Special Abilities\n" +
+			"=================\n" +
+			"%s\n" +
+			"%s\n" +
+			"Descriptions\n" +
+			"============\n" +
+			"%s\n" +
+			"%s\n",
+	}
+
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: outputMessage})
+
+	output := fmt.Sprintf(translation,
 		c.Name,
 		c.Player,
 		c.Class.Name(), c.Alignment,
-		c.Class.Level(c.XP), c.Class.MaxLevel(), c.XP, attributes.SignedInt(c.Class.CheckXPModifier(c.Attributes)), c.Class.NextLevelAt(c.Class.Level(c.XP)),
+		c.Class.Level(c.XP), c.Class.Rank(c.XP), c.Class.MaxLevel(), c.XP, attributes.SignedInt(c.Class.CheckXPModifier(c.Attributes)), c.Class.NextLevelAt(c.XP),
 		c.Attributes,
 		c.SavingThrows,
 		c.ArmorClass, c.HitPoints,
 		c.Movement, c.ThAC0,
-		c.Class.ThAC0Table(c.Class.Level(c.XP)),
+		c.Class.ThAC0Table(c.XP),
 		c.Class.ArmorProficiency(),
 		c.Class.WeaponProficiency(),
 		c.Sex, c.Age, c.AgeSpan,
-		c.Height, c.Weight,
+		c.Height, c.Weight, c.Weight/10,
 		c.Background,
 		classabilities,
-		c.Class.SpellList(c.Class.Level(c.XP), c.Grimoire),
+		c.Class.SpellList(c.XP, c.Grimoire),
 		abilitydescriptions,
-		c.Class.SpellDescriptions(c.Class.Level(c.XP), c.Grimoire),
+		c.Class.SpellDescriptions(c.XP, c.Grimoire),
 	)
 	return output
 }

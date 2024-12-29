@@ -1,0 +1,8 @@
+id: Purify Food and Water
+name: Nahrung und Wasser reinigen
+level: 1
+reversible: false
+range: 3m / 10e
+duration: Permanent
+effect: Siehe unten
+description: Dieser Zauber macht verdorbene oder vergiftete Nahrung und Wasser wieder genießbar. Er reinigt eine Nahrungsration (entweder eine eiserne oder eine Standardration) oder sechs Schläuche voll Wasser oder genug normale Nahrung , um ein Dutzend Leute zu ernähren. Wenn der Zauber auf Schlamm gewirkt wird, bewirkt das, daß der Schmutz sich legt und eine Pfütze reinen, klaren Wassers hinterläßt. Der Zauber beeinflußt keine Lebewesen. Ein RW ist nicht zulässig.

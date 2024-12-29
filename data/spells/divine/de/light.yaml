@@ -1,0 +1,11 @@
+id: Light
+name: Licht
+level: 1
+reversible: true
+range: 36m / 120e
+duration: 12 Phasen
+effect: Eine Kugel von 9m / 30e Radius
+description: |
+    Dieser Zauber erschafft einen großen Lichtball, so als wäre eine helle Fackel entzündet worden. Wenn dieser Zauber auf ein Objekt gewirkt wird (etwa auf die Waffe des Klerikers) , dann bewegt sich das Licht mit dem Objekt. Wenn es auf die Augen eines Wesen gewirkt wird, muß dieses Wesen einen RW gegen Zauber ablegen. Falls der RW mißlingt, ist das Opfer für die Dauer des Zaubers durch das Licht geblendet. Ein geblendetes Wesen darf nicht angreifen.
+    
+    Wenn dieser Zauber zu Dunkelheit umgekehrt wird, dann schafft er einen Kreis der Dunkelheit mit 9m Durchmesser. Er blokkiert jede Sicht außer Infravision. Dunkelheit kann den Zauber Licht, wenn sie auf ihn gewirkt wird, aufheben, aber auch selbst wieder durch Licht aufgehoben werden. Wenn Dunkelheit auf die Augen eines Gegners gewirkt wird, bewirkt sie eine Blindheit für die Dauer des Zaubers oder bis der Zauber aufgehoben wird. Das Ziel kann einen RW gegen Zauber ablegen; wenn er gelingt, trifft der Zauber nicht.

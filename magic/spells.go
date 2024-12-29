@@ -1,7 +1,9 @@
 package magic
 
 import (
+	"becmi/localization"
 	"fmt"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"gopkg.in/yaml.v3"
 	"os"
 	"path"
@@ -10,6 +12,7 @@ import (
 )
 
 type Spell struct {
+	ID          string
 	Name        string
 	Level       int
 	Reversible  bool
@@ -31,13 +34,8 @@ var AllDivineSpells DivineSpells
 var AllArcaneSpells ArcaneSpells
 var AllPrimalSpells PrimalSpells
 
-func loadArcaneSpells(languageCode string) {
-	var dirName string
-	if languageCode == "" || languageCode == "en" {
-		dirName = path.Join("data", "spells", "arcane")
-	} else {
-		dirName = path.Join("data", "spells", "arcane", languageCode)
-	}
+func loadArcaneSpells() {
+	dirName := path.Join("data", "spells", "arcane", localization.LanguageSetting)
 
 	files, err := os.ReadDir(dirName)
 	if err != nil {
@@ -63,17 +61,12 @@ func loadArcaneSpells(languageCode string) {
 			return
 		}
 
-		AllArcaneSpells[spell.Level] = append(AllArcaneSpells[spell.Level], spell)
+		AllArcaneSpells[spell.Level-1] = append(AllArcaneSpells[spell.Level-1], spell)
 	}
 }
 
-func loadDivineSpells(languageCode string) {
-	var dirName string
-	if languageCode == "" || languageCode == "en" {
-		dirName = path.Join("data", "spells", "divine")
-	} else {
-		dirName = path.Join("data", "spells", "divine", languageCode)
-	}
+func loadDivineSpells() {
+	dirName := path.Join("data", "spells", "divine", localization.LanguageSetting)
 
 	files, err := os.ReadDir(dirName)
 	if err != nil {
@@ -99,17 +92,12 @@ func loadDivineSpells(languageCode string) {
 			return
 		}
 
-		AllDivineSpells[spell.Level] = append(AllDivineSpells[spell.Level], spell)
+		AllDivineSpells[spell.Level-1] = append(AllDivineSpells[spell.Level-1], spell)
 	}
 }
 
-func loadPrimalSpells(languageCode string) {
-	var dirName string
-	if languageCode == "" || languageCode == "en" {
-		dirName = path.Join("data", "spells", "primal")
-	} else {
-		dirName = path.Join("data", "spells", "primal", languageCode)
-	}
+func loadPrimalSpells() {
+	dirName := path.Join("data", "spells", "primal", localization.LanguageSetting)
 
 	files, err := os.ReadDir(dirName)
 	if err != nil {
@@ -135,14 +123,14 @@ func loadPrimalSpells(languageCode string) {
 			return
 		}
 
-		AllPrimalSpells[spell.Level] = append(AllPrimalSpells[spell.Level], spell)
+		AllPrimalSpells[spell.Level-1] = append(AllPrimalSpells[spell.Level-1], spell)
 	}
 }
 
-func LoadSpells(languageCode string) {
-	loadArcaneSpells(languageCode)
-	loadDivineSpells(languageCode)
-	loadPrimalSpells(languageCode)
+func LoadSpells() {
+	loadArcaneSpells()
+	loadDivineSpells()
+	loadPrimalSpells()
 }
 
 //func SaveSpell() {
@@ -167,10 +155,18 @@ func LoadSpells(languageCode string) {
 //}
 
 func (s Spell) String() string {
-	return fmt.Sprintf(""+
-		"%s\n"+
-		"Range: %s\n"+
-		"Duration: %s\n"+
-		"Effect: %s\n"+
-		"%s\n", s.Name, s.Range, s.Duration, s.Effect, s.Description)
+	outputMessage := &i18n.Message{
+		ID:          "Spell",
+		Description: "Spell Description",
+		Other: "" +
+			"%s\n" +
+			"Range: %s\n" +
+			"Duration: %s\n" +
+			"Effect: %s\n" +
+			"%s\n",
+	}
+
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: outputMessage})
+
+	return fmt.Sprintf(translation, s.Name, s.Range, s.Duration, s.Effect, s.Description)
 }

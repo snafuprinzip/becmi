@@ -1,0 +1,8 @@
+id: Detect Magic
+name: Magie entdecken
+level: 1
+reversible: false
+range: 0
+duration: 2 Phasen
+effect: Alles in einem Radius von 18m / 60e
+description: Dieser Zauber befähigt einen Kleriker die Ausstrahlungen aller magischen Objekte, Wesen und Ort innerhalb der Reichweite wahrzunehmen. Er hält nicht sehr lange an und wird am besten aufgespart, bis der Kleriker wissen möchte, ob etwas, was während des Abenteuers gefunden wurde, magisch ist. Eine Tür kann z.B. magisch verschlossen sein, ein gehobener Schatz könnte verzaubert sein oder vielleicht ist ein NSC eine magische Illusion. Ein RW ist nicht zulässig.

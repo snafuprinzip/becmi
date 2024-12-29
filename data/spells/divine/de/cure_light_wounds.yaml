@@ -1,0 +1,11 @@
+id: Cure Light Wounds
+name: Leichte Wunden heilen
+level: 1
+reversible: true
+range: Berührung
+duration: Permanent
+effect: Ein Lebewesen
+description: |
+    Dieser Zauber heilt entweder Schaden oder beseitigt Lähmung. Wenn er zum Heilen eingesetzt wird, kann er 1w6+1 Schadenspunkte heilen. Er heilt überhaupt keinen Schaden, wenn er benutzt wird, um Lähmung zu beheben. Der Kleriker darf diesen Zauber auch auf sich selbst legen, wenn dies erwünscht ist.
+
+    Dieser Zauber kann niemals die Gesamttrefferpunkte eines Wesens über die ursprüngliche Anzahl hinaus heben.

@@ -1,0 +1,99 @@
+id: Dwarf
+class: Zwerg
+race: Dwarf
+hitdice: 8
+hitpoints: 3
+maxlevel: 12
+maxinternallevel: 22
+armor: Alle; Schilde sind erlaubt.
+weapons: Alle kleinen oder mittelgroßen Nahkampfwaffen; Kurzbögen und Armbrüste erlaubt, nicht jedoch Langbögen.
+abilities:
+  - id: Infravision
+    name: Infravision
+    minlevel: 1
+    table: ""
+    description: |
+      Infravision ist die Fähigkeit, in der Dunkelheit Wärme (oder deren Fehlen) zu sehen.
+      Zwerge haben Infravision zusätzlich zum normalen Augenlicht und können in der Dunkelheit 18 m (60 e) weit sehen. Normales und magisches Licht machen Infravision nutzlos.
+      Mit Infravision erscheinen warme Dinge rot und kalte Dinge blau. Eine Kreatur würde als roter Umriß gesehen, der schwach rote Fußabdrücke hinterläßt. Ein Tümpel mit kaltem Wasser erscheint in tiefem Blau.
+      Charaktere mit Infravision können sogar Gegenstände oder Kreaturen sehen, die dieselbe Temperatur wie die sie umgebende Luft haben (wie ein Tisch oder ein Skelett), weil der Luftstrom dem Beobachter unweigerlich ihre äußeren Begrenzungen zeigt, indem er ihre Umrisse in einem leicht blasser blauen Ton zeichnet. Solange sie sich nicht bewegen, erscheinen sie dem Auge nur sehr schwach; sobald sie sich bewegen, werden sie zu verschwommenen aber sehr deutlich sichtbaren hellblauen Figuren.
+      Infravision reicht nicht zum Lesen aus. Ein Charakter kann mit Hilfe seiner Infravision ein Wesen nur dann erkennen, wenn es weniger als 3 m (10 e) von ihm entfernt ist - sofern das Wesen nicht absolut unverkennbar ist (beispielsweise 2,40 Meter groß oder auf eine Krücke gestützt).
+  - id: Detection
+    name: Entdeckungsgabe
+    minlevel: 1
+    table: ""
+    description: |
+      Zwerge können mitunter Fallen finden (genauer: Fallen, die in Steinkonstruktionen oder schwere Bauten eingebaut sind, nicht jedoch andere Fallen wie Seilfallen in Wäldern oder hervorschnellende Nadeln an einem Juwelenkästchen); sie können außerdem Schiebewände, abschüssige Gänge und neue Bauwerke erkennen.
+            
+      Falls Ihr Zwerg in einem Bereich nach solchen Dingen suchen will, teilen Sie es dem SL mit. Sie haben eine Wahrscheinlichkeit von 1 in 3, sie zu finden. Der SL würfelt mit 1w6; eine 1 oder 2 bedeutet, daß Sie Erfolg haben , falls es etwas zu finden gibt; ein Ergebnis von 3-6 bedeutet, daß Ihr Zwerg nichts entdeckt. Sie können für jede Falle, jeden abschüssigen Gang und jedes neu angelegte Bauwerk einmal würfeln. Sie müssen dem SL sagen, wenn Sie nach etwas suchen; Ihre Entdeckungsgabe funktioniert niemals automatisch.
+  - id: Additional Languages
+    name: Zusätzliche Sprachen
+    minlevel: 1
+    table: ""
+    description: Zusätzlich zu der Gemein- und der Gesinnungssprache können Zwerge die Sprachen der Gnome, Goblins, Kobolde und natürlich ihre eigene sprechen.
+  - id: Lance Attack
+    name: Lanzenangriff
+    minlevel: 1
+    table: ""
+    description: |
+      Falls ein Charakter auf einem Reittier sitzt (z.B. einem Pferd) und eine Lanze führt, kann er den Lanzenangriff ausführen , sofern sein Reittier über 20 m auf das Ziel des Kämpfers zugaloppiert (bzw. zufliegt/ zuschwimmt).
+
+      Der Charakter kann bei dem Manöver Lanzenangriff seine Stärke und Magiemodifikationen (letztere für magische Waffen) auf den Schadens- und den Trefferwurf anwenden. Falls die Lanze trifft, verursacht sie bei einem gelungenen Treffer doppelten Schaden - würfeln Sie den Schaden durch die Lanze aus, nehmen Sie das Ergebnis mal 2 und addieren Sie dann die entsprechenden Modifikationen. Wenn nicht genug Raum für einen Sturmangriff vorhanden ist - falls das Reittier sich weniger als 20 m weit bewegt oder am Ort bleibt - verursacht die Lanze nur normalen Schaden.
+      
+      Falls ein Charakter über das Manöver Mehrfachangriff verfügt, kann er den Lanzenangriff in einer beliebigen Angriffsposition in dieser Runde einsetzen. Er kann allerdings nicht dasselbe Ziel mehrfach nacheinander treffen; er muß für jeden Angriff ein neues Ziel in der Bewegungsbahn seines Reittieres auswählen; er muß dazu in der Lage sein, jedes Ziel mit einem Trefferwurf von 2 zu treffen.
+  - id: Set Spear vs. Charge
+    name: Speer gegen einen Sturmangriff stellen
+    minlevel: 1
+    table: ""
+    description: |
+      Ein Charakter zu Fuß mit einem Speer, einer Pike, einem Schwertschild oder einer Lanze kann diese Waffe gegen einen Sturmangriff stellen. Es handelt sich um einen Sturmangriff, wenn ein Monster auf den Charakter losstürmt - wenn es also vor seinem Angriff über 20 m auf ihn zurennt. Ein Charakter kann auch seinen Speer gegen einen Lanzenangriff, eines anderen Charakters gegen ihn, stellen.
+
+      Wenn der Charakter sich "gegen einen Sturmangriff stellt", hält der die Waffe sicher fest und nimmt eine stabile Position gegen den heranstürmenden Feind ein. Der Charakter erhält seine Stärke- und Magieboni auf seinen Treffer- und Schadenswurf. Falls der Angriff des Charakters trifft, verursacht er bei seinem Ziel den doppelten Schaden, wobei Schadensmodifikationen nach der Verdopplung addiert werden.
+
+      Der Charakter muß dieses Manöver ansagen, bevor er sich im Nahkampf mit der Kreatur befindet, die auf ihn losstürmt. Wenn beispielsweise die Gruppe des Charakters in der betreffenden Runde die Initiative gewinnt und der Charakter den Verdacht hat, daß das Monster einen Sturmangriff vorhat, könnte er das Manöver Speer gegen einen Sturmangriff stellen ansagen. Ebenso könnten die Charaktere eine Gruppe heranstürmender Monster mehrere Runden vor ihrem Eintreffen sehen und ihre Speere eine oder mehrere Runden früher gegen den Sturmangriff stellen.
+
+      Normalerweise führt der Charakter seinen Angriff während des Bewegungsschrittes des Monsters aus, sobald das Monster in die Reichweite der Waffe kommt. Falls sein Angriff das Monster trifft und tötet, kann ihm das Monster nichts mehr antun. Falls sein Angriff das Monster nicht tötet, kann es ihn während seines Nahkampfschrittes der Kampfsequenz angreifen.
+  - id: Smash
+    name: Zerschmettern
+    minlevel: 12
+    table: ""
+    description: |
+      Bei diesem Nahkampfmanöver verliert der Kämpfer automatisch die Initiative und muß -5 auf den Trefferwurf hinnehmen (er kann jedoch seine Stärke- und Magieboni auf seinen Trefferwurf anwenden).
+      
+      Falls der Angriff gelingt, addiert der Charakter seinen Stärkebonus, magische Boni und seinen gesamten Stärkewert zu dem normalen Schaden seiner Waffe.
+  - id: Parry
+    name: Parieren
+    minlevel: 12
+    table: ""
+    description: Bei diesem Manöver führt der Kämpfer keinen Trefferwurf aus. Statt dessen blockiert er eine ganze Kampfrunde lang Angriffe gegen ihn; alle Feinde, die ihn mit Nahkampf- und Wurfwaffen angreifen, erhalten -4 auf den Trefferwurf. Dies gilt nicht für Geschoßwaffen .
+  - id: Disarm
+    name: Entwaffnen
+    minlevel: 12
+    table: ""
+    description: |
+      Dieses Manöver kann nur dann eingesetzt werden, wenn der Kämpfer gegen einen Gegner kämpft, der eine Waffe führt. Der Kämpfer erhält seine normalen magischen und Stärkeboni auf den Trefferwurf. Falls er trifft. verursacht er keinen Schaden. Statt dessen würfelt das Opfer 1w20 minus seiner eigenen Geschicklichkeitsboni plus der Geschicklichkeitsboni des Angreifers. Falls das Endergebnis den Geschicklichkeitswert des Opfers übersteigt. läßt es seine Waffe fallen.
+      Sobald es entwaffnet ist, kann das Opfer entweder die Waffen wechseln (wodurch es nur in der nächsten Runde die Initiative verliert) oder versuchen, die Waffe aufzuheben. Beim Aufheben einer Waffe muß das Opfer das Manöver Flucht ausführen, um die fallengelassene Waffe aufzuheben.
+      Ein Zwerg kann Entwaffnen nicht gegen einen Gegner mit Riesengröße einsetzen.
+  - id: Additional Attacks
+    name: Mehrfachangriff
+    minlevel: 12
+    table: ""
+    description: |
+      Im Nahkampf kann ein Kämpfer zwei Angriffe pro Runde gegen das Ziel ausführen, wenn er seinen Gegner mit einem Trefferwurf von 2 treffen kann (durch alle geltenden Boni modifiziert) .
+
+      Jeder Angriff eines Mehrfachangriffs kann Werfen, Angreifen, Lanzenangriff oder Entwaffnen sein. Ein Charakter kann seine Manöver mischen und der Situation anpassen; ein Charakter mit drei Angriffen beispielsweise könnte eine Kombination aus Angreifen-Entwaffnen-Angreifen gegen seinen Feind einsetzen oder drei Messer anstatt nur einem werfen. Dieses Manöver setzt ideale Bedingungen voraus und der Charakter kann anstelle eines der Angriffe eine andere Aktion oder Bewegung ausführen.
+  - id: Additional Attack +1
+    name: Zusätzlicher Angriff
+    minlevel: 12
+    table: ""
+    description: Der Zwerg kann zwei mal in jeder Runde angreifen.
+  - id: Special Defenses
+    name: Spezielle Verteidigungseigenschaften
+    minlevel: 16
+    table: ""
+    description: Erfahrene Zwerge werden magieresistenter. Der Zwerg erleidet automatisch nur den halben Schaden durch alle Schaden verursachenden Zauber oder zauberähnlichen Effekte (wie durch einen magischen Gegenstand oder seltsame Monsterkräfte wie Betrachteraugen, allerdings nicht Drachenodem). Teilen Sie den ausgewürfelten Schaden durch 2 und runden Sie ab. Falls der Effekt einen Rettungswurf zuläßt, bedeutet ein geglückter Wurf, daß der Zwerg nur ein Viertel des Schadens erleidet; teilen Sie den ausgewürfelten Schaden durch 4 und runden Sie ab. (Falls das Ergebnis einem halben Schadenspunkt oder weniger entspricht, erleidet der Charakter 1 Schadenspunkt.)
+  - id: Additional Attack +2
+    name: Zusätzlicher Angriff
+    minlevel: 20
+    table: ""
+    description: Der Zwerg kann drei mal in jeder Runde angreifen.

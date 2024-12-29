@@ -1,0 +1,9 @@
+id: Read Languages
+name: Read Languages
+level: 1
+reversible: false
+range: 0
+duration: 2 turns
+effect: The spellcaster  only
+description: |-
+    This spell will allow the spellcaster to read, not speak, any unknown languages or codes, including treasure maps, secret symbols, and so forth, until the duration ends.

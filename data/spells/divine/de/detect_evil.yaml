@@ -1,0 +1,10 @@
+id: Detect Evil
+name: Böses entdecken
+level: 1
+reversible: true
+range: 36m / 120e
+duration: 6 Phasen
+effect: Alles innerhalb von 36m/120e
+description: |
+    Dieser Zauber läßt den Kleriker die Ausstrahlungen von allen böse verzauberten Objekten sehen. Wesen innerhalb dieser Reichweite, die dem Kleriker Übles wollen, besitzen ebenfalls diese Ausstrahlung. Der Kleriker kann nicht die eigentlichen Gedanken des Wesens hören. Beachten Sie bitte, daß "Chaotisch" nicht gleichbedeutend mit böse ist, obwohl viele chaotische Monster böse Absichten haben. Fallen und Gifte sind weder gut noch böse, sondern bloß gefährlich. Sie werden nicht erfaßt. Ein RW ist nicht zulässig.
+    Die Umkehrung des Zaubers, Gutes entdecken, gilt entsprechend für gute verzauberte Objekte und wohlwollende Absichten. Auch hier ist zu beachten, daß rechtschaffene Wesen nicht unbedingt mit guten Wesen gleichzusetzen sind.

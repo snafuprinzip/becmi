@@ -1,0 +1,10 @@
+id: Hold Portal
+name: Hold Portal
+level: 1
+reversible: false
+range: 10'
+duration: 2-12 (2d6) turns
+effect: One door, gate or similar portal
+description: |-
+    This spell will magically hold shut any portal—for example, a door or gate. A knock spell will open the hold portal. Any creature three or more Hit Dice greater than the caster (and characters three or more levels higher) may break open a held portal in one round, but the portal will relock if allowed to close within the duration of the spell.
+    Example: Any 5th level character can break through a hold portal spell cast by a 2nd level spellcaster.

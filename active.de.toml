@@ -1,0 +1,59 @@
+[Attributes]
+description = "Character Attributes"
+hash = "sha1-a5c27fef6b3de4c03f7b7a4b2a005a5c94bb6954"
+other = "ST Stärke           %2d \t (%s Angriffswurf [Nahkampf, Unbewaffnet], Schadenswurf [Nahkampf, Wurfwaffe], Türen öffnen, optional: Rettungswurf: Lähmung, Versteinern)\nIN Intelligenz      %2d \t (%s Allgemeine Fertigkeiten, %s, optional: Rettungswurf gg. Geistige Angriffe)\nWE Weisheit         %2d \t (%s Rettungswurf gg. Sprüche)\nGE Geschicklichkeit %2d \t (%s Angriffswurf [Wurfwaffe, Geschosse], Rüstungsklasse, optional: Rettungswurf: Zauberstäbe, Drachenodem)\nKO Konstitution     %2d \t (%s Trefferpunkte pro Erfahrungsstufe, optional: Rettungswurf: Gift)\nCH Charisma         %2d \t (%s Reaktionsmodifikator von NPCs, %d max. Gefolgsleute, %d Moral der Gefolgsleute)\n"
+
+[SavingThrows]
+description = "Character Saving Throws"
+hash = "sha1-47ba9ddc0f04e47574a91a9dd5790f05a1df8e5a"
+other = "Gift, Todesstrahlen              %2d\nZauberstäbe                      %2d\nLähmung, Versteinerung           %2d\nDrachenodem                      %2d\nZauberruten, -stecken, -sprüche  %2d\n"
+
+[Spell]
+description = "Spell Description"
+hash = "sha1-a2e49c7b51b7988a0b2a4394ca689ecd41936d20"
+other = "%s\nReichweite: %s\nDauer: %s\nEffekt: %s\n%s\n"
+
+["Spell Description Header"]
+description = "Header for Spell Descriptions"
+hash = "sha1-1fbd1a1d813033b92d1a4cf481e63ad4ab6bec73"
+other = "Zauberspruchbeschreibungen\n==========================\n\n"
+
+["Spell Level Header"]
+description = "Header for Spell Level"
+hash = "sha1-4caf22ffa941dac6f4a32f9f93edc624685222ea"
+other = "Grad %d\n------\n"
+
+["Spell List Header"]
+description = "Header for Spell List"
+hash = "sha1-9f3b6e9199c17fe83bee7f9953de0ae12fa49520"
+other = "Zaubersprüche\n=============\n\n"
+
+[can_write]
+description = "Can read and write"
+hash = "sha1-bbf650402ef1cc9aa047d1ec0121e6262dfccbd6"
+other = "Kann (üblicherweise zwei) Muttersprachen lesen und schreiben"
+
+[can_write_simple]
+description = "Can write simple"
+hash = "sha1-fba28d9c77982f38fcfe842908c71cb279de0cf1"
+other = "Kann einfache Worte in Gemeinsprache schreiben"
+
+[cannot_read_write]
+description = "Cannot read or write"
+hash = "sha1-e1b34b2e539793706f62de911bbeb983bcd82171"
+other = "Kann Gemeinsprache weder lesen noch schreiben"
+
+[cannot_speak]
+description = "Cannot speak"
+hash = "sha1-940c06898e60b5ee943f1fca7f2020d23c453cd1"
+other = "Hat Probleme beim artikulieren, kann weder lesen noch schreiben"
+
+[karameikos_background]
+description = "Karameikos Background"
+hash = "sha1-df088b78b7eb1ac8be3bf40973aa2c3e56be3807"
+other = "Ethnie:          %s\nSozialer Status: %s %s\nHerkunft:        %s\n"
+
+[CharacterRecordSheet]
+description = "Character record sheet"
+hash = "sha1-3eba969ac8622a636671530409e7b0ce81d4ed9f"
+other = "Name:   %-32s \t Spieler:           %s\nKlasse: %-32s \t Gesinnung:         %s\nStufe: %2d %c (max. %2d) \t EP: %8d (%s%%) \t Nächste Stufe bei: %d\n\n%s\n%s\nRüstungsklasse: %3d \t Trefferpunkte: %3d\nBewegung:       %3d \t ETW0:          %3d\n\n%s\nErlaubte Rüstung: %s\nErlaubte Waffen:  %s\n\nHintergrund\n===========\nGeschlecht: %-12s \t Alter:  %4d (%s)\nGröße:      %s \t Gewicht: %d M (%d lb)\n%s\nBesondere Fähigkeiten\n=====================\n%s\n%s\nBeschreibungen\n==============\n%s\n%s\n"

@@ -2,15 +2,30 @@ package classes
 
 import (
 	"becmi/attributes"
+	"becmi/localization"
 	"becmi/magic"
 	"becmi/savingthrows"
 	"fmt"
+	"gopkg.in/yaml.v3"
+	"log"
+	"os"
+	"path"
 )
 
 type Thief struct {
+	ID                    string         `yaml:"id"`
+	ClassName             string         `yaml:"class"`
+	ClassRace             string         `yaml:"race"`
+	ClassHD               int            `yaml:"hitdice"`
+	ClassHP               int            `yaml:"hitpoints"`
+	MaxClassLevel         int            `yaml:"maxlevel"`
+	MaxInternalClassLevel int            `yaml:"maxinternallevel"`
+	ClassArmor            string         `yaml:"armor"`
+	ClassWeapons          string         `yaml:"weapons"`
+	Abilities             ClassAbilities `yaml:"abilities"`
 }
 
-var ThiefXPLevel XPLevel = XPLevel{0, 1200, 2400, 4800, 9600, 20000, 40000, 80000, 160000, 280000,
+var ThiefXPLevel XPLevel = XPLevel{-1, 1200, 2400, 4800, 9600, 20000, 40000, 80000, 160000, 280000,
 	400000, 520000, 640000, 760000, 880000, 1000000, 1120000, 1240000, 1360000, 1480000,
 	1600000, 1720000, 1840000, 1960000, 2080000, 2200000, 2320000, 2440000, 2560000, 2680000,
 	2800000, 2920000, 3040000, 3160000, 3280000, 3400000}
@@ -133,26 +148,49 @@ func init() {
 	Classes["Thief"] = Thief{}
 }
 
+func (c Thief) Load() Class {
+	fileContent, err := os.ReadFile(path.Join("data", "classes", localization.LanguageSetting, "thief.yaml"))
+	if err != nil {
+		log.Fatal("Error reading file:", err)
+	}
+
+	err = yaml.Unmarshal(fileContent, &c)
+	if err != nil {
+		log.Fatal("Error unmarshalling YAML:", err)
+	}
+	return c
+}
+
 func (c Thief) Name() string {
-	return "Thief"
+	return c.ClassName
+}
+
+func (c Thief) Race() string { return c.ClassRace }
+
+func (c Thief) Requirement(attr attributes.Attributes) bool {
+	return true
 }
 
 func (c Thief) Level(xp int) int {
 	for idx := range len(ThiefXPLevel) {
-		//fmt.Printf("%d <= %d == %d\n", xp, ThiefXPLevel[idx], idx)
-		if xp <= ThiefXPLevel[idx] {
-			return idx + 1
+		if xp < ThiefXPLevel[idx] {
+			return idx
 		}
 	}
 	return 0
 }
 
-func (c Thief) NextLevelAt(currentLevel int) int {
-	return ThiefXPLevel[currentLevel]
+func (c Thief) Rank(xp int) rune {
+	return ' '
 }
 
-func (c Thief) Requirement(attr attributes.Attributes) bool {
-	return true
+func (c Thief) LevelIncludingRank(xp int) int {
+	return c.Level(xp)
+}
+
+func (c Thief) NextLevelAt(xp int) int {
+	currentLevel := c.Level(xp)
+	return ThiefXPLevel[currentLevel]
 }
 
 func (c Thief) CheckXPModifier(a attributes.Attributes) int {
@@ -172,142 +210,36 @@ func (c Thief) CheckXPModifier(a attributes.Attributes) int {
 }
 
 func (c Thief) HitDice() (dice, point int) {
-	return 4, 2
+	return c.ClassHD, c.ClassHP
 }
 
 func (c Thief) MaxLevel() int {
-	return 36
+	return c.MaxClassLevel
+}
+
+func (c Thief) MaxInternalLevel() int {
+	return c.MaxInternalClassLevel
 }
 
 func (c Thief) ArmorProficiency() string {
-	return "Leather armor only; shield not permitted."
+	return c.ClassArmor
 }
 
 func (c Thief) WeaponProficiency() string {
-	return "Any missile weapon; any one-handed melee weapon."
+	return c.ClassWeapons
 }
 
-func (c Thief) SavingThrows(currentLevel int) savingthrows.SavingThrows {
+func (c Thief) SavingThrows(xp int) savingthrows.SavingThrows {
+	currentLevel := c.LevelIncludingRank(xp)
 	return ThiefSavingThrows[currentLevel-1]
 }
-
-func (c Thief) SpecialAbilities(currentLevel int) ClassAbilities {
-	thiefskills := ThiefSkillsTable[currentLevel-1]
-	//abilities := []string{thiefskills.String()}
-	abilities := make(ClassAbilities, 0)
-	abilities.Add("Thief Skills", 1, thiefskills.String(), ""+
-		"Open Locks (OL):\nWith successful use of this special ability, and with professional lockpicks (often called "+
-		"\"thieves' tools\"), the thief may open locks. The character may try to use this skill only once per lock. The "+
-		"thief may not try again with that particular lock until he gains another level of experience. Without lockpicks, "+
-		"he may not use this ability.\n\n"+
-		"Find Trap (FT):\nWith successful use of this special ability, the thief may examine a room or an object and "+
-		"determine whether it is rigged with traps. He may check only once per trap, and failure prevents the character "+
-		"from finding any trap in or on the object searched. (Since the DM actually does the rolling, the player doesn't "+
-		"know how many traps he's rolling to find.) If the thief finds a trap, he may use his Remove Traps ability to "+
-		"remove or deactivate it.\n\n"+
-		"Remove Traps (RT):\nWith successful use of this special ability, the thief may remove or deactivate a trap. "+
-		"He may not roll this ability against a trap unless the trap has been found. The thief may try his ability only "+
-		"once per trap; failure to remove a trap triggers the trap.\n\n"+
-		"Climb Walls (CW):\nWith successful use of this special ability, the thief can climb steep surfaces, such as sheer "+
-		"cliffs, walls, and so forth. The chances for success are good, but if failed, the thief slips at the halfway "+
-		"point and falls. The DM rolls for success once for every 100' climbed.\n"+
-		"If the roll is a failure, the thief takes 1-6 (1d6) points of damage per 10' fallen. Falling during a 10' climb "+
-		"will inflict 1 point of damage.\n\n"+
-		"Move Silently (MS):\nSuccessful use of this special ability allows the thief to move silently. When the thief "+
-		"tries to use this skill, he always believes he has been successful, but a failed roll means that someone can "+
-		"hear his passage. The DM, at his discretion, may modify the thiefs roll at any time: When he tries moving "+
-		"silently across a field of dried leaves, his percentage chance would go down, while if he does so during a loud "+
-		"tournament, his chance will be greatly enhanced. Note that it doesn't do the thief any good to use this skill "+
-		"against someone who is already aware of him.\n\n"+
-		"Hide in Shadows (HS):\nSuccessful use of this special ability means that the thief moves into and remains in "+
-		"shadows, making him very hard to see. While the thief is in shadows, observers only get a chance to see him if "+
-		"they look directly at him, at which time he must roll again; success means that he remains unobserved. While in "+
-		"shadows, the thief may use his Move Silently ability, but attacking someone reveals the thief. If the thief tries "+
-		"to hide in shadows but fails, he will not know that his position of concealment is a failure until someone sees "+
-		"him and announces the fact. Note that if the thief is under direct observation, he can't hide in shadows against "+
-		"the people watching him; they'll be able to follow his progress with no problem.\n\n"+
-		"Pick Pockets (PP):\nThis special ability allows the character to steal things from another character's person "+
-		"without him noticing. It's a very risky skill to use. If the attempt succeeds, the thief is able to pick the "+
-		"other's pockets without anyone noticing. If the roll is a simple failure, the thief fails to get his hands on "+
-		"what he's seeking. If the roll is greater than twice what the thief needs to succeed or an 00 in any case, the "+
-		"thief is caught in the act by his intended victim, and possibly others. When using the skill, subtract 5% per "+
-		"level or HD of victim. (Normal men—men and women who have no adventuring ability at all and do not belong to any "+
-		"adventuring character class—are treated as being 0 level.)\n"+
-		"Example: A 1st level thief tries to pick the pocket of a 1st level fighter walking along the street. His chance "+
-		"is 20% (normal) minus 5 (5 times 1), or 15%. The DM rolls the percentile dice and rolls a 41. This is over twice "+
-		"what he needed to roll, so the thief is caught in the act.\n\n"+
-		"Hear Noise (HN):\nThis special ability gives the thief the ability to hear faint noises—such as breathing on the "+
-		"other side of the door, or the clatter of distant footsteps approaching fast. The DM can rule that any loud situation, "+
-		"such as a battle, prevents the thief from using this skill.\n")
-	abilities.Add("Backstabbing", 1, "",
-		"If a thief can sneak up on a victim, completely unnoticed, the thief may backstab "+
-			"— if he is using a one-handed melee weapon, he may strike at particularly vulnerable points of his target's body. "+
-			"(Though the ability is called \"backstabbing,\" the weapon doesn't have to be a stabbing weapon. "+
-			"A thief can use this ability with a club, for example.)\n"+
-			"When backstabbing, the thief gains a bonus of +4 on the attack roll; if the target is hit, the damage done is "+
-			"twice normal (roll the damage for the weapon, multiply the result by two, and then add any pertinent modifiers).\n"+
-			"If the intended victim sees, hears, or is warned of the thief's approach, the thief's attack is not a backstab; "+
-			"it is an ordinary attack, doing the damage appropriate for the weapon used.\n"+
-			"When no battle is in progress, a backstab attempt may require a Move Silently ability check. "+
-			"The DM will make all the necessary decisions on that matter.\n")
-	if currentLevel >= 4 {
-		abilities.Add("Read Languages", 4, "",
-			"80% chance to read any normal writing or language (including simple codes, dead languages, treasure maps, "+
-				"and so on, but not magical writings). If he tries but fails to read a piece of writing, he must gain at "+
-				"least one experience level before trying to read it again.\n")
-	}
-	if currentLevel >= 10 {
-		abilities.Add("Cast Spells From Magic-User Scrolls", 10, "",
-			"At 10th level, a thief gains the ability to cast magic-user spells from spell scrolls. However, there is "+
-				"always a 10% chance that the spell will backfire, creating an unexpected result, because of the thief's"+
-				"imperfect understanding of magical writings. This ability only allows thieves to cast spells from existing "+
-				"magic scrolls, not to write their own.\n")
-	}
-	return abilities
-}
-
-//func (c Thief) SpecialAbilitiesString(currentLevel int) string {
-//	thiefskills := ThiefSkillsTable[currentLevel-1]
-//	abilities := []string{thiefskills.String()}
-//	str := fmt.Sprintf(""+
-//		"Thief Skills\n"+
-//		"------------\n"+
-//		"%s\n", abilities[0])
-//	abilities = append(abilities, "Backstabbing\n"+
-//		"If a thief can sneak up on a victim, completely unnoticed, the thief may backstab "+
-//		"— if he is using a one-handed melee weapon, he may strike at particularly vulnerable points of his target's body. "+
-//		"(Though the ability is called \"backstabbing,\" the weapon doesn't have to be a stabbing weapon. "+
-//		"A thief can use this ability with a club, for example.)\n"+
-//		"When backstabbing, the thief gains a bonus of +4 on the attack roll; if the target is hit, the damage done is "+
-//		"twice normal (roll the damage for the weapon, multiply the result by two, and then add any pertinent modifiers).\n"+
-//		"If the intended victim sees, hears, or is warned of the thief's approach, the thief's attack is not a backstab; "+
-//		"it is an ordinary attack, doing the damage appropriate for the weapon used.\n"+
-//		"When no battle is in progress, a backstab attempt may require a Move Silently ability check. "+
-//		"The DM will make all the necessary decisions on that matter.")
-//	str += abilities[1] + "\n"
-//	if currentLevel >= 4 {
-//		abilities = append(abilities, "Read Languages\n"+
-//			"80% chance to read any normal writing or language (including simple codes, dead languages, treasure maps, "+
-//			"and so on, but not magical writings). If he tries but fails to read a piece of writing, he must gain at "+
-//			"least one experience level before trying to read it again.")
-//		str += abilities[2] + "\n"
-//	}
-//	if currentLevel >= 10 {
-//		abilities = append(abilities, "Cast Spells From Magic-User Scrolls\n"+
-//			"At 10th level, a thief gains the ability to cast magic-user spells from spell scrolls. However, there is "+
-//			"always a 10% chance that the spell will backfire, creating an unexpected result, because of the thief's"+
-//			"imperfect understanding of magical writings. This ability only allows thieves to cast spells from existing "+
-//			"magic scrolls, not to write their own.")
-//		str += abilities[3] + "\n"
-//	}
-//	return str
-//}
 
 func (c Thief) BaseMovement() int {
 	return 120
 }
 
-func (c Thief) ThAC0(currentLevel int) int {
+func (c Thief) ThAC0(xp int) int {
+	currentLevel := c.Level(xp)
 	switch {
 	case currentLevel < 5:
 		return 19
@@ -333,7 +265,8 @@ func (c Thief) ThAC0(currentLevel int) int {
 	return 20
 }
 
-func (c Thief) ThAC0Table(currentLevel int) string {
+func (c Thief) ThAC0Table(xp int) string {
+	currentLevel := c.Level(xp)
 	thac0 := c.ThAC0(currentLevel)
 
 	var table [40]int // -20 to 19 == offset 20
@@ -376,7 +309,17 @@ func (c Thief) ThAC0Table(currentLevel int) string {
 		table[10])
 }
 
-func (c Thief) Race() string { return "Human" }
+func (c Thief) Magic() string { return "Arcane" }
+
+func (c Thief) Grimoire(xp int) *magic.Spellbook { return nil }
+
+func (c Thief) SpellList(xp int, spellbook *magic.Spellbook) string {
+	return ""
+}
+
+func (c Thief) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
+	return ""
+}
 
 func (s ThiefSkills) String() string {
 	return fmt.Sprintf(""+
@@ -390,14 +333,97 @@ func (s ThiefSkills) String() string {
 		"Hear Noise:      %d%%\n", s.OpenLocks, s.FindTraps, s.RemoveTraps, s.ClimbWalls, s.MoveSilently, s.HideInShadows, s.PickPockets, s.HearNoise)
 }
 
-func (c Thief) Magic() string { return "Arcane" }
+func (c Thief) SpecialAbilities(xp int) ClassAbilities {
+	currentLevel := c.LevelIncludingRank(xp)
+	thiefskills := ThiefSkillsTable[currentLevel-1]
+	for ability := range c.Abilities {
+		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Thief Skills" {
+			formatstr := c.Abilities[ability].Table
+			c.Abilities[ability].Table = fmt.Sprintf(formatstr, thiefskills.OpenLocks, thiefskills.FindTraps, thiefskills.RemoveTraps,
+				thiefskills.ClimbWalls, thiefskills.MoveSilently, thiefskills.HideInShadows, thiefskills.PickPockets, thiefskills.HearNoise)
+			break
+		}
+	}
 
-func (c Thief) Grimoire(currentLevel int) *magic.Spellbook { return nil }
+	return c.Abilities
 
-func (c Thief) SpellList(currentLevel int, spellbook *magic.Spellbook) string {
-	return ""
-}
-
-func (c Thief) SpellDescriptions(currentLevel int, spellbook *magic.Spellbook) string {
-	return ""
+	//currentLevel := c.Level(xp)
+	//thiefskills := ThiefSkillsTable[currentLevel-1]
+	////abilities := []string{thiefskills.String()}
+	//abilities := make(ClassAbilities, 0)
+	//abilities.Add("Thief Skills", 1, thiefskills.String(), ""+
+	//	"Open Locks (OL):\nWith successful use of this special ability, and with professional lockpicks (often called "+
+	//	"\"thieves' tools\"), the thief may open locks. The character may try to use this skill only once per lock. The "+
+	//	"thief may not try again with that particular lock until he gains another LevelIncludingRank of experience. Without lockpicks, "+
+	//	"he may not use this ability.\n\n"+
+	//	"Find Trap (FT):\nWith successful use of this special ability, the thief may examine a room or an object and "+
+	//	"determine whether it is rigged with traps. He may check only once per trap, and failure prevents the character "+
+	//	"from finding any trap in or on the object searched. (Since the DM actually does the rolling, the player doesn't "+
+	//	"know how many traps he's rolling to find.) If the thief finds a trap, he may use his Remove Traps ability to "+
+	//	"remove or deactivate it.\n\n"+
+	//	"Remove Traps (RT):\nWith successful use of this special ability, the thief may remove or deactivate a trap. "+
+	//	"He may not roll this ability against a trap unless the trap has been found. The thief may try his ability only "+
+	//	"once per trap; failure to remove a trap triggers the trap.\n\n"+
+	//	"Climb Walls (CW):\nWith successful use of this special ability, the thief can climb steep surfaces, such as sheer "+
+	//	"cliffs, walls, and so forth. The chances for success are good, but if failed, the thief slips at the halfway "+
+	//	"point and falls. The DM rolls for success once for every 100' climbed.\n"+
+	//	"If the roll is a failure, the thief takes 1-6 (1d6) points of damage per 10' fallen. Falling during a 10' climb "+
+	//	"will inflict 1 point of damage.\n\n"+
+	//	"Move Silently (MS):\nSuccessful use of this special ability allows the thief to move silently. When the thief "+
+	//	"tries to use this skill, he always believes he has been successful, but a failed roll means that someone can "+
+	//	"hear his passage. The DM, at his discretion, may modify the thiefs roll at any time: When he tries moving "+
+	//	"silently across a field of dried leaves, his percentage chance would go down, while if he does so during a loud "+
+	//	"tournament, his chance will be greatly enhanced. Note that it doesn't do the thief any good to use this skill "+
+	//	"against someone who is already aware of him.\n\n"+
+	//	"Hide in Shadows (HS):\nSuccessful use of this special ability means that the thief moves into and remains in "+
+	//	"shadows, making him very hard to see. While the thief is in shadows, observers only get a chance to see him if "+
+	//	"they look directly at him, at which time he must roll again; success means that he remains unobserved. While in "+
+	//	"shadows, the thief may use his Move Silently ability, but attacking someone reveals the thief. If the thief tries "+
+	//	"to hide in shadows but fails, he will not know that his position of concealment is a failure until someone sees "+
+	//	"him and announces the fact. Note that if the thief is under direct observation, he can't hide in shadows against "+
+	//	"the people watching him; they'll be able to follow his progress with no problem.\n\n"+
+	//	"Pick Pockets (PP):\nThis special ability allows the character to steal things from another character's person "+
+	//	"without him noticing. It's a very risky skill to use. If the attempt succeeds, the thief is able to pick the "+
+	//	"other's pockets without anyone noticing. If the roll is a simple failure, the thief fails to get his hands on "+
+	//	"what he's seeking. If the roll is greater than twice what the thief needs to succeed or an 00 in any case, the "+
+	//	"thief is caught in the act by his intended victim, and possibly others. When using the skill, subtract 5% per "+
+	//	"LevelIncludingRank or HD of victim. (Normal men—men and women who have no adventuring ability at all and do not belong to any "+
+	//	"adventuring character class—are treated as being 0 LevelIncludingRank.)\n"+
+	//	"Example: A 1st LevelIncludingRank thief tries to pick the pocket of a 1st LevelIncludingRank fighter walking along the street. His chance "+
+	//	"is 20% (normal) minus 5 (5 times 1), or 15%. The DM rolls the percentile dice and rolls a 41. This is over twice "+
+	//	"what he needed to roll, so the thief is caught in the act.\n\n"+
+	//	"Hear Noise (HN):\nThis special ability gives the thief the ability to hear faint noises—such as breathing on the "+
+	//	"other side of the door, or the clatter of distant footsteps approaching fast. The DM can rule that any loud situation, "+
+	//	"such as a battle, prevents the thief from using this skill.\n")
+	//abilities.Add("Backstabbing", 1, "",
+	//	"If a thief can sneak up on a victim, completely unnoticed, the thief may backstab "+
+	//		"— if he is using a one-handed melee weapon, he may strike at particularly vulnerable points of his target's body. "+
+	//		"(Though the ability is called \"backstabbing,\" the weapon doesn't have to be a stabbing weapon. "+
+	//		"A thief can use this ability with a club, for example.)\n"+
+	//		"When backstabbing, the thief gains a bonus of +4 on the attack roll; if the target is hit, the damage done is "+
+	//		"twice normal (roll the damage for the weapon, multiply the result by two, and then add any pertinent modifiers).\n"+
+	//		"If the intended victim sees, hears, or is warned of the thief's approach, the thief's attack is not a backstab; "+
+	//		"it is an ordinary attack, doing the damage appropriate for the weapon used.\n"+
+	//		"When no battle is in progress, a backstab attempt may require a Move Silently ability check. "+
+	//		"The DM will make all the necessary decisions on that matter.\n")
+	//if currentLevel >= 4 {
+	//	abilities.Add("Read Languages", 4, "",
+	//		"80% chance to read any normal writing or language (including simple codes, dead languages, treasure maps, "+
+	//			"and so on, but not magical writings). If he tries but fails to read a piece of writing, he must gain at "+
+	//			"least one experience LevelIncludingRank before trying to read it again.\n")
+	//}
+	//if currentLevel >= 10 {
+	//	abilities.Add("Cast Spells From Magic-User Scrolls", 10, "",
+	//		"At 10th LevelIncludingRank, a thief gains the ability to cast magic-user spells from spell scrolls. However, there is "+
+	//			"always a 10% chance that the spell will backfire, creating an unexpected result, because of the thief's"+
+	//			"imperfect understanding of magical writings. This ability only allows thieves to cast spells from existing "+
+	//			"magic scrolls, not to write their own.\n")
+	//}
+	//out, err := yaml.Marshal(abilities)
+	//if err != nil {
+	//	fmt.Fprintf(os.Stderr, "Unable to marshall abilities to yaml: %s\n", err)
+	//} else {
+	//	os.WriteFile(path.Join("data", "classes", "thief.yaml"), out, 0640)
+	//}
+	//return abilities
 }

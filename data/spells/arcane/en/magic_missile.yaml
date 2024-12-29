@@ -1,0 +1,10 @@
+id: Magic Missile
+name: Magic Missile
+level: 1
+reversible: false
+range: 150'
+duration: 1 round
+effect: Creates 1 or more arrows
+description: |-
+    A magic missile is a glowing arrow, created and shot by magic, which inflicts 1d6 +1 (2-7) points of damage to any creature it strikes. After the spell is cast, the arrow appears next to the spellcaster and hovers there (moving with him) until the spellcaster causes it to shoot. When shot, the magic missile will automatically hit any one visible target the spellcaster specifies. The magic missile actually has no solid form, and cannot be touched. A magic missile never misses its target and the target is not allowed a saving throw.
+    For every 5 levels of experience of the caster, two more missiles are created by the same spell. Thus a 6th level spellcaster may create three missiles. The spellcaster may shoot the missiles all at one target or at different targets.

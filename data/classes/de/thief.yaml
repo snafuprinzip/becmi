@@ -1,0 +1,70 @@
+id: Thief
+class: Dieb
+race: Human
+hitdice: 4
+hitpoints: 1
+maxlevel: 36
+maxinternallevel: 36
+armor: Nur Lederpanzer; Schild ist nicht erlaubt.
+weapons: Alle Fernkampfwaffen; alle einhändigen Nahkampfwaffen.
+abilities:
+  - id: Thief Skills
+    name: Diebesfähigkeiten
+    minlevel: 1
+    table: |
+      Schlösser öffnen:       %3d%%
+      Fallen finden:          %3d%%
+      Fallen entschärfen:     %3d%%
+      Wände erklimmen:        %3d%%
+      Leise bewegen:          %3d%%
+      Im Schatten verstecken: %3d%%
+      Taschendiebstahl:       %3d%%
+      Geräusche hören:        %3d%%
+    description: |
+      Schlösser öffnen (SÖ): 
+      Wenn er diese besondere Fähigkeit erfolgreich einsetzt, kann der Dieb mit professionellen Dietrichen (oft "Diebeswerkzeug" genannt) Schlösser öffnen. Der Charakter kann diese Fähigkeit nur einmal pro Schloß anwenden. Der Dieb darf sich erst dann wieder an demselben Schloß versuchen, wenn er eine Erfahrungsstufe hinzugewonnen hat. Ohne Dietriche kann er diese Fähigkeit nicht einsetzen.
+
+      Fallen finden (Ff): 
+      Durch erfolgreichen Einsatz dieser besonderen Fähigkeit kann ein Dieb einen Raum oder einen Gegenstand untersuchen und feststellen, ob er mit einer Falle versehen ist. Er kann pro Falle nur einmal würfeln, und ein Fehlschlag verhindert, daß der Charakter eine Falle an oder in dem untersuchten Gegenstand findet. (Weil der SL den Würfelwurf ausführt, weiß der Spieler nicht, für wieviele Fallen das Ergebnis ausgewürfelt wird.) Falls der Dieb eine Falle entdeckt, kann er sie mit seiner Fähigkeit Fallen entschärfen, entfernen oder entschärfen.
+
+      Fallen entschärfen (Fe): 
+      Wenn er diese besondere Fähigkeit erfolgreich einsetzt, kann der Dieb eine Falle entfernen oder entschärfen. Er kann diese Fähigkeit nur dann auswürfeln, wenn ereine Falle gefunden hat. Der Dieb kann diese Fähigkeit nur einmal pro Falle einsetzen; wenn der Entschärfungsversuch fehlschlägt, wird die Falle ausgelöst.
+
+      Wände erklimmen (We): 
+      Durch diese besondere Fähigkeit kann der Dieb steile Oberflächen wie senkrechte Felswände, Mauern und ähnliches hochklettern . Die Erfolgsaussichten sind gut, aber falls der Versuch fehlschlägt, gleitet der Dieb auf halber Höhe ab und stürzt herunter. Der SL würfelt für je 30 m Höhe den Erfolg aus. Falls der Wurf mißlingt, erleidet der Dieb für jede gestürzten 3 m 1-6 (1w6) Schadenspunkte. Wenn man bei einem Aufstieg aus unter 3m Höhe abstürzt, erleidet man 1 Schadenspunkt.
+
+      Leise bewegen (Lb): 
+      Ein erfolgreicher Einsatz dieser Fähigkeit ermöglicht es dem Dieb, sich geräuschlos fortzubewegen. Wenn der Dieb diese Fähigkeit einsetzt, glaubt er auf jeden Fall , es sei ihm gelungen, aber ein mißlungener Wurf bedeutet, daß jemand seine Anwesenheit gehört hat. Der SL kann nach eigenem Ermessen jederzeit den Würfelwurf des Diebes modifizieren: Wenn er versucht, geräuschlos ein Feld aus trockenen Blättern zu durchqueren , würde seine prozentuale Erfolgswahrscheinlichkeit sinken; wenn er jedoch das gleiche während eines lauten Turniers versuchen würde, wäre die Wahrscheinlichkeit erheblich größer. Beachten Sie bitte, daß es dem Dieb überhaupt nichts nützt, diese Fähigkeit gegen jemanden einzusetzen, der bereits von seiner Anwesenheit weiß.
+
+      Im Schatten verstecken (I.S.v.): 
+      Eine erfolgreiche Anwendung dieser besonderen Fähigkeit bedeutet, daß der Dieb sich in den Schatten hineinbewegt und dort bleibt, was ihn sehr schwer entdeckbar macht. Solange der Dieb sich im Schatten befindet, bekommen Beobachter nur dann eine Chance, ihn zu sehen , wenn sie ihn direkt anschauen. Er muß dann ein weiteres Mal würfeln; Erfolg bedeutet, daß er unentdeckt bleibt. Solange er im Schatten ist, kann der Dieb seine Fähigkeit leise bewegen einsetzen , aber mit einem Angriff auf jemanden verrät der Dieb seine Anwesenheit. Falls der Dieb sich im Schatten verstecken will , aber keinen Erfolg hat, weiß er nicht, daß sein Versteck ein Fehlschlag ist, bis ihn jemand sieht und dies bekannt macht.
+      Beachten Sie bitte, daß der Dieb sich nicht im Schatten vor Leuten verstecken kann, die ihn ununterbrochen beobachten; sie können dann seine Bewegungen problemlos verfolgen.
+
+      Taschendiebstahl (Td): 
+      Diese besondere Fähigkeit ermöglicht es dem Charakter, einer anderen Person Dinge zu stehlen, die diese bei sich trägt, ohne daß diese Person es bemerkt. Der Einsatz dieser Fähigkeit ist sehr riskant. Falls der Versuch gelingt, ist der Dieb in der Lage, jemanden zu bestehlen, ohne daß irgendjemand es bemerkt. Falls der Wurf ein einfacher Fehlschlag ist, gelingt es dem Dieb nicht, den Gegenstand zu bekommen, den er wollte. Falls das Würfelergebnis größer als das Doppelte der Erfolgswahrscheinlichkeit ist, oder in jedem Fall bei einer 00, wird der Dieb von seinem Opfer und möglicherweise von anderen auf frischer Tat ertappt.
+      Ziehen Sie 5% pro Stufe oder Trefferwürfel des Opfers ab, wenn Sie die Fähigkeit einsetzen. (Normale Menschen - Männer und Frauen , die keinerlei Abenteurerfähigkeiten haben und zu keiner der Abenteurerklassen gehören - werden als Stufe 0 gewertet.)
+
+      Geräusche hören (Gh): 
+      Diese besondere Fähigkeit gibt dem Dieb die Möglichkeit, schwache Geräusche zu hören - wie das Atmen auf der anderen Seite einer Tür oder das Poltern entfernter Schritte, die sich schnell nähern. Der SL kann festlegen, daß eine laute Umgebung, wie eine Schlacht, den Dieb am Gebrauch dieser Fähigkeit hindert.
+  - id: Backstabbing
+    name: Hinterhältiger Schlag
+    minlevel: 1
+    table: ""
+    description: |
+      Wenn es einem Dieb gelingt, sich völlig unbemerkt an ein Opfer heranzuschleichen, kann er einen hinterhältigen Schlag ausführen - sofern er eine einhändige Nahkampfwaffe führt, kann er eine besonders verwundbare Stelle am Körper seines Opfers treffen.
+      
+      Wenn er den hinterhältigen Schlag ausführt, erhält der Dieb +4 auf den Trefferwurf; falls das Opfer getroffen wird, ist der Schaden doppelt so hoch wie normal (würfeln Sie den Schaden durch die Waffe aus, multiplizieren Sie den Wert mit zwei und addieren Sie dann zugehörige Modifikationen).
+      
+      Falls das Opfer die Annäherung des Diebes sieht, hört oder davor gewarnt wird, ist der Angriff ctes Diebes kein hinterhältiger Schlag; dies ist dann ein norrnaler Angriff, der den der Waffe angemessenen Schaden verursacht.
+
+      Wenn keine Schlacht tobt, kann ein hinterhältiger Angriff den Einsatz der Fähigkeit Leise bewegen erforderlich machen. Der SL fällt alle notwendigen Entscheidungen.
+  - id: Read Languages
+    name: Sprachen lesen
+    minlevel: 4
+    table: ""
+    description: Die Fähigkeit, mit einer Wahrscheinlichkeit von 80% alle normalen Schriftstücke lesen zu können (darunter auch einfache Codes, tote Sprachen, Schatzkarten und ähnliches, allerdings keine magischen Schriftstücke). Falls er ein Schriftstück zu entziffern versucht, aber keinen Erfolg hat, muß er mindestens eine Erfahrungsstufe aufsteigen, bevor er erneut versuchen kann, es zu lesen.
+  - id: Arcane Scrolls
+    name: Zauber von Schriftrollen der Zauberkundigen wirken
+    minlevel: 10
+    table: ""
+    description: Die Fähigkeit, Zauber der Zauberkundigen von Schriftrollen zu wirken. Es besteht allerdings immer eine Wahrscheinlichkeit von 10%, daß der Zauber fehlschlägt und ein unerwartetes Ergebnis bewirkt, weil der Dieb magische Schriftstücke nur unzureichend ersteht. Diese Fähigkeit ermöglicht es Dieben lediglich, Zauber von existierenden magischen Schriftrollen zu wirken, nicht jedoch selbst Schriftrollen zu schreiben.

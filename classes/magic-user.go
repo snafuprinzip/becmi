@@ -2,16 +2,33 @@ package classes
 
 import (
 	"becmi/attributes"
+	"becmi/dice"
+	"becmi/localization"
 	"becmi/magic"
 	"becmi/savingthrows"
 	"fmt"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
+	"gopkg.in/yaml.v3"
+	"log"
+	"os"
+	"path"
 )
 
 type MagicUser struct {
+	ID                    string         `yaml:"id"`
+	ClassName             string         `yaml:"class"`
+	ClassRace             string         `yaml:"race"`
+	ClassHD               int            `yaml:"hitdice"`
+	ClassHP               int            `yaml:"hitpoints"`
+	MaxClassLevel         int            `yaml:"maxlevel"`
+	MaxInternalClassLevel int            `yaml:"maxinternallevel"`
+	ClassArmor            string         `yaml:"armor"`
+	ClassWeapons          string         `yaml:"weapons"`
+	Abilities             ClassAbilities `yaml:"abilities"`
 }
 type MagicUserSpellSlots [9]int
 
-var MagicUserXPLevel XPLevel = XPLevel{0, 2500, 5000, 10000, 20000, 40000, 80000, 150000, 300000, 450000,
+var MagicUserXPLevel XPLevel = XPLevel{-1, 2500, 5000, 10000, 20000, 40000, 80000, 150000, 300000, 450000,
 	600000, 750000, 900000, 1050000, 1200000, 1350000, 1500000, 1650000, 1900000, 1950000,
 	2100000, 2250000, 2400000, 2550000, 2700000, 2850000, 3000000, 3150000, 3300000, 3450000,
 	3600000, 3750000, 3900000, 4050000, 4200000, 4350000}
@@ -122,9 +139,24 @@ func init() {
 	Classes["Magic-User"] = MagicUser{}
 }
 
-func (c MagicUser) Name() string {
-	return "Magic-User"
+func (c MagicUser) Load() Class {
+	fileContent, err := os.ReadFile(path.Join("data", "classes", localization.LanguageSetting, "magic-user.yaml"))
+	if err != nil {
+		log.Fatal("Error reading file:", err)
+	}
+
+	err = yaml.Unmarshal(fileContent, &c)
+	if err != nil {
+		log.Fatal("Error unmarshalling YAML:", err)
+	}
+	return c
 }
+
+func (c MagicUser) Name() string {
+	return c.ClassName
+}
+
+func (c MagicUser) Race() string { return c.ClassRace }
 
 func (c MagicUser) Requirement(attr attributes.Attributes) bool {
 	return true
@@ -132,14 +164,23 @@ func (c MagicUser) Requirement(attr attributes.Attributes) bool {
 
 func (c MagicUser) Level(xp int) int {
 	for idx := range len(MagicUserXPLevel) {
-		if xp <= MagicUserXPLevel[idx] {
-			return idx + 1
+		if xp < MagicUserXPLevel[idx] {
+			return idx
 		}
 	}
 	return 0
 }
 
-func (c MagicUser) NextLevelAt(currentLevel int) int {
+func (c MagicUser) Rank(xp int) rune {
+	return ' '
+}
+
+func (c MagicUser) LevelIncludingRank(xp int) int {
+	return c.Level(xp)
+}
+
+func (c MagicUser) NextLevelAt(xp int) int {
+	currentLevel := c.Level(xp)
 	return MagicUserXPLevel[currentLevel]
 }
 
@@ -160,121 +201,59 @@ func (c MagicUser) CheckXPModifier(a attributes.Attributes) int {
 }
 
 func (c MagicUser) HitDice() (dice, point int) {
-	return 4, 1
+	return c.ClassHD, c.ClassHP
 }
 
 func (c MagicUser) MaxLevel() int {
-	return 36
+	return c.MaxClassLevel
+}
+
+func (c MagicUser) MaxInternalLevel() int {
+	return c.MaxInternalClassLevel
 }
 
 func (c MagicUser) ArmorProficiency() string {
-	return "None; no shield permitted."
+	return c.ClassArmor
 }
 
 func (c MagicUser) WeaponProficiency() string {
-	return "Dagger only. Optional (DM's discretion): staff, blowgun, flaming oil, holy water, net, thrown rock, sling, whip."
+	return c.ClassWeapons
 }
 
-func (c MagicUser) SavingThrows(currentLevel int) savingthrows.SavingThrows {
+func (c MagicUser) SavingThrows(xp int) savingthrows.SavingThrows {
+	currentLevel := c.LevelIncludingRank(xp)
 	return MagicUserSavingThrows[currentLevel-1]
-}
-
-func (c MagicUser) SpecialAbilities(currentLevel int) ClassAbilities {
-	spellslots := MagicUserSpellSlotsPerLevel[currentLevel-1]
-	abilities := make(ClassAbilities, 0)
-
-	if currentLevel >= 2 {
-		abilities.Add("Spell Slots", 2, spellslots.String(), "")
-	}
-
-	return abilities
-}
-
-func (s MagicUserSpellSlots) String() string {
-	return fmt.Sprintf("1st: %d, 2nd: %d, 3rd: %d, 4th: %d, 5th: %d, 6th: %d, 7th: %d, 8th: %d, 9th: %d\n", s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8])
-}
-
-func (c MagicUser) SpellList(currentLevel int, spellbook *magic.Spellbook) string {
-	var spellList string
-
-	slots := MagicUserSpellSlotsPerLevel[currentLevel-1]
-	for idx := 0; idx < 9; idx++ {
-		if slots[idx] == 0 {
-			break
-		}
-		if idx == 0 {
-			spellList = "" +
-				"Spells\n" +
-				"======\n\n"
-		}
-		spellList += fmt.Sprintf(""+
-			"Level %d\n"+
-			"--------\n", idx+1)
-		for _, spell := range magic.AllArcaneSpells[idx+1] {
-			spellList += spell.Name + "\n"
-		}
-		spellList += "\n"
-	}
-	return spellList
-}
-
-func (c MagicUser) SpellDescriptions(currentLevel int, spellbook *magic.Spellbook) string {
-	var spells string
-
-	slots := MagicUserSpellSlotsPerLevel[currentLevel-1]
-	for idx := 0; idx < 7; idx++ {
-		if slots[idx] == 0 {
-			break
-		}
-		if idx == 0 {
-			spells = "" +
-				"Spelldescriptions\n" +
-				"=================\n\n"
-		}
-		spells += fmt.Sprintf(""+
-			"Level %d\n"+
-			"--------\n", idx+1)
-		for _, spell := range magic.AllArcaneSpells[idx+1] {
-			spells += spell.String() + "\n"
-		}
-		spells += "\n"
-	}
-	return spells
 }
 
 func (c MagicUser) BaseMovement() int {
 	return 120
 }
 
-func (c MagicUser) ThAC0(currentLevel int) int {
+func (c MagicUser) ThAC0(xp int) int {
+	currentLevel := c.Level(xp)
 	switch {
-	case currentLevel < 5:
+	case currentLevel < 6:
 		return 19
-	case currentLevel < 9:
+	case currentLevel < 11:
 		return 17
-	case currentLevel < 13:
+	case currentLevel < 16:
 		return 15
-	case currentLevel < 17:
-		return 13
 	case currentLevel < 21:
+		return 13
+	case currentLevel < 26:
 		return 11
-	case currentLevel < 25:
+	case currentLevel < 31:
 		return 9
-	case currentLevel < 29:
-		return 7
-	case currentLevel < 33:
-		return 5
 	case currentLevel < 36:
-		return 3
+		return 7
 	case currentLevel < 37:
-		return 2
+		return 5
 	}
 	return 20
 }
 
-func (c MagicUser) Race() string { return "Human" }
-
-func (c MagicUser) ThAC0Table(currentLevel int) string {
+func (c MagicUser) ThAC0Table(xp int) string {
+	currentLevel := c.Level(xp)
 	thac0 := c.ThAC0(currentLevel)
 
 	var table [40]int // -20 to 19 == offset 20
@@ -319,4 +298,154 @@ func (c MagicUser) ThAC0Table(currentLevel int) string {
 
 func (c MagicUser) Magic() string { return "Arcane" }
 
-func (c MagicUser) Grimoire(currentLevel int) *magic.Spellbook { return nil }
+func (s MagicUserSpellSlots) String() string {
+	return fmt.Sprintf("1st: %d, 2nd: %d, 3rd: %d, 4th: %d, 5th: %d, 6th: %d, 7th: %d, 8th: %d, 9th: %d\n", s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8])
+}
+
+func (c MagicUser) Grimoire(xp int) *magic.Spellbook {
+	currentLevel := c.Level(xp)
+	var book magic.Spellbook
+
+	book[0] = append(book[0], "Read Magic")
+	roll := dice.RollDice(4)
+	switch roll {
+	case 1:
+		book[0] = append(book[0], "Charm Person")
+	case 2:
+		book[0] = append(book[0], "Magic Missile")
+	case 3:
+		book[0] = append(book[0], "Sleep")
+	case 4:
+		book[0] = append(book[0], "Shield")
+	}
+	if currentLevel >= 2 {
+		roll := dice.RollDice(4)
+		switch roll {
+		case 1:
+			book[0] = append(book[0], "Floating Disc")
+		case 2:
+			book[0] = append(book[0], "Hold Portal")
+		case 3:
+			book[0] = append(book[0], "Read Languages")
+		case 4:
+			book[0] = append(book[0], "Ventriloquism")
+		}
+	}
+	if currentLevel >= 3 {
+		roll := dice.RollDice(len(magic.AllArcaneSpells[1]))
+		book[1] = append(book[1], magic.AllArcaneSpells[1][roll-1].Name)
+	}
+	if currentLevel >= 4 {
+		for {
+			roll := dice.RollDice(len(magic.AllArcaneSpells[1]))
+			spell := magic.AllArcaneSpells[1][roll-1].Name
+			if !containsString(book[1], spell) {
+				book[1] = append(book[1], spell)
+				break
+			}
+		}
+	}
+
+	return &book
+}
+
+func (c MagicUser) SpellList(xp int, spellbook *magic.Spellbook) string {
+	var spellList string
+
+	for idx := 0; idx < 9; idx++ {
+		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
+			break
+		}
+		if idx == 0 { // Print Header
+			spellListHeader := &i18n.Message{
+				ID:          "Spell List Header",
+				Description: "Header for Spell List",
+				Other: "" +
+					"Spells\n" +
+					"======\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+			spellList += translation
+		}
+
+		spellLevelHeader := &i18n.Message{
+			ID:          "Spell Level Header",
+			Description: "Header for Spell Level",
+			Other: "" +
+				"Level %d\n" +
+				"--------\n",
+		}
+		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+		spellList += fmt.Sprintf(translation, idx+1)
+
+		for _, spell := range spellbook[idx] {
+			spellList += spell + "\n"
+		}
+		spellList += "\n"
+	}
+	return spellList
+}
+
+func (c MagicUser) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
+	var spells string
+
+	for idx := 0; idx < 9; idx++ {
+		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
+			break
+		}
+		if idx == 0 { // Print Header
+			spellListHeader := &i18n.Message{
+				ID:          "Spell Description Header",
+				Description: "Header for Spell Descriptions",
+				Other: "" +
+					"Spelldescriptions\n" +
+					"=================\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+			spells += translation
+		}
+		spellLevelHeader := &i18n.Message{
+			ID:          "Spell Level Header",
+			Description: "Header for Spell Level",
+			Other: "" +
+				"Level %d\n" +
+				"--------\n",
+		}
+		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+		spells += fmt.Sprintf(translation, idx+1)
+
+		for _, spell := range spellbook[idx] {
+			for _, spelldesc := range magic.AllArcaneSpells[idx] {
+				if spelldesc.Name == spell {
+					spells += spelldesc.String() + "\n"
+				}
+			}
+		}
+		spells += "\n"
+	}
+	return spells
+}
+
+func (c MagicUser) SpecialAbilities(xp int) ClassAbilities {
+	currentLevel := c.LevelIncludingRank(xp)
+	spellslots := MagicUserSpellSlotsPerLevel[currentLevel-1]
+	for ability := range c.Abilities {
+		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Spell Slots" {
+			formatstr := c.Abilities[ability].Table
+			c.Abilities[ability].Table = fmt.Sprintf(formatstr, spellslots[0], spellslots[1], spellslots[2],
+				spellslots[3], spellslots[4], spellslots[5], spellslots[6], spellslots[7], spellslots[8])
+			break
+		}
+	}
+
+	return c.Abilities
+	//currentLevel := c.Level(xp)
+	//spellslots := MagicUserSpellSlotsPerLevel[currentLevel-1]
+	//abilities := make(ClassAbilities, 0)
+	//
+	//if currentLevel >= 2 {
+	//	abilities.Add("Spell Slots", 2, spellslots.String(), "")
+	//}
+	//
+	//return abilities
+}

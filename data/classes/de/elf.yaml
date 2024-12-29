@@ -1,0 +1,82 @@
+id: Elf
+class: Elf
+race: Elf
+hitdice: 6
+hitpoints: 1
+maxlevel: 10
+maxinternallevel: 20
+armor: Alle; Schilde erlaubt.
+weapons: Alle.
+abilities:
+  - id: Spell Slots
+    name: Zauber pro Grad
+    minlevel: 1
+    table: |
+      1. Grad:  %2d
+      2. Grad:  %2d
+      3. Grad:  %2d
+      4. Grad:  %2d
+      5. Grad:  %2d
+    description: ""
+  - id: Infravision
+    name: Infravision
+    minlevel: 1
+    table: ""
+    description: |
+      Infravision ist die Fähigkeit, in der Dunkelheit Wärme (oder deren Fehlen) zu sehen.
+      Elfen haben Infravision zusätzlich zum normalen Augenlicht und können in der Dunkelheit 18 m (60 e) weit sehen. Normales und magisches Licht machen Infravision nutzlos.
+      Mit Infravision erscheinen warme Dinge rot und kalte Dinge blau. Eine Kreatur würde als roter Umriß gesehen, der schwach rote Fußabdrücke hinterläßt. Ein Tümpel mit kaltem Wasser erscheint in tiefem Blau.
+      Charaktere mit Infravision können sogar Gegenstände oder Kreaturen sehen, die dieselbe Temperatur wie die sie umgebende Luft haben (wie ein Tisch oder ein Skelett), weil der Luftstrom dem Beobachter unweigerlich ihre äußeren Begrenzungen zeigt, indem er ihre Umrisse in einem leicht blasser blauen Ton zeichnet. Solange sie sich nicht bewegen, erscheinen sie dem Auge nur sehr schwach; sobald sie sich bewegen, werden sie zu verschwommenen aber sehr deutlich sichtbaren hellblauen Figuren.
+      Infravision reicht nicht zum Lesen aus. Ein Charakter kann mit Hilfe seiner Infravision ein Wesen nur dann erkennen, wenn es weniger als 3 m (10 e) von ihm entfernt ist - sofern das Wesen nicht absolut unverkennbar ist (beispielsweise 2,40 Meter groß oder auf eine Krücke gestützt).
+  - id: Detection
+    name: Entdeckungsgabe
+    minlevel: 1
+    table: ""
+    description: Alle Elfen können versteckte Türen und Geheimtüren besser als andere Charaktere entdecken (1 in 3). Sie müssen dem SL mitteilen, wenn Sie nach solchen Türen suchen wollen; die Entdeckung geschieht niemals automatisch.
+  - id: Immunity to Ghoul Paralysis
+    name: Immunität gegen die Lähmung von Ghulen
+    minlevel: 1
+    table: ""
+    description: Alle Elfen besitzen eine natürliche Resistenz gegen die lähmenden Angriffe von Ghulen. Andere Lähmungsarten wie der Angriff eines Aaskriechers oder eines Gallertwürfels zeigen die normale Wirkung.
+  - id: Additional Languages
+    name: Sprachen
+    minlevel: 1
+    table: ""
+    description: Zusätzlich zu den Sprachen aller Charaktere - Gemeinsprache und Gesinnungssprache - kann der Elf die Sprachen der Elfen, Gnolle, Hobgoblins und Orks sprechen.
+  - id: Special Attacks
+    name: Spezialangriffe
+    minlevel: 10
+    table: ""
+    description: Nachdem ein Elf die Höchststufe ( 10. Stufe) erreicht hat, kann er seine Kampffähigkeiten weiter verbessern. Dies ist allerdings ein langsamer Vorgang, aufgrund der Tatsache, daß sie ihre fortbildung zwischen Kampf und Magie aufteilen müssen. Elfen beherrschen immer den Lanzenangriff und können einen Speer gegen einen Sturmangriff stellen.
+  - id: Fighter Combat Options
+    name: Kampfmanöver
+    minlevel: 11
+    table: ""
+    description: |
+      Wenn die Summe der Erfahrungspunkte des Charakters auf 850.000 steigt, erhält der Charakter die Kampfmanöver (schlagen Sie die Erläuterungen hierzu unter "Kampfmanöver" auf Seite 144 nach). 
+      Mit dem Mehrfachangriff sind ab 850.000 Erfahrungspunkten zwei Angriffe pro Runde möglich und drei Angriffe ab 2.600.000 Erfahrungspunkten ; ein Elf erhält niemals vier Angriffe pro Runde. 
+      Der Elf kann die Kampfmanöver Zerschmettern, Parieren und Entwaffnen entsprechend der Beschreibung im Text einsetzen.
+  - id: Multiple Attacks
+    name: Mehrfachangriff
+    minlevel: 11
+    table: ""
+    description: |
+      Im Nahkampf kann ein Elf mehrere Angriffe pro Runde gegen das Ziel ausführen, wenn er seinen Gegner mit einem Trefferwurf von 2 treffen kann (durch alle geltenden Boni modifiziert).
+      Jeder Angriff eines Mehrfachangriffs kann Werfen, Angreifen, Lanzenangriff oder Entwaffnen sein. Ein Charakter kann seine Manöver mischen und der Situation anpassen; ein Charakter mit drei Angriffen beispielsweise könnte eine Kombination aus Angreifen-Entwaffnen-Angreifen gegen seinen Feind einsetzen oder drei Messer anstatt nur einem werfen. Dieses Manöver setzt ideale Bedingungen voraus und der Charakter kann anstelle eines der Angriffe keine andere Aktion oder Bewegung ausführen.
+  - id: Additional Attack +1
+    name: Zusätzlicher Angriff
+    minlevel: 11
+    table: ""
+    description: Der Elf kann zweimal in jeder Runde angreifen.
+  - id: Special Defenses
+    name: Spezielle Verteidigungseigenschaften
+    minlevel: 14
+    table: ""
+    description: |
+      Erfahrene Elfen werden immer resistenter gegen Drachenodem. Der Elf erleidet durch alle Odemwaffen (in erster Linie natürlich Drachenodem, aber auch alle möglichen anderen Odemangriffe) nur halben Schaden.
+      Falls der Odemangriff einen Rettungswurf ermöglicht, bedeutet ein erfolgreicher Wurf, daß der Elf nur ein Viertel des Schadens erleidet. Runden Sie immer ab, wenn Sie erlittenen Schaden modifizieren. Falls das Ergebnis einem halben Schadenspunkt oder weniger entspricht, erleidet der Charakter 1 Schadenspunkt.
+  - id: Additional Attack +2
+    name: Zusätzlicher Angriff
+    minlevel: 16
+    table: ""
+    description: Der Elf kann drei mal in jeder Runde angreifen.

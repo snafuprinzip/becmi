@@ -1,0 +1,97 @@
+id: Halfling
+class: Halbling
+race: Halfling
+hitdice: 6
+hitpoints: 0
+maxlevel: 8
+maxinternallevel: 18
+armor: Alle, Schild ist erlaubt; die Rüstung muß speziell für Halblinge angefertigt sein.
+weapons: Alle kleinen Nahkampfwaffen; Kurzbogen; leichte Armbrust.
+abilities:
+  - id: Woodland Abilities
+    name: Waldlandfähigkeiten
+    minlevel: 1
+    table: ""
+    description: |
+      Im Freien sind Halblinge schwer zu entdecken, da sie die Fähigkeit haben, sich in Wäldern oder im Unterholz zu verstecken. In einer solchen Deckung bleiben sie zu 90% unentdeckt (der SL würfelt dies aus). Halblinge können sich in innenräumen wie Verliesen verstecken, wenngleich nicht mit gleich großen Erfolgsaussichten. In solchen Situationen sinkt die Wahrscheinlichkeit auf 33%, wenn ein Halbling eine Stelle in tiefen Schatten oder ein Versteck findet; falls er keine Schatten oder Deckung finden kann, hat er auch keine Chance.
+  
+      Diese Fähigkeit ist nicht dieselbe wie die Diebesfähigkeiten Leise bewegen oder Im Schatten verstecken. Um diese Fähigkeit anzuwenden, muß der Halbling absolut bewegungslos verharren. Falls er versucht, sich an eine andere Stelle zu begeben, kann ihn jeder sehen. Informieren Sie Ihren SL, wenn Ihr Halbling  diese Fähigkeit einsetzt. Er wird mit Prozentwürfeln (w%) für den Halbling würfeln. Bei einem Ergebnis von 90 oder weniger bleibt der Halbling unbemerkt. Bei einer 91 oder darüber wird den Beobachtern, die die Möglichkeit haben, ihn zu entdecken, dies auch gelingen. 
+  
+      In einem Verlies oder einem anderen Innenraum würfelt der SL mit W%. Bei einem Ergebnis von 33 oder weniger bleibt der Halbling unentdeckt, bei einer 34 oder darüber wird den Beobachtern, die die Möglichkeit haben, ihn zu entdecken, dies auch gelingen.
+  
+      In Innenräumen macht ein Licht, das hell genug ist, um Schatten zu beseitigen und alles gut zu erleuchten, den Versuch, sich zu verstecken zunichte. Natürlich ist es dem Halbling unmöglich, sich zu verstecken, wenn er eine Lichtquelle bei sich trägt.
+  - id: Combat Bonuses
+    name: Kampfboni
+    minlevel: 1
+    table: ""
+    description: |
+      Alle Halblinge erhalten die folgenden Boni, wenn sie kämpfen:
+        -2  Bonus auf Rüstungsklasse, wenn sie von übermannsgroßen Kreaturen angegriffen werden
+        +1  Bonus auf den Trefferwurf beim Einsatz von Fernkampfwaffen
+        +1  Bonus auf Einzelinitiative (vgl. Kapitel 8 für Einzelheiten über Initiative)
+      Eine Kreatur ist übermannsgroß, wenn sie in einer Monsterbeschreibung als "riesig", "gigantisch " oder "gewaltig" beschrieben wird. Sie ist ebenfalls übermannsgroß, wenn es sich um eine Kreatur der wirklichen Welt handelt, die der SL als größer als einen Menschen einstuft (beispielsweise ein Pferd ).
+      Als Faustregel kann gelten, daß man bei allen Kreaturen von nichtmenschlicher Gestalt, deren Größe in der Beschreibung nicht näher spezifiziert wird, davon ausgehen kann, daß sie übermannsgroß sind, wenn sie 4 oder mehr TW haben.
+  - id: Set Spear vs. Charge
+    name: Speer gegen einen Sturmangriff stellen
+    minlevel: 1
+    table: ""
+    description: |
+      Ein Charakter zu Fuß mit einem Speer, einer Pike, einem Schwertschild oder einer Lanze kann diese Waffe gegen einen Sturmangriff stellen. Es handelt sich um einen Sturmangriff, wenn ein Monster auf den Charakter losstürmt - wenn es also vor seinem Angriff über 20 m auf ihn zurennt. Ein Charakter kann auch seinen Speer gegen einen Lanzenangriff, eines anderen Charakters gegen ihn, stellen.
+
+      Wenn der Charakter sich "gegen einen Sturmangriff stellt", hält der die Waffe sicher fest und nimmt eine stabile Position gegen den heranstürmenden Feind ein. Der Charakter erhält seine Stärke- und Magieboni auf seinen Treffer- und Schadenswurf. Falls der Angriff des Charakters trifft, verursacht er bei seinem Ziel den doppelten Schaden, wobei Schadensmodifikationen nach der Verdopplung addiert werden.
+
+      Der Charakter muß dieses Manöver ansagen, bevor er sich im Nahkampf mit der Kreatur befindet, die auf ihn losstürmt. Wenn beispielsweise die Gruppe des Charakters in der betreffenden Runde die Initiative gewinnt und der Charakter den Verdacht hat, daß das Monster einen Sturmangriff vorhat, könnte er das Manöver Speer gegen einen Sturmangriff stellen ansagen. Ebenso könnten die Charaktere eine Gruppe heranstürmender Monster mehrere Runden vor ihrem Eintreffen sehen und ihre Speere eine oder mehrere Runden früher gegen den Sturmangriff stellen.
+
+      Normalerweise führt der Charakter seinen Angriff während des Bewegungsschrittes des Monsters aus, sobald das Monster in die Reichweite der Waffe kommt. Falls sein Angriff das Monster trifft und tötet, kann ihm das Monster nichts mehr antun. Falls sein Angriff das Monster nicht tötet, kann es ihn während seines Nahkampfschrittes der Kampfsequenz angreifen.
+  - id: Resistance to Magic
+    name: Magieresistenz
+    minlevel: 9
+    table: ""
+    description: |
+      Erfahrene Halblinge werden resistenter gegen Magie und Odemwaffen. Der Halbling erleidet automatisch nur den halben Schaden durch alle Schaden verursachenden Zauber oder zauberähnlichen Effekte (wie durch einen magischen Gegenstand). Falls der Effekt einen Rettungswurf zuläßt, bedeutet ein geglückter Wurf, daß er nur ein Viertel des Schadens erleidet.
+      Runden Sie immer ab, wenn Sie erlittenen Schaden modifizieren. Falls das Ergebnis einem halben Schadenspunkt oder weniger entspricht, erleidet der Charakter 1 Schadenspunkt.
+  - id: Additional Attacks
+    name: Mehrfachangriff
+    minlevel: 11
+    table: ""
+    description: |
+      Im Nahkampf kann ein Halbling mehrere Angriffe pro Runde gegen das Ziel ausführen, wenn er seinen Gegner mit einem Trefferwurf von 2 treffen kann (durch alle geltenden Boni modifiziert).
+      Jeder Angriff eines Mehrfachangriffs kann Werfen, Angreifen oder Entwaffnen sein. Ein Charakter kann seine Manöver mischen und der Situation anpassen; ein Charakter mit drei Angriffen beispielsweise könnte eine Kombination aus Angreifen-Entwaffnen-Angreifen gegen seinen Feind einsetzen oder drei Messer anstatt nur einem werfen. Dieses Manöver setzt ideale Bedingungen voraus und der Charakter kann anstelle eines der Angriffe eine andere Aktion oder Bewegung ausführen.
+  - id: Additional Attack +1
+    name: Zusätzlicher Angriff
+    minlevel: 11
+    table: ""
+    description: Der Halbling kann zwei mal in einer Runde angreifen.
+  - id: Smash
+    name: Zerschmettern
+    minlevel: 11
+    table: ""
+    description: |
+      Bei diesem Nahkampfmanöver verliert der Halbling automatisch die Initiative und muß -5 auf den Trefferwurf hinnehmen (er kann jedoch seine Stärke- und Magieboni auf seinen Trefferwurf anwenden).
+      
+      Falls der Angriff gelingt, addiert der Charakter seinen Stärkebonus, magische Boni und seinen gesamten Stärkewert zu dem normalen Schaden seiner Waffe.
+  - id: Parry
+    name: Parieren
+    minlevel: 11
+    table: ""
+    description: Bei diesem Manöver führt der Kämpfer keinen Trefferwurf aus. Statt dessen blockiert er eine ganze Kampfrunde lang Angriffe gegen ihn; alle Feinde, die ihn mit Nahkampf- und Wurfwaffen angreifen, erhalten -4 auf den Trefferwurf. Dies gilt nicht für Geschoßwaffen .
+  - id: Disarm
+    name: Entwaffnen
+    minlevel: 11
+    table: ""
+    description: |
+      Dieses Manöver kann nur dann eingesetzt werden, wenn der Kämpfer gegen einen Gegner kämpft, der eine Waffe führt. Der Kämpfer erhält seine normalen magischen und Stärkeboni auf den Trefferwurf. Falls er trifft. verursacht er keinen Schaden. Statt dessen würfelt das Opfer 1w20 minus seiner eigenen Geschicklichkeitsboni plus der Geschicklichkeitsboni des Angreifers. Falls das Endergebnis den Geschicklichkeitswert des Opfers übersteigt. läßt es seine Waffe fallen.
+      Sobald es entwaffnet ist, kann das Opfer entweder die Waffen wechseln (wodurch es nur in der nächsten Runde die Initiative verliert) oder versuchen, die Waffe aufzuheben. Beim Aufheben einer Waffe muß das Opfer das Manöver Flucht ausführen, um die fallengelassene Waffe aufzuheben.
+      Ein Halbling kann Entwaffnen nicht gegen einen Gegner mit Riesengröße einsetzen.
+  - id: Resistance to Breath Weapons
+    name: Resistenz gegen Odemwaffen
+    minlevel: 15
+    table: ""
+    description: |
+      Der Halbling nimmt durch Odemwaffen (in erster Linie natürlich Drachenodem, aber auch alle möglichen anderen Odemangriffe) nur halben Schaden. Falls der Odemangiff einen Rettungswurf ermöglicht, bedeutet ein erfolgreicher Wurf, daß der Halbling nur ein Viertel des Schadens erleidet.
+      Runden Sie immer ab, wenn Sie erlittenen Schaden modifizieren. Falls das Ergebnis einem halben Schadenspunkt oder weniger entspricht, erleidet der Charakter 1 Schadenspunkt.
+  - id: Additional Attack +2
+    name: Zusätzlicher Angriff
+    minlevel: 18
+    table: ""
+    description: Der Halbling kann zwei mal in einer Runde angreifen.

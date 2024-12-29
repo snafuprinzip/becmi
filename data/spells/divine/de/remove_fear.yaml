@@ -1,0 +1,13 @@
+id: Remove Fear
+name: Furcht beheben
+level: 1
+reversible: true
+range: Berührung
+duration: 2 Phasen
+effect: Ein beliebiges Lebewesen
+description: |
+    Wenn der Kleriker diesen Zauber wirkt und dann ein beliebiges Lebewesen berührt, beruhigt der Zauber die Kreatur und beseitigt alle Angst. Falls das Lebewesen einem Angstzauber unterlegen ist oder einem Effekt, der normalerweise keinen Rettungswurf zuläßt, kann dieser Zauber trotzdem nützlich sein.
+
+    Falls der Kleriker den Zauber auf jemanden legt, der unter einer magischen Angst leidet, kann das Opfer einen Rettungswurf gegen Zauber ausführen, zu dem ein Bonus addiert wird, der der Erfahrungsstufe des Klerikers entspricht (bis zu einem Maximalbonus von +6). Falls der Rettungswurf gelingt, ist die Furcht des Opfers behoben. Ein Würfelergebnis von 1 ist immer ein Fehlschlag, ungeachtet der Stufe des Klerikers oder möglicher Boni.
+    
+    Die Umkehrung dieses Zaubers, Furcht verursachen, läßt ein beliebiges Lebewesen zwei Phasen lang fliehen. Das Opfer kann einen Rettungswurf gegen Zauber ablegen, um dieser Wirkung zu entgehen. Dieser umgekehrte Zauber hat eine Reichweite von 36m / 120e.

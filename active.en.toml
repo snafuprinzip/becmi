@@ -1,0 +1,47 @@
+[Attributes]
+description = "Character Attributes"
+other = "STR Strength      %2d \t (%s Attack Roll [Melee, Unarmed], Damage Roll [Melee, Thrown], Open Doors, optional: Save: Paralysis, Turn to Stone)\nINT Intelligence  %2d \t (%s General Skills, %s, optional: Save vs. Mind Attacks)\nWIS Wisdom        %2d \t (%s Saving Throw vs. Spells)\nDEX Dexterity     %2d \t (%s Attack Roll [Thrown, Missiles], Armor Class, optional: Save: Wands, Dragon Breath)\nCON Constitution  %2d \t (%s Hit Points per XP Level, optional: Save: Poison)\nCHA Charisma      %2d \t (%s Reaction Adjustment from NPCs, %d max. Retainers, %d Retainer Morale)\n"
+
+[CharacterRecordSheet]
+description = "Character record sheet"
+other = "Name:  %-32s \t Player:        %s\nClass: %-32s \t Alignment:     %s\nLevel: %2d %c (max. %2d) \t XP: %8d (%s%%) \t Next Level at: %d\n\n%s\n%s\nArmor Class: %3d \t Hitpoints: %d\nMovement:    %3d \t ThAC0:     %d\n\n%s\nArmor Proficiencies:  %s\nWeapon Proficiencies: %s\n\nBackground\n==========\nSex:    %-12s \t Age:    %4d (%s)\nHeight: %s \t\t Weight: %d cn (%d lb)\n%s\nSpecial Abilities\n=================\n%s\n%s\nDescriptions\n============\n%s\n%s\n"
+
+[SavingThrows]
+description = "Character Saving Throws"
+other = "Death Ray, Poison         %2d\nMagic Wands               %2d\nParalysis, Turn to Stone  %2d\nDragon Breath             %2d\nRod, Staff, Spells        %2d\n"
+
+[Spell]
+description = "Spell Description"
+other = "%s\nRange: %s\nDuration: %s\nEffect: %s\n%s\n"
+
+["Spell Description Header"]
+description = "Header for Spell Descriptions"
+other = "Spelldescriptions\n=================\n\n"
+
+["Spell Level Header"]
+description = "Header for Spell Level"
+other = "Level %d\n--------\n"
+
+["Spell List Header"]
+description = "Header for Spell List"
+other = "Spells\n======\n\n"
+
+[can_write]
+description = "Can read and write"
+other = "Reads and writes (usually two) native languages"
+
+[can_write_simple]
+description = "Can write simple"
+other = "Can write simple common words"
+
+[cannot_read_write]
+description = "Cannot read or write"
+other = "Cannot read or write Common"
+
+[cannot_speak]
+description = "Cannot speak"
+other = "Has trouble speaking, cannot read or write"
+
+[karameikos_background]
+description = "Karameikos Background"
+other = "Ethnicity: %s\nSocial Status: %s %s\nHome: %s\n"

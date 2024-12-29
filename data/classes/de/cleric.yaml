@@ -1,0 +1,63 @@
+id: Cleric
+class: Kleriker
+race: Human
+hitdice: 6
+hitpoints: 2
+maxlevel: 36
+maxinternallevel: 36
+armor: Alle, plus Schild.
+weapons: Keine scharfen oder spitzen Waffen, alle anderen erlaubt.
+abilities:
+  - id: Turn Undead
+    name: Untote Vertreiben
+    minlevel: 1
+    table: |
+      Skelett         %2s
+      Zombie          %2s
+      Ghul            %2s
+      Gruftschrecken  %2s
+      Todesalb        %2s
+      Mumie           %2s
+      Schreckgespenst %2s
+      Vampir          %2s
+      Phantom         %2s
+      Spuk            %2s
+      Böse Seele      %2s
+      Nachtschatten   %2s
+      Leichnam        %2s
+      Speziell        %2s
+      ----------
+      7, 9, or 11 Benötigtes Ergebnis für erfolgreiches Vertreiben
+      T           Automatisches Vertreiben, 2w6 Untoten-Trefferwürfel
+      D           Automatisches Zerstören,  2w6 Untoten-Trefferwürfel
+      D+          Automatisches Zerstören,  3w6 Untoten-Trefferwürfel
+      D#          Automatisches Zerstören,  4w6 Untoten-Trefferwürfel
+    description: |
+      Ein Kleriker hat die Macht, bestimmte Monster, die "Untote" genannt werden (Skelette, Zombies, Ghule, Gruftschrecken und andere Arten) in die Flucht oder sogar in den Untergang zu zwingen. Diese besondere Fähigkeit wird "Untote vertreiben" genannt. Wenn ein Kleriker einem untoten Monster begegnet, kann der Kleriker es entweder angreifen (mit einer Waffe oder einem Zauber) oder versuchen, es zu vertreiben. Der Kleriker kann nicht in einer Runde gleichzeitig angreifen und Untote vertreiben.
+      Wenn Sie wollen, daß Ihr Kleriker Untote vertreibt, sagen Sie Ihrem Spielleiter einfach nur "Ich versuche in dieser Runde, Untote zu vertreiben." Die Macht, Untote zu vertreiben, ist dem Kleriker eigen; er braucht dazu nicht sein Glaubenssymbol oder irgendein anderes Objekt, sofern der SL nichts anderes festlegt.
+      
+      Untote Monster werden nicht automatisch von dem Kleriker vertrieben. Wenn es zu einer Begegnung kommt, muß der Spieler die Tabelle: Untote vertreiben des Klerikers zur Hand nehmen, um herauszufinden, was für einen Effekt der Kleriker erzeugt. Suchen Sie die Erfahrungsstufe des Klerikers in der Kopfzeile der Tabelle, wenn er versucht, ein untotes Monster zu vertreiben. Gehen Sie die linke Spalte der Tabelle durch, bis Sie den Namen des untoten Monsters finden.
+      
+      Falls Sie einen Strich ("-") in der entsprechenden Spalte finden, kann der Kleriker das Monster nicht vertreiben. Falls Sie etwas anderes finden, haben Sie die Möglichkeit, das Monster zu vertreiben , oder vielleicht sogar mehrere Monster. Sehen Sie die "Erklärung der Ergebnisse" im nächsten Absatz nach; dort erfahren Sie, wie Sie herausfinden, ob Sie das Monster vertrieben haben. Setzen Sie das Ergebnis sofort um. Falls der Versuch gelingt, zieht sich eines oder mehrere der Monster zurück oder wird zerstört. Vergessen Sie aber nicht - wenn das Monster vertrieben wurde, ist es nicht zerstört und könnte sich entschließen, bald zurückzukehren...
+      
+      Falls Sie versuchen, ein bestimmtes untotes Monster zu vertreiben (beispielsweise einen bestimmten Vampir) und keinen Erfolg haben, können Sie in demselben Kampf nicht mehr versuchen, es zu vertreiben. Bei einer späteren Begegnung können Sie jedoch erneut versuchen, dieses Individuum zu vertreiben.
+      
+      Erklärung der Ergebnisse
+      7,9 oder 11: Wenn eine Zahl angegeben ist, hat der Kleriker eine Chance, die untoten Monster zu vertreiben. Der Spieler würfelt 2w6 (zwei sechsseitige Würfel). Falls die Summe der angegebenen Zahl entspricht oder sie übersteigt, ist der Vertreibungsversuch erfolgreich.
+      Wenn der Versuch, Untote zu vertreiben, gelingt, würfelt der Spielleiter (nicht der Spieler) mit 2w6, um die Zahl der Trefferwürfel an Monstern festzulegen, die fliehen. Mindestens ein Monster wird vertrieben, was auch immer der SL auswürfelt.
+      T: Der Versuch, Untote zu vertreiben, gelingt automatisch; der Spieler muß nicht würfeln, um festzustellen, ob er Erfolg hat. Um festzustellen, wieviele Untote vertrieben werden, würfelt der SL mit 2w6, wie oben beschrieben; ungeachtet des Ergebnisses wird mindestens ein Untoter vertrieben.
+      D: Der Vertreibungsversuch gelingt automatisch - er ist sogar so erfolgreich, daß die betroffenen Monster nicht nur vertrieben, sondern zerstört werden. Um festzustellen, wieviele Monster-Trefferwürfel zerstört werden, würfelt der SL wie oben beschrieben mit 2w6; ungeachtet des Ergebnisses wird mindestens ein Untoter zerstört. (Der SL legt fest, was passiert, wenn die Monster vernichtet werden: Sie könnten beispielsweise verblassen und vergehen, in Flammen aufgehen und zerbröckeln oder sich wie ein Vampir im Sonnenlicht auflösen).
+      D+: Dies ist identisch mit dem Ergebnis "D", außer daß der SL mit 3w6 würfelt, um festzustellen wieviele Untoten-Trefferwürfel zerstört werden. Ungeachtet des Ergebnisses wird mindestens ein Untoter zerstört.
+      D#: Dies ist identisch mit dem Ergebnis "D", außer daß der SL mit 4w6 würfelt, um festzustellen wieviele Untoten-Trefferwürfel zerstört werden. Ungeachtet des Ergebnisses wird mindestens ein Untoter zerstört.
+  - id: Spell Slots
+    name: Zauber pro Stufe nach Grad
+    minlevel: 2
+    table: |
+      1. Grad:  %2d
+      2. Grad:  %2d
+      3. Grad:  %2d
+      4. Grad:  %2d
+      5. Grad:  %2d
+      6. Grad:  %2d
+      7. Grad:  %2d
+    description: ""

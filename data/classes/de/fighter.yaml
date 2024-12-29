@@ -1,0 +1,72 @@
+id: Fighter
+class: Kämpfer
+race: Human
+hitdice: 8
+hitpoints: 2
+maxlevel: 36
+maxinternallevel: 36
+armor: Alle; Schilde sind erlaubt.
+weapons: Alle.
+abilities:
+  - id: Lance Attack
+    name: Lanzenangriff
+    minlevel: 1
+    table: ""
+    description: |
+      Falls ein Charakter auf einem Reittier sitzt (z.B. einem Pferd) und eine Lanze führt, kann er den Lanzenangriff ausführen , sofern sein Reittier über 20 m auf das Ziel des Kämpfers zugaloppiert (bzw. zufliegt/ zuschwimmt).
+
+      Der Charakter kann bei dem Manöver Lanzenangriff seine Stärke und Magiemodifikationen (letztere für magische Waffen) auf den Schadens- und den Trefferwurf anwenden. Falls die Lanze trifft, verursacht sie bei einem gelungenen Treffer doppelten Schaden - würfeln Sie den Schaden durch die Lanze aus, nehmen Sie das Ergebnis mal 2 und addieren Sie dann die entsprechenden Modifikationen. Wenn nicht genug Raum für einen Sturmangriff vorhanden ist - falls das Reittier sich weniger als 20 m weit bewegt oder am Ort bleibt - verursacht die Lanze nur normalen Schaden.
+      
+      Falls ein Charakter über das Manöver Mehrfachangriff verfügt, kann er den Lanzenangriff in einer beliebigen Angriffsposition in dieser Runde einsetzen. Er kann allerdings nicht dasselbe Ziel mehrfach nacheinander treffen; er muß für jeden Angriff ein neues Ziel in der Bewegungsbahn seines Reittieres auswählen; er muß dazu in der Lage sein, jedes Ziel mit einem Trefferwurf von 2 zu treffen.
+  - id: Set Spear vs. Charge
+    name: Speer gegen einen Sturmangriff stellen
+    minlevel: 1
+    table: ""
+    description: |
+      Ein Charakter zu Fuß mit einem Speer, einer Pike, einem Schwertschild oder einer Lanze kann diese Waffe gegen einen Sturmangriff stellen. Es handelt sich um einen Sturmangriff, wenn ein Monster auf den Charakter losstürmt - wenn es also vor seinem Angriff über 20 m auf ihn zurennt. Ein Charakter kann auch seinen Speer gegen einen Lanzenangriff, eines anderen Charakters gegen ihn, stellen.
+
+      Wenn der Charakter sich "gegen einen Sturmangriff stellt", hält der die Waffe sicher fest und nimmt eine stabile Position gegen den heranstürmenden Feind ein. Der Charakter erhält seine Stärke- und Magieboni auf seinen Treffer- und Schadenswurf. Falls der Angriff des Charakters trifft, verursacht er bei seinem Ziel den doppelten Schaden, wobei Schadensmodifikationen nach der Verdopplung addiert werden.
+
+      Der Charakter muß dieses Manöver ansagen, bevor er sich im Nahkampf mit der Kreatur befindet, die auf ihn losstürmt. Wenn beispielsweise die Gruppe des Charakters in der betreffenden Runde die Initiative gewinnt und der Charakter den Verdacht hat, daß das Monster einen Sturmangriff vorhat, könnte er das Manöver Speer gegen einen Sturmangriff stellen ansagen. Ebenso könnten die Charaktere eine Gruppe heranstürmender Monster mehrere Runden vor ihrem Eintreffen sehen und ihre Speere eine oder mehrere Runden früher gegen den Sturmangriff stellen.
+
+      Normalerweise führt der Charakter seinen Angriff während des Bewegungsschrittes des Monsters aus, sobald das Monster in die Reichweite der Waffe kommt. Falls sein Angriff das Monster trifft und tötet, kann ihm das Monster nichts mehr antun. Falls sein Angriff das Monster nicht tötet, kann es ihn während seines Nahkampfschrittes der Kampfsequenz angreifen.
+  - id: Smash
+    name: Zerschmettern
+    minlevel: 9
+    table: ""
+    description: |
+      Dies ist ein Kampfmanöver, das Kämpfer und Mystiker ab der 9. Stufe und Halbmenschen ab bestimmten Erfahrungspunktständen erwerben können (vgl. deren Erfahrungstabellen). Bei diesem Nahkampfmanöver verliert der Kämpfer automatisch die Initiative und muß -5 auf den Trefferwurf hinnehmen (er kann jedoch seine Stärke- und Magieboni auf seinen Trefferwurf anwenden).
+  
+      Falls der Angriff gelingt, addiert der Charakter seinen Stärkebonus, magische Boni und seinen gesamten Stärkewert zu dem normalen Schaden seiner Waffe.
+  - id: Parry
+    name: Parieren
+    minlevel: 9
+    table: ""
+    description: Bei diesem Manöver führt der Kämpfer keinen Trefferwurf aus. Statt dessen blockiert er eine ganze Kampfrunde lang Angriffe gegen ihn; alle Feinde, die ihn mit Nahkampf- und Wurfwaffen angreifen, erhalten -4 auf den Trefferwurf. Dies gilt nicht für Geschoßwaffen .
+  - id: Disarm
+    name: Entwaffnen
+    minlevel: 9
+    table: ""
+    description: |
+      Dieses Manöver kann nur dann eingesetzt werden, wenn der Kämpfer gegen einen Gegner kämpft, der eine Waffe führt. Der Kämpfer erhält seine normalen magischen und Stärkeboni auf den Trefferwurf. Falls er trifft. verursacht er keinen Schaden. Statt dessen würfelt das Opfer 1w20 minus seiner eigenen Geschicklichkeitsboni plus der Geschicklichkeitsboni des Angreifers. Falls das Endergebnis den Geschicklichkeitswert des Opfers übersteigt. läßt es seine Waffe fallen.
+      Sobald es entwaffnet ist, kann das Opfer entweder die Waffen wechseln (wodurch es nur in der nächsten Runde die Initiative verliert) oder versuchen, die Waffe aufzuheben. Beim Aufheben einer Waffe muß das Opfer das Manöver Flucht ausführen, um die fallengelassene Waffe aufzuheben.
+  - id: Additional Attack 2
+    name: Mehrfachangriff
+    minlevel: 12
+    table: ""
+    description: |
+      Im Nahkampf kann ein Kämpfer zwei Angriffe pro Runde gegen das Ziel ausführen, wenn er seinen Gegner mit einem Trefferwurf von 2 treffen kann (durch alle geltenden Boni modifiziert) .
+
+      Jeder Angriff eines Mehrfachangriffs kann Werfen, Angreifen, Lanzenangriff oder Entwaffnen sein. Ein Charakter kann seine Manöver mischen und der Situation anpassen; ein Charakter mit drei Angriffen beispielsweise könnte eine Kombination aus Angreifen-Entwaffnen-Angreifen gegen seinen Feind einsetzen oder drei Messer anstatt nur einem werfen. Dieses Manöver setzt ideale Bedingungen voraus und der Charakter kann anstelle eines der Angriffe eine andere Aktion oder Bewegung ausführen.
+  - id: Additional Attack 3
+    name: Zusätzlicher Angriff
+    minlevel: 24
+    table: ""
+    description: |
+      Der Kämpfer kann drei mal in einer Runde angreifen.
+  - id: Additional Attack 4
+    name: Additional Attack
+    minlevel: 36
+    table: ""
+    description: |
+      Der Kämpfer kann vier mal in einer Runde angreifen.

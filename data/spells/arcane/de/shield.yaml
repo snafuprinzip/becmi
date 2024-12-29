@@ -1,0 +1,10 @@
+id: Shield
+name: Shield
+level: 1
+reversible: false
+range: 0
+duration: 2 turns
+effect: The spellcaster only
+description: |-
+    This spell creates a magical barrier all around the spellcaster (less than an inch away). It moves with the spellcaster. While the duration lasts, the spellcaster has an AC of 2 against missiles, and AC 4 against all other attacks.
+    If someone shoots a magic missile at a spellcaster protected by this spell, the spellcaster may make a saving throw vs. spells (one saving throw per missile). If the saving throw is successful, the magic missile has no effect; it hits the barrier and evaporates.

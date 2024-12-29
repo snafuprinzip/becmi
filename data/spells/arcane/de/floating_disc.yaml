@@ -1,0 +1,9 @@
+id: Floating Disc
+name: Floating Disc
+level: 1
+reversible: false
+range: 0
+duration: 6 turns
+effect: Disc remains within 6'
+description: |-
+    This spell creates an invisible magical horizontal platform about the size and shape of a small round shield. It can carry up to 5000 en (500 pounds). It cannot be created in a place occupied by a creature or object. The Boating disc is created at the height of the spellcaster's waist, and will always remain at that height. It will automatically follow the spellcaster at his current movement rate, remaining within 6' of him at all times. It can never be used as a weapon, because it has no solid existence and veers away from anything it might run into. When the duration ends, the floating disc will disappear, suddenly dropping anything upon it. No saving throw is allowed.

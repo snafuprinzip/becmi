@@ -1,0 +1,10 @@
+id: Detect Evil
+name: Detect Evil
+level: 2
+reversible: false
+range: 60'
+duration: 2 turns
+effect: Everything within 60'
+description: |-
+    When this spell is cast, the spellcaster will see a glow surround all evilly-enchanted objects within 60'. It will also cause creatures that want to harm the spellcaster to glow when they are within range. The spell, however, does nor allow the spellcaster to hear the actual thoughts of the creatures.
+    Remember that Chaotic alignment is not automatically the same as evil, although many Chaotic monsters have evil intentions. Traps and poison are neither good nor evil, but merely dangerous.

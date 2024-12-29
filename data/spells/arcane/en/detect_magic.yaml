@@ -1,0 +1,11 @@
+id: Detect Magic
+name: Detect Magic
+level: 1
+reversible: false
+range: 0
+duration: 2 turns
+effect: Everything within 60'
+description: |-
+    When he casts this spell, the spellcaster will see a glow surround all magical objects, creatures, and places which are visible and within range of the spell. No saving throw is allowed.
+    Example: Shortly after casting this spell, a magic-user walks into a room containing a door locked by magic, a magical potion lying nearby, and a treasure chest containing a magical wand.
+    All the magic will glow, but the spellcaster can see only the door and potion; the light of the glowing wand is hidden by the treasure chest.

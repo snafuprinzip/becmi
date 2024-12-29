@@ -1,0 +1,69 @@
+id: Thief
+class: Thief
+race: Human
+hitdice: 4
+hitpoints: 1
+maxlevel: 36
+maxinternallevel: 36
+armor: Leather armor only; shield not permitted.
+weapons: Any missile weapon; any one-handed melee weapon.
+abilities:
+  - id: Thief Skills
+    name: Thief Skills
+    minlevel: 1
+    table: |
+      Open Locks:      %3d%%
+      Find Traps:      %3d%%
+      Remove Traps:    %3d%%
+      Climb Walls:     %3d%%
+      Move Silently:   %3d%%
+      Hide In Shadows: %3d%%
+      Pick Pockets:    %3d%%
+      Hear Noise:      %3d%%
+    description: |
+      Open Locks (OL):
+      With successful use of this special ability, and with professional lockpicks (often called "thieves' tools"), the thief may open locks. The character may try to use this skill only once per lock. The thief may not try again with that particular lock until he gains another level of experience. Without lockpicks, he may not use this ability.
+  
+      Find Trap (FT):
+      With successful use of this special ability, the thief may examine a room or an object and determine whether it is rigged with traps. He may check only once per trap, and failure prevents the character from finding any trap in or on the object searched. (Since the DM actually does the rolling, the player doesn't know how many traps he's rolling to find.) If the thief finds a trap, he may use his Remove Traps ability to remove or deactivate it.
+  
+      Remove Traps (RT):
+      With successful use of this special ability, the thief may remove or deactivate a trap. He may not roll this ability against a trap unless the trap has been found. The thief may try his ability only once per trap; failure to remove a trap triggers the trap.
+  
+      Climb Walls (CW):
+      With successful use of this special ability, the thief can climb steep surfaces, such as sheer cliffs, walls, and so forth. The chances for success are good, but if failed, the thief slips at the halfway point and falls. The DM rolls for success once for every 100' climbed.
+      If the roll is a failure, the thief takes 1-6 (1d6) points of damage per 10' fallen. Falling during a 10' climb will inflict 1 point of damage.
+  
+      Move Silently (MS):
+      Successful use of this special ability allows the thief to move silently. When the thief tries to use this skill, he always believes he has been successful, but a failed roll means that someone can hear his passage. The DM, at his discretion, may modify the thiefs roll at any time: When he tries moving silently across a field of dried leaves, his percentage chance would go down, while if he does so during a loud tournament, his chance will be greatly enhanced. Note that it doesn't do the thief any good to use this skill against someone who is already aware of him.
+  
+      Hide in Shadows (HS):
+      Successful use of this special ability means that the thief moves into and remains in shadows, making him very hard to see. While the thief is in shadows, observers only get a chance to see him if they look directly at him, at which time he must roll again; success means that he remains unobserved. While in shadows, the thief may use his Move Silently ability, but attacking someone reveals the thief. If the thief tries to hide in shadows but fails, he will not know that his position of concealment is a failure until someone sees him and announces the fact. Note that if the thief is under direct observation, he can't hide in shadows against the people watching him; they'll be able to follow his progress with no problem.
+  
+      Pick Pockets (PP):
+      This special ability allows the character to steal things from another character's person without him noticing. It's a very risky skill to use. If the attempt succeeds, the thief is able to pick the other's pockets without anyone noticing. If the roll is a simple failure, the thief fails to get his hands on what he's seeking. If the roll is greater than twice what the thief needs to succeed or an 00 in any case, the thief is caught in the act by his intended victim, and possibly others. When using the skill, subtract 5% per level or HD of victim. (Normal men—men and women who have no adventuring ability at all and do not belong to any adventuring character class—are treated as being 0 level.)
+      Example: A 1st level thief tries to pick the pocket of a 1st level fighter walking along the street. His chance is 20% (normal) minus 5 (5 times 1), or 15%. The DM rolls the percentile dice and rolls a 41. This is over twice what he needed to roll, so the thief is caught in the act.
+  
+      Hear Noise (HN):
+      This special ability gives the thief the ability to hear faint noises—such as breathing on the other side of the door, or the clatter of distant footsteps approaching fast. The DM can rule that any loud situation, such as a battle, prevents the thief from using this skill.
+  - id: Backstabbing
+    name: Backstabbing
+    minlevel: 1
+    table: ""
+    description: |
+      If a thief can sneak up on a victim, completely unnoticed, the thief may backstab — if he is using a one-handed melee weapon, he may strike at particularly vulnerable points of his target's body. (Though the ability is called "backstabbing," the weapon doesn't have to be a stabbing weapon. A thief can use this ability with a club, for example.)
+      When backstabbing, the thief gains a bonus of +4 on the attack roll; if the target is hit, the damage done is twice normal (roll the damage for the weapon, multiply the result by two, and then add any pertinent modifiers).
+      If the intended victim sees, hears, or is warned of the thief's approach, the thief's attack is not a backstab; it is an ordinary attack, doing the damage appropriate for the weapon used.
+      When no battle is in progress, a backstab attempt may require a Move Silently ability check. The DM will make all the necessary decisions on that matter.
+  - id: Read Languages
+    name: Read Languages
+    minlevel: 4
+    table: ""
+    description: |
+      80% chance to read any normal writing or language (including simple codes, dead languages, treasure maps, and so on, but not magical writings). If he tries but fails to read a piece of writing, he must gain at least one experience level before trying to read it again.
+  - id: Arcane Scrolls
+    name: Cast Spells From Magic-User Scrolls
+    minlevel: 10
+    table: ""
+    description: |
+      At 10th level, a thief gains the ability to cast magic-user spells from spell scrolls. However, there is always a 10% chance that the spell will backfire, creating an unexpected result, because of the thief'simperfect understanding of magical writings. This ability only allows thieves to cast spells from existing magic scrolls, not to write their own.

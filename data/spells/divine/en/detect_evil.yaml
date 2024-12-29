@@ -1,6 +1,7 @@
+id: Detect Evil
 name: Detect Evil
 level: 1
-reversible: false
+reversible: true
 range: 120'
 duration: 6 turns
 effect: Everything within 120'

@@ -1,0 +1,13 @@
+id: Sleep
+name: Sleep
+level: 1
+reversible: false
+range: 240'
+duration: 4-16 (4d4) turns
+effect: 2-16 Hit Dice of living creatures within a 40' square area
+description: |-
+    This spell will put creatures to sleep for up to 16 turns. It will only affect creatures with 4 + 1 Hit Dice or less—generally, small or man-sized creatures. The spell will not affect creatures outside the 4 0 ' * 40' area which the player chooses as the spell's target area. The spell will not work against undead or very large creatures, such as dragons.
+    When a character is first hit with a sleep spell, falling or sagging to the ground will not wake him up. However, characters affected by a sleep spell are not in a deep sleep. Any sleeping character or creature will awaken if slapped, kicked, or shaken.
+    Characters can kill a sleeping victim with a single blow of any edged weapon, regardless of the creature's hit points.
+    Your Dungeon Master will roll 2d8 to find the total Hit Dice or experience levels of monsters affected by the spell.
+    The victims get no saving throw against this spell.

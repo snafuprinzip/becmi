@@ -1,0 +1,10 @@
+id: Read Magic
+name: Read Magic
+level: 1
+reversible: false
+range: 0
+duration: 1 turn
+effect: Spellcaster only
+description: |-
+    This spell will allow the spellcaster to read, not speak, any magical words or runes, such as those found on scrofis and other items. A spellcaster cannot understand unfamiliar magic writings without using this spell. However, once a spellcaster reads a scroll or runes with this spell, he can read or speak that magic later without using a spell.
+    All spell books are written in magical words, and only their owners may read them without using this spell.

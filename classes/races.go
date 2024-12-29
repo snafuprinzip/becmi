@@ -32,19 +32,29 @@ func Body(race, sex string) (height string, weight int) {
 
 func humanAge() (age int, agespan string) {
 	age = dice.Roll("1d6+13")
-	agespan = "14-80"
+	agespan = "14-100"
 	return age, agespan
 }
 
 func dwarfAge() (age int, agespan string) {
+	age = dice.Roll("1d20+19")
+	agespan = "20-275"
 	return age, agespan
 }
 
 func elfAge() (age int, agespan string) {
+
+	age = dice.Roll("1d100")
+	if age < 25 {
+		age = 25
+	}
+	agespan = "25-800"
 	return age, agespan
 }
 
 func halflingAge() (age int, agespan string) {
+	age = dice.Roll("1d10+19")
+	agespan = "20-200"
 	return age, agespan
 }
 

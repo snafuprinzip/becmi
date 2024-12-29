@@ -2,7 +2,9 @@ package background
 
 import (
 	"becmi/dice"
+	"becmi/localization"
 	"fmt"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"strconv"
 )
 
@@ -48,6 +50,7 @@ func (k Karameikos) Nationality() string { return "Karameikan" }
 //func (k Karameikos) Hometown() string { return k.hometown }
 
 func (k Karameikos) SocialStatusTable(race string, roll int) (status string, titled bool) {
+
 	if race == "Human" {
 		switch {
 		case roll < 31:
@@ -69,7 +72,7 @@ func (k Karameikos) SocialStatusTable(race string, roll int) (status string, tit
 		case roll == 100:
 			status = "Royal Family"
 		}
-	} else if race == "Darf" || race == "Gnome" {
+	} else if race == "Dwarf" || race == "Gnome" {
 		switch {
 		case roll < 31:
 			status = "Struggling"
@@ -157,7 +160,7 @@ func (k Karameikos) HometownTable(race, class, status string, roll int) (hometow
 		default:
 			hometown = "Specularum"
 		}
-	} else if race == "Darf" || race == "Gnome" {
+	} else if race == "Dwarf" || race == "Gnome" {
 		hometown = "Highforge"
 	} else if race == "Elf" {
 		hometown = "Rifflian or Specularum (Callarii) or Woods (Vyalia)"
@@ -174,6 +177,14 @@ func (k Karameikos) String() string {
 	} else {
 		titled = ""
 	}
-	return fmt.Sprintf("Ethnicity: %s\nSocial Status: %s %s\nHome: %s\n",
-		k.Ethnicity, k.SocialStatus, titled, k.Hometown)
+
+	msg := &i18n.Message{
+		ID:          "karameikos_background",
+		Description: "Karameikos Background",
+		Other:       "Ethnicity: %s\nSocial Status: %s %s\nHome: %s\n",
+	}
+
+	output := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: msg})
+
+	return fmt.Sprintf(output, k.Ethnicity, k.SocialStatus, titled, k.Hometown)
 }
