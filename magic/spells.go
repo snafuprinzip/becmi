@@ -12,14 +12,14 @@ import (
 )
 
 type Spell struct {
-	ID          string
-	Name        string
-	Level       int
-	Reversible  bool
-	Range       string
-	Duration    string
-	Effect      string
-	Description string
+	ID          string `yaml:"id"`
+	Name        string `yaml:"name"`
+	Level       int    `yaml:"level"`
+	Reversible  bool   `yaml:"reversible"`
+	Range       string `yaml:"range"`
+	Duration    string `yaml:"duration"`
+	Effect      string `yaml:"effect"`
+	Description string `yaml:"description"`
 }
 
 type SpellLevelList []Spell
@@ -62,6 +62,11 @@ func loadArcaneSpells() {
 		}
 
 		AllArcaneSpells[spell.Level-1] = append(AllArcaneSpells[spell.Level-1], spell)
+	}
+	for _, level := range AllArcaneSpells {
+		for idx, spell := range level {
+			fmt.Printf("%2d: %s (%s)\n", idx+1, spell.ID, spell.Name)
+		}
 	}
 }
 

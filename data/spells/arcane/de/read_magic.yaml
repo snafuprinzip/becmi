@@ -1,10 +1,11 @@
 id: Read Magic
-name: Read Magic
+name: Magie lesen
 level: 1
 reversible: false
 range: 0
-duration: 1 turn
-effect: Spellcaster only
-description: |-
-    This spell will allow the spellcaster to read, not speak, any magical words or runes, such as those found on scrofis and other items. A spellcaster cannot understand unfamiliar magic writings without using this spell. However, once a spellcaster reads a scroll or runes with this spell, he can read or speak that magic later without using a spell.
-    All spell books are written in magical words, and only their owners may read them without using this spell.
+duration: 1 Phase
+effect: Nur der Zaubernde
+description: |
+    Dieser Zauber befähigt den Zaubernden dazu, alle magischen Worte oder Runen wie etwa solche, die auf magischen Schriftrollen zu finden sind, zu lesen, aber nicht dazu, sie zu sprechen. 
+    
+    Unbekannte magische Schriften können nicht verstanden werden, wenn man diesen Zauber nicht benutzt. Wenn der Zaubernde mit diesem Zauber aber bereits eine Schriftrolle oder Runen gelesen hat, kann diese Magie auch später noch gelesen oder gewirkt werden, ohne den Zauber benutzen zu müssen. Alle Zauberbücher sind mit magischen Worten geschrieben und nur ihre Besitzer können sie ohne Einsatz dieses Zaubers lesen.

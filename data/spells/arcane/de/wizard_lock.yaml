@@ -1,0 +1,10 @@
+id: Wizard Lock
+name: Zauberschloß
+level: 2
+reversible: false
+range: 3m / 10'
+duration: Permanent
+effect: Ein Tor oder Schloß
+description: |
+  Dieser Zauber ist eine mächtigere Version von Tor zuhalten. Er funktioniert bei jedem Schloß - nicht nur bei Türen - und hält an, bis der Zauber gebannt wird. Klopfen kann jedoch eingesetzt werden, um ein Zauberschloß zu öffnen.
+  Eine mit einem Zauberschloß verschlossene Tür kann von dem Zaubernden, der den Zauber gewirkt hat, leicht wieder geöffnet werden - ebenfalls von jedem zauberkundigen Charakter oder Wesen, welches dem Zaubernden um 3 oder mehr Stufen (oder TW) überlegen ist. Kein Öffnen beseitigt die Magie und die Wirkung des Zaubers tritt wieder ein, wenn das Objekt sich wieder schließt (genau wie bei Tor zuhalten).

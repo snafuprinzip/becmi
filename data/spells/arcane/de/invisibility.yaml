@@ -1,0 +1,10 @@
+id: Invisibility
+name: Unsichtbarkeit
+level: 2
+reversible: false
+range: 72m / 240e
+duration: Permanent, bis der Zauber gebrochen wird
+effect: Ein Wesen oder Objekt
+description: |
+  Dieser Zauber macht je ein Wesen oder Objekt unsichtbar. Wenn ein Wesen unsichtbar wird, werden auch alle mitgeführten und am Körper getragenen Gegenstände unsichtbar. Alle Gegenstände werden wieder sichtbar, wenn sie sich nicht mehr im Besitz des Wesens befinden (wenn es sie etwa fallenläßt, niederlegt usw.).
+  Wenn der Zaubernde ein Objekt unsichtbar macht, das nicht mitgeführt oder getragen wird, so wird dies wieder sichtbar, wenn es von irgendeinem Lebewesen berührt wird. Ein unsichtbares Wesen bleibt solange unsichtbar, bis es angreift oder einen Zauber wirkt. Eine Lichtquelle (etwa eine Fackel) kann unsichtbar gemacht werden, doch das von ihr ausgehende Licht bleibt immer sichtbar.

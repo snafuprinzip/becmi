@@ -1,0 +1,8 @@
+id: Detect Invisible
+name: Detect Invisible
+level: 2
+reversible: false
+range: 10' per level of the spellcaster
+duration: 6 turns
+effect: The spellcaster only
+description: When this spell is cast, the spellcaster can see all invisible creatures and objects within range. The range is 10' for each level of the spellcaster. For example, a 3rd level spellcaster can use this spell to see invisible things within 30'.

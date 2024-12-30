@@ -1,0 +1,8 @@
+id: Locate Object
+name: Gegenstand orten
+level: 2
+reversible: false
+range: 18m (60e) + 3m (10e) pro Stufe des Zaubernden
+duration: 2 Phasen
+effect: Ein Objekt innerhalb der Reichweite
+description: Dieser Zauber befähigt den Zaubernden, einen bestimmten Gegenstand oder eine gängige Art von Objekt (wie etwa eine Treppenflucht) zu finden. Der Zaubernde muß genau wissen, wie das bestimmte Objekt aussieht. Der Zauber weist auf das nächste gewünschte Objekt innerhalb der Reichweite und gibt wohl die Richtung, nicht aber die Entfernung an. Die Reichweite erhöht sich mit zunehmender Erfahrungsstufe des Zaubernden. Ein Zaubernder der 2. Stufe kann beispielsweise bis zu 24m (80e) entfernte Gegenstände orten, ein Zaubernder der 3. Stufe kann sie bis in einer Entfernung von 27m (90e) orten.

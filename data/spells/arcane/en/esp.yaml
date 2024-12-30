@@ -1,0 +1,13 @@
+id: ESP
+name: ESP
+level: 2
+reversible: true
+range: 60'
+duration: 12 turns
+effect: All thoughts in one direction
+description: |
+  This spell will allow the spellcaster to "hear" thoughts. The spellcaster must concentrate in one direction for six rounds (one minute) to hear the thoughts (if any) of a creature within range.
+  The spell allows the spellcaster to understand the thoughts of any single living creature, regardless of the language. The spell does not allow the caster to hear the thoughts of undead creatures.
+  If more than one creature is within range and in the direction the caster is concentrating, the spellcaster will "hear" a confused jumble of thoughts. The spellcaster can sort out the jumble only by concentrating for an extra six rounds to find a single creature.
+  ESP will not be hampered by any amount of wood or liquid, and will penetrate as much as two feet of rock, but a thin coating of lead will block the spell. Targets can make a saving throw vs. spell to avoid the spell effects.
+  The reverse of this spell, mindmask, may be cast, by touch, on any one creature. The recipient is completely immune to ESP and all other forms of mind-reading for the spell duration.

@@ -1,0 +1,10 @@
+id: Detect Invisible
+name: Unsichtbares entdecken
+level: 2
+reversible: false
+range: 3m (10e) pro Stufe des Zaubernden
+duration: 6 Phasen
+effect: Nur der Zaubernde
+description: |
+  Dieser Zauber läßt alle unsichtbaren Wesen und Objekte innerhalb der Reichweite für den Zaubernden sichtbar werden.
+  Die Reichweite beträgt 3 m pro Erfahrungsstufe des Zaubernden. Ein Beschwörer kann diesen Zauber z.B. einsetzen, um unsichtbare Dinge innerhalb von 9 m zu sehen.

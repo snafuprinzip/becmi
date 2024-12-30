@@ -1,0 +1,8 @@
+id: Web
+name: Web
+level: 2
+reversible: false
+range: 10'
+duration: 48 turns
+effect: A volume 10' X 10' X 10'
+description: This spell creates a mass of sticky strands which are difficult to destroy except with flame. It usually blocks the area affected. Giants and other creatures with great strength can break through a web in 2 rounds. A human of Average Strength (a score of 9-12) will take 2d4 (2-8) turns to break through the web. Flames (from a torch, for example) will destroy the web in 2 rounds, but all creatures within the web will be burned for 1-6 (1d6) points of damage. Anyone wearing gauntlets of ogre power (a magical treasure) can break free of a web in 4 rounds.

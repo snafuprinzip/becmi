@@ -1,0 +1,10 @@
+id: Mirror Image
+name: Mirror Image
+level: 2
+reversible: false
+range: 0
+duration: 6 turns
+effect: The spellcaster only
+description: |
+  With this spell, the spellcaster creates 1d4 (1-4) additional images which look and act exactly like him. The images appear and remain next to (within 3' of) the spellcaster, moving if the spellcaster moves, talking if the spellcaster talks, and so forth. The spellcaster need not concentrate; the images will remain until the duration ends, or until they are hit.
+  The images are not real, and cannot actually do anything. Any successful attack on the spellcaster will strike an image instead, which will merely cause that image to disappear (regardless of the actual damage); this continues until all the images are dispelled. (If the spellcaster is caught in the effect of an area-type attack, such as a fireball spell, all images will disappear and the spellcaster will be affected by the spell.)

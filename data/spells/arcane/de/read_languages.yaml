@@ -1,9 +1,8 @@
 id: Read Languages
-name: Read Languages
+name: Sprachen lesen
 level: 1
 reversible: false
 range: 0
-duration: 2 turns
-effect: The spellcaster  only
-description: |-
-    This spell will allow the spellcaster to read, not speak, any unknown languages or codes, including treasure maps, secret symbols, and so forth, until the duration ends.
+duration: 2 Phasen
+effect: Nur der Zaubernde
+description: Dieser Zauber befähigt den Zaubernden innerhalb der Wirkungsdauer dazu, alle unbekannten Sprachen und Zeichen zu lesen, aber nicht dazu, sie zu sprechen. Dazu gehören auch Schatzkarten, geheime Symbole und so weiter.

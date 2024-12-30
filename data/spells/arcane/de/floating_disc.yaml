@@ -1,9 +1,10 @@
 id: Floating Disc
-name: Floating Disc
+name: Schwebende Scheibe
 level: 1
 reversible: false
 range: 0
-duration: 6 turns
-effect: Disc remains within 6'
-description: |-
-    This spell creates an invisible magical horizontal platform about the size and shape of a small round shield. It can carry up to 5000 en (500 pounds). It cannot be created in a place occupied by a creature or object. The Boating disc is created at the height of the spellcaster's waist, and will always remain at that height. It will automatically follow the spellcaster at his current movement rate, remaining within 6' of him at all times. It can never be used as a weapon, because it has no solid existence and veers away from anything it might run into. When the duration ends, the floating disc will disappear, suddenly dropping anything upon it. No saving throw is allowed.
+duration: 6 Phasen
+effect: Die Scheibe bleibt innerhalb von 1,80m / 6e
+description: |
+    Dieser Zauber erschafft eine unsichtbare, horizontale Plattform von der Größe und Form eines kleinen Rundschildes . Sie kann bis zu 5.000 M (500 Pfd.) tragen. Sie kann nicht dort erschaffen werden, wo sich ein Wesen oder ein Objekt befindet. Sie entsteht in Hüfthöhe des Zaubernden und schwebt immer in dieser Höhe. Sie folgt ihm automatisch und bleibt ständig innerhalb von 1,80m. 
+    Sie kann niemals als Waffe benutzt werden, da sie keine feste Existenz besitzt und an allem abgleitet, an das sie anstößt. Wenn die Dauer des Zaubers endet, verschwindet die schwebende Scheibe und läßt alles, was sich auf ihr befand, plötzlich herunterfallen. Ein RW ist nicht zulässig.

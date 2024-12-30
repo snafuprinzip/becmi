@@ -1,0 +1,8 @@
+id: Web
+name: Netz
+level: 2
+reversible: false
+range: 3m / 10e
+duration: 48 Phasen
+effect: Ein Würfel mit 3m Kantenlänge 10' x 10' x 10'
+description: Dieser Zauber erzeugt eine Masse von klebrigen Strängen, die - außer durch Flammen - schwer zu zerstören sind. Er blockiert für gewöhnlich den betroffenen Bereich. Riesen und andere Wesen mit großer Stärke können ein Netz in 2 Runden durchschreiten. Ein Mensch mit durchschnittlicher Stärke (9-12) braucht 2w4 Phasen, um durchzukommen. Flammen (von einer Fackel , z.B.) zerstören das Netz in 2 Runden, doch alle Wesen, die im Netz verwickelt sind, erleiden 1w6 SP durch die Flammen. Alle, die Ogerkrafthandschuhe tragen (einen magischen Schatz) könne n ein Netz in vier Runden durchbrechen.

@@ -1,0 +1,10 @@
+id: Wizard Lock
+name: Wizard Lock
+level: 2
+reversible: false
+range: 10'
+duration: Permanent
+effect: One portal or lock
+description: |
+  This spell is a more powerful version of a hold portal spell. It will work on any lock, not merely doors, and will last forever (or until magically dispelled). However, a knock spell can open the wizard lock.
+  The wizard who cast the wizard lock can easily open the door he has enchanted, as can any magic-using character or creature of three or more levels (or Hit Dice) greater than the caster. This sort of door-opening does not remove the magic, and the magical lock will relock when allowed to close (just as with the hold portal spell).

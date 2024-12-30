@@ -1,0 +1,11 @@
+id: ESP
+name: Gedankenlesen
+level: 2
+reversible: true
+range: 18m / 60e
+duration: 12 Phasen
+effect: Alle Gedanken in einer Richtung
+description: |
+  Dieser Zauber versetzt den Zaubernden in die Lage, Gedanken zu "hören". Er muß sich sechs Runden (eine Minute) lang in eine Richtung konzentrieren, um die Gedanken eines Wesens innerhalb der Reichweite zu lesen (wenn eines dort ist). Die Gedanken jedes einzelnen Lebewesens können ungeachtet der Sprache verstanden werden. Die Gedanken von (eventuell vorhandenen) untoten Wesen können nicht "gehört" werden.
+  Wenn sich mehr als ein Wesen in der Reichweite und der Richtung befindet, in die sich der Zaubernde konzentriert hat, dann "hört" dieser ein verwirrtes Gedankengemisch. Er kann dieses Wirrwarr nur filtern, indem er sich weitere sechs Runden lang konzentriert, um ein einzelnes Wesen herauszufinden. Gedanken lesen wird nicht durch Holz oder Flüssigkeiten blockiert. Der Zauber durchdringt bis zu 60 cm Felsen, doch eine dünne Bleischicht blockiert ihn. Die Ziele dürfen einen RW ablegen, um der Wirkung dieses Zaubers zu entgehen.
+  Die Umkehrung dieses Zaubers, Gedankenmaske, kann durch Berührung auf jeweils ein Wesen gewirkt werden. Das Ziel ist für die Dauer des Zaubers vollkommen immun gegen den Zauber Gedanken lesen und alle anderen Arten des Gedankenlesens.

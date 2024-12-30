@@ -1,11 +1,15 @@
 id: Light
-name: Light
+name: Licht
 level: 1
 reversible: true
-range: 120'
-duration: 6 turns + 1 turn/level of the caster
-effect: Volume of 30' diameter
-description: |-
-    This spell creates a large ball of light, as if cast by a bright torch or lamp. If the spell is cast on an object (such as the cleric's weapon), the light will move with the object.
-    If the spell is cast at a creature's eyes, the victim must make a saving throw vs. spell. If he fails the saving throw, the victim will be blinded by the light for the duration of the spell, or until the spell effect is canceled.
-    When reversed, this spell, darkness, creates a circle of darkness 30' in diameter. It will block all sight except infravision. Darkness will cancel a light spell if cast upon it, but may itself be canceled by another light spell. If cast at an opponent's eyes, darkness causes blindness for the duration of the spell or until canceled. If the target makes a successful saving throw vs. spell, the spell misses.
+range: 36m / 120e
+duration: 6 Phasen + 1 Phase/Stufe des Zaubernden
+effect: Eine Kugel von 9m / 30e Radius
+description: |
+    Dieser Zauber erschafft einen großen Lichtball, so als wäre eine helle Fackel entzündet worden. Wenn dieser Zauber auf ein Objekt gewirkt wird (etwa auf eine Münze), dann bewegt sich das Licht mit dem Objekt. Wenn er auf die Augen eines Wesen gewirkt wird, muß dieses Wesen einen RW gegen Zauber ablegen. Falls der RW mißlingt, ist das Opfer für die Dauer des Zaubers durch das Licht geblendet (vgl. Seite 204 über die Auswirkungen von Blindheit).
+
+    Wenn der RW gelingt, erscheint das Licht hinter dem anvisierten Ziel in der Luft.
+
+    Wenn dieser Zauber zu Dunkelheit umgekehrt wird, dann schafft er einen Kreis der Dunkelheit mit 9m / 30e Durchmesser. Er blockiert jede Sicht außer Infravision.
+
+    Dunkelheit kann den Zauber Licht, wenn sie auf ihn gewirkt wird, aufheben, aber auch selbst wieder durch Licht aufgehoben werden. Wenn Dunkelheit auf die Augen eines Gegners gewirkt wird, bewirkt sie eine Blindheit für die Dauer des Zaubers oder bis er aufgehoben wird. Das Ziel kann einen RW gegen Zauber ablegen, um der Wirkung zu entgehen.

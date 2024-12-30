@@ -1,0 +1,8 @@
+id: Knock
+name: Klopfen
+level: 2
+reversible: false
+range: 18m / 60e
+duration: Siehe unten
+effect: Ein Schloss oder Riegel
+description: Dieser Zauber öffnet jede Art von Schloß. Jede herkömmlich oder magisch (mit Tor zuhalten) verschlossene Tür und jede Geheimtür kann geöffnet werden, sofern sie gefunden wird (eine Geheimtür muß erst gefunden werden, bevor ein Öffnen möglich ist). Jede Verschlußmagie bleibt aber bestehen und ist wieder wirksam, wenn die Tür geschlossen wird. Dieser Zauber kann auch ein Tor öffnen wenn es verklemmt ist, und er öffnet auch Schatztruhen mit Leichtigkeit. Auch eine verriegelte Tür tut sich auf, indem der Riegel durch magische Kraft zu Boden fällt. Wenn eine Tür sowohl verschlossen als auch verriegelt ist, werden Schloß und Riegel entfernt.

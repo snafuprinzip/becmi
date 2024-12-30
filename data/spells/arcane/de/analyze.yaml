@@ -1,11 +1,13 @@
 id: Analyze
-name: Analyze
+name: Analysieren
 level: 1
 reversible: false
-range: 0 (touch only)
-duration: 1 round
-effect: Analyzes magic on one item
-description: |-
-    A spellcaster using this spell can handle one item and learn the enchantment on it. Helms must be put on the spellcaster's head, swords held in his hand, bracelets put on his wrist, etc. for this spell to work. Any consequences of this action (for example, from cursed or booby- trapped objects) fall upon the spellcaster, though he gets his usual saving throws.
-    The spellcaster has a chance of 15% plus 5% per experience level to determine one magical characteristic of the item; if the item is nonmagical, his chance is to determine that fact.
-    The spell does not reveal much precise information. It will characterize a weapon's pluses (attack bonus) as "many" or "few," will estimate the number of charges on an item within 25% of the actual number, etc.
+range: 0 (nur Berührung)
+duration: 1 Runde
+effect: Analysiert die Magie eines Gegenstandes
+description: |
+    Ein Zaubernder, der diesen Zauber benutzt, kann einen Gegenstand anfassen und die darauf liegende Verzauberung herausfinden. Der Zaubernde muß Helme aufsetzen, Schwerter in die Hand nehmen, Armschienen anlegen usw., damit dieser Zauber funktioniert. Alle Folgen dieser Aktion (zum Beispiel durch verfluchte oder Fallen auslösende Objekte) wirken auf den Zaubernden, er darf natürlich seine normalen Rettungswürfe durchführen.
+    
+    Der Zaubernde kann zu 15% plus 5% pro Erfahrungsstufe eine magische Eigenschaft des Gegenstandes ermitteln; falls der Gegenstand nicht magisch ist, kann er diese Tatsache herausfinden.
+    
+    Der Zauber vermittelt nicht genaue Informationen. Er kann die Boni (Trefferboni) einer Waffe als "viele" oder "wenige" einstufen, er kann die Anzahl der Ladungen in einem Gegenstand mit Schwankungen von bis zu 25% angeben usw.

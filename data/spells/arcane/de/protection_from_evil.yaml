@@ -1,12 +1,13 @@
 id: Protection from Evil
-name: Protection from Evil
+name: Schutz vor Bösem
 level: 1
 reversible: false
 range: 0
-duration: 6 turns
-effect: The spellcaster only
-description: |-
-    This spell creates an invisible magical barrier all around the spellcaster's body (less than an inch away). While the spell lasts, characters and monsters attacking the spellcaster are penalized by — 1 to their attack rolls, and the spellcaster gains a +1 bonus to all saving throws.
-    In addition, enchanted creatures cannot even touch the spellcaster! (An enchanted creature is one that normal weapons will not affect, one which only magical weapons can hit. A creature that can only be hit by a silver weapon—a werewolf, for example—is not an enchanted creature. Any creature that is magically summoned or controlled, such as a charmed character, is also considered to be an enchanted creature.) The barrier thus completely protects the spellcaster from all melee or hand-to-hand attacks from such creatures; however, it cannot prevent attacks from missile weapons. Enchanted creatures using missile weapons still suffer the - 1 penalty to the attack roll, but they can hit the spellcaster.
-    This spell will not affect a magic missile, either incoming or outgoing.
-    If the spellcaster attacks (hand-to-hand) an enchanted creature during the spell's duration, the spell's effect changes slightly. Enchanted creatures are then able to touch the magic-user, but still suffer the attack roll penalty; the penalty and the spellcaster's saving throw adjustments still apply until the spell duration ends.
+duration: 6 Phasen
+effect: Nur der Zaubernde
+description: |
+    Dieser Zauber erschafft um den ganzen Körper des Zaubernden herum eine unsichtbare magische Barriere (weniger als 2.5 cm entfernt). Alle Angriffe gegen den Zaubernden erhalten -1 auf Trefferwürfe, der Zaubernde selbst erhält + 1 auf alle Rettungswürfe, solange der Zauber wirkt.
+    
+    Außerdem können verzauberte Kreaturen den Zaubernden im Nahkampf nicht angreifen. (Eine verzauberte Kreatur ist eine Kreatur, bei der normale Waffen keine Wirkung zeigen, also eine Kreatur, die nur von magischen Waffen getroffen werden kann. Eine Kreatur, die nur von Silberwaffen getroffen werden kann - beispielsweise ein Werwolf - ist keine verzauberte Kreatur. Alle Kreaturen, die magisch beschworen oder kontrolliert werden, wie z.B. ein bezauberter Charakter, werden ebenfalls als verzauberte Kreatur betrachtet.) Die Barriere schützt den Kleriker also vollständig vor allen Nahkampfangriffen oder Angriffen mit Handwaffen solcher Kreaturen; sie kann allerdings nicht vor Fernkampfangriffen schützen. Verzauberte Kreaturen, die Fernkampfwaffen benutzen, erleiden zwar -1 auf den Trefferwurf, sie können jedoch den Kleriker treffen.
+    
+    Dieser Zauber hat keine Auswirkungen auf den Zauber Magisches Geschoß. Falls der Zaubernde irgendetwas während der Wirkungsdauer angreift (Nahkampf), verändert sich die Wirkung leicht. Verzauberte Kreaturen können dann den Zaubernden berühren, aber die Modifikationen auf Rettungswürfe und Trefferwürfe gelten bis zum Ende der Wirkungsdauer.

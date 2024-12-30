@@ -1,0 +1,11 @@
+id: Phantasmal Force
+name: Trugbild
+level: 2
+reversible: false
+range: 72m / 240e
+duration: Konzentration (siehe unten)
+effect: Ein Würfel mit 6 x 6 x 6m (20e x 20e x 20e) Kantenlänge
+description: |
+  Dieser Zauber erzeugt Illusionen oder verändert das normale Erscheinungsbild von Dingen und Wesen innerhalb des betroffenen Bereiches. Der Zaubernde erzeugt gewöhnlich die Illusion eines Wesens oder eines Objektes, daß er wirklich gesehen hat. Sollte der Zaubernde das Wesen oder Objekt noch nicht selber gesehen haben, so erhalten etwaige Betrachter einen Bonus auf ihre RW gegen Sprüche, um die Illusion zu durchschauen. Wenn der Zaubernde diesen Zauber nicht zum Angreifen benutzt, verschwindet die Illusion bei Berührung. Wenn der Zauber benutzt wird, um ein Monster zu "erschaffen", so hat es RK 9 und verschwindet, wenn es getroffen wird. Das Trugbild bleibt solange bestehen, wie der Zaubernde sich konzentriert. Bewegt er sich, erleidet er Schaden oder mißlingt ihm irgendein RW, dann ist seine Konzentration gestört und das Trugbild verschwindet.
+  Wenn der Zauber als Angriff benutzt wird (ein Trugbild eines Geschosses des Zaubers Magisches Geschoß, einer einstürzenden Mauer usw.), dann kann das Ziel dieses Angriffs einen RW gegen Zauber ablegen; gelingt dieser RW, ist das Z iel nicht betroffen und es erkennt, daß der Angriff nur eine Illusion ist.
+  Dieser Zauber fügt niemals irgendeinen echten Schaden zu! Diejenigen, die dadurch "getötet" werden, fallen lediglich in Ohnmacht, solche die "versteinert" werden, sind gelähmt usw. Diese Wirkungen vergehen nach 1w4 Phasen. Wenn dem Angegriffenen sein Rettungswurf gelingt und er dadurch erkennt, daß alles eine Illusion war, vergeht jeder "Schaden" sofort.

@@ -1,0 +1,11 @@
+id: Mirror Image
+name: Spiegelbild
+level: 2
+reversible: false
+range: 0
+duration: 6 Phasen
+effect: Nur der Zaubernde
+description: |
+  Dieser Zauber befähigt den Zaubernden dazu, 1w4 zusätzliche Abbilder seiner selbst entstehen lassen, die genauso aussehen und handeln wie er. Die Bilder erscheinen und bleiben neben dem Zaubernden - sie bewegen sich, wenn er sich bewegt, sprechen, wenn er spricht usw. Der Zaubernde braucht sich nicht zu konzentrieren; die Bilder bleiben solange bestehen, wie der Zauber dauert, oder bis sie getroffen werden.
+  Die Bilder sind nicht real und können keine konkreten Aufgaben ausführen. Jeder erfolgreiche Angriff gegen den Zaubernden trifft stattdessen ein solches Bild. Dieses Bild verschwindet (ungeachtet des eigentlichen Schadens). Falls der Zaubernde in den Wirkungsbereich eines flächendeckenden Angriffs wie z.B. eines Feuerballs gerät, verschwinden alle Abbilder und der Angriff wirkt normal auf den Zaubernden).
+  Jedem, der die Abbilder sieht, steht ein RW gegen Zauber zu. Gelingt er, erkennt er den Zauberkundigen unter seinen Abbildern, kann ihn normal angreifen und ihm auch wieder Schaden zufügen.

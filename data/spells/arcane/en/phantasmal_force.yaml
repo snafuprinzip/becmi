@@ -1,0 +1,13 @@
+id: Phantasmal Force
+name: Phantasmal Force
+level: 2
+reversible: false
+range: 240'
+duration: Concentration (see below)
+effect: A volume 20' x 20' x 20'
+description: |
+  This spell creates or changes appearances of everything within the area affected. The spellcaster can create the illusion of something he or she has seen. If not, the DM will give a bonus to the saving throws of those trying to ignore the spell's effects. If the spellcaster does not use this spell to attack, the illusion created by this spell will disappear when touched.
+  If the spellcaster uses the spell to create the illusion of a monster, it will appear in every way to be the monster in question. However, the monster is AC 9 and will disappear when hit.
+  If the spellcaster uses the spell to create an attack (a phantasmal magic missile, collapsing wall, etc.), the victim may make a saving throw vs. spells; if he is successful, the victim is not affected, and realizes that the attack is an illusion.
+  The phantasmal force will remain as long as the spellcaster concentrates. If the spellcaster moves, takes any damage, or fails any saving throw, his concentration is broken and the phantasm disappears.
+  This spell never inflicts any real damage. Those "killed" by it will merely fall unconscious, those "turned to stone" will be paralyzed, and so forth. The effects wear off in 1d4 turns. If the character does make his saving throw to realize that the attack is an illusion, the damage sustained disappears immediately.

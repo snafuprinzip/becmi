@@ -51,6 +51,12 @@ func toUpperFirst(s string) string {
 		r[0] = unicode.ToUpper(r[0])
 	}
 
+	for i, char := range r {
+		if char == '-' && i+1 < len(r) {
+			r[i+1] = unicode.ToUpper(r[i+1])
+		}
+	}
+
 	// Convert the rune slice back to a string and return.
 	return string(r)
 }

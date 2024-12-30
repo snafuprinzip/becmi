@@ -1,0 +1,10 @@
+id: Levitate
+name: Schweben
+level: 2
+reversible: false
+range: 0
+duration: 6 Phasen + 1 Phase pro Erfahrungsstufe des Zaubernden
+effect: Nur der Zaubernde
+description: |
+  Dies erlaubt dem Schwebenden, sich ohne Halt in der Luft auf und ab zu bewegen. Der Zauber erlaubt dem Zaubernden jedoch nicht, sich seitwärts zu bewegen. Ein Elf könnte z.B. zur Decke schweben und sich dann durch Ziehen und Abdrücken seitwärts bewegen. Die Bewegung herauf und herab geschieht mit 6m pro Runde. Der Zauber kann nicht auf eine andere Person oder ein Objekt gewirkt werden.
+  Der Zaubernde kann während des Schwebens eine normale Gewichtslast bis zu einem Gewicht von 2.000 M (100 kg) tragen, beispielsweise ein menschengroßes Wesen (wenn es keine Metallrüstung trägt). Jedes Wesen, das kleiner als menschengroß ist, kann ebenfalls getragen werden, wenn es nicht ähnlich schwer beladen ist. Ein RW ist nicht zulässig.

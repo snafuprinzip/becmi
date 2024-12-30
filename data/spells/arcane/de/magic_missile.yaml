@@ -1,10 +1,11 @@
 id: Magic Missile
-name: Magic Missile
+name: Magisches Geschoß
 level: 1
 reversible: false
-range: 150'
-duration: 1 round
-effect: Creates 1 or more arrows
-description: |-
-    A magic missile is a glowing arrow, created and shot by magic, which inflicts 1d6 +1 (2-7) points of damage to any creature it strikes. After the spell is cast, the arrow appears next to the spellcaster and hovers there (moving with him) until the spellcaster causes it to shoot. When shot, the magic missile will automatically hit any one visible target the spellcaster specifies. The magic missile actually has no solid form, and cannot be touched. A magic missile never misses its target and the target is not allowed a saving throw.
-    For every 5 levels of experience of the caster, two more missiles are created by the same spell. Thus a 6th level spellcaster may create three missiles. The spellcaster may shoot the missiles all at one target or at different targets.
+range: 45m / 150e
+duration: 1 Runde
+effect: Läßt 1 oder mehr Pfeile entstehen
+description: |
+    Dieser Zauber erschafft und verschießt einen oder mehrere leuchtende Pfeile. Jeder fügt jedem Wesen, das er trifft, 1w6+1 Schadenspunkte zu. jeder Pfeil erscheint neben dem Zaubernden und schwebt dort, bis dieser ihn "abschießt". Der Pfeil trifft automatisch jedes sichtbare Ziel und bewegt sich solange mit dem Zaubernden, wie der Zauber dauert oder bis er abgeschossen wird. Ein magisches Geschoß hat keine feste Form und kann nicht berührt werden.
+    
+    Für je 5 Erfahrungsstufen kann der Zaubernde 2 zusätzliche magische Geschosse erschaffen. Ein Zauberkundiger der 6. Stufe kann z.B. drei magische Geschosse erschaffen. Die Geschosse können auf verschiedene Ziele gerichtet werden. Ein RW ist nicht zulässig.

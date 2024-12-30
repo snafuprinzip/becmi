@@ -1,0 +1,11 @@
+id: Invisibility
+name: Invisibility
+level: 2
+reversible: false
+range: 240'
+duration: Permanent until broken
+effect: One creature or object
+description: |
+  This spell will make any one creature or object invisible. When a creature becomes invisible, all items that he carries and wears also become invisible. Any invisible item becomes visible again when it leaves the creature's possession (dropped, set down, etc.). A light source (such as a torch) may be made invisible, but the light given off will always remain visible.
+  If the spellcaster makes an object invisible that is not being carried or worn, it will become visible again when touched by any living creature.
+  An invisible creature will remain invisible until he or she attacks or casts any spell.

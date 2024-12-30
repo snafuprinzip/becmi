@@ -1,10 +1,8 @@
 id: Detect Evil
-name: Detect Evil
+name: Böses entdecken
 level: 2
 reversible: false
-range: 60'
-duration: 2 turns
-effect: Everything within 60'
-description: |-
-    When this spell is cast, the spellcaster will see a glow surround all evilly-enchanted objects within 60'. It will also cause creatures that want to harm the spellcaster to glow when they are within range. The spell, however, does nor allow the spellcaster to hear the actual thoughts of the creatures.
-    Remember that Chaotic alignment is not automatically the same as evil, although many Chaotic monsters have evil intentions. Traps and poison are neither good nor evil, but merely dangerous.
+range: 18m / 60e
+duration: 2 Phasen
+effect: Alles innerhalb 18m / 60e
+description: Dieser Zauber läßt den Zaubernden die Ausstrahlung aller böse verzauberten Objekte innerhalb von 18 m wahrnehmen. Diese Ausstrahlung geht auch von Wesen in dieser Entfernung aus, die dem Zaubernden Übles wollen. Die eigentlichen Gedanken des Wesens können nicht gehört werden. Beachten Sie, daß "chaotisch" nicht unbedingt böse heißt, obwohl viele chaotische Monster böse Absichten haben. Fallen und Gifte sind weder gut noch böse, sondern einfach gefährlich. Sie werden durch den Zauber nicht betroffen.

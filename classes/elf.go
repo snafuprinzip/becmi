@@ -318,7 +318,7 @@ func (c Elf) Grimoire(xp int) *magic.Spellbook {
 	book[0] = append(book[0], "Read Magic")
 	for {
 		roll := dice.RollDice(len(magic.AllArcaneSpells[0]))
-		spell := magic.AllArcaneSpells[0][roll-1].Name
+		spell := magic.AllArcaneSpells[0][roll-1].ID
 		if !containsString(book[0], spell) {
 			book[0] = append(book[0], spell)
 			break
@@ -328,7 +328,7 @@ func (c Elf) Grimoire(xp int) *magic.Spellbook {
 	if currentLevel >= 2 {
 		for {
 			roll := dice.RollDice(len(magic.AllArcaneSpells[0]))
-			spell := magic.AllArcaneSpells[0][roll-1].Name
+			spell := magic.AllArcaneSpells[0][roll-1].ID
 			if !containsString(book[0], spell) {
 				book[0] = append(book[0], spell)
 				break
@@ -337,12 +337,12 @@ func (c Elf) Grimoire(xp int) *magic.Spellbook {
 	}
 	if currentLevel >= 3 {
 		roll := dice.RollDice(len(magic.AllArcaneSpells[1]))
-		book[1] = append(book[1], magic.AllArcaneSpells[1][roll-1].Name)
+		book[1] = append(book[1], magic.AllArcaneSpells[1][roll-1].ID)
 	}
 	if currentLevel >= 4 {
 		for {
 			roll := dice.RollDice(len(magic.AllArcaneSpells[1]))
-			spell := magic.AllArcaneSpells[1][roll-1].Name
+			spell := magic.AllArcaneSpells[1][roll-1].ID
 			if !containsString(book[1], spell) {
 				book[1] = append(book[1], spell)
 				break
@@ -383,8 +383,13 @@ func (c Elf) SpellList(xp int, spellbook *magic.Spellbook) string {
 		spellList += fmt.Sprintf(translation, idx+1)
 
 		for _, spell := range spellbook[idx] {
-			spellList += spell + "\n"
+			for _, spelldesc := range magic.AllArcaneSpells[idx] {
+				if spelldesc.ID == spell {
+					spellList += spelldesc.Name + "\n"
+				}
+			}
 		}
+
 		spellList += "\n"
 	}
 	return spellList
@@ -420,7 +425,7 @@ func (c Elf) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 
 		for _, spell := range spellbook[idx] {
 			for _, spelldesc := range magic.AllArcaneSpells[idx] {
-				if spelldesc.Name == spell {
+				if spelldesc.ID == spell {
 					spells += spelldesc.String() + "\n"
 				}
 			}

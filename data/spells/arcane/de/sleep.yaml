@@ -1,13 +1,11 @@
 id: Sleep
-name: Sleep
+name: Schlaf
 level: 1
 reversible: false
-range: 240'
-duration: 4-16 (4d4) turns
-effect: 2-16 Hit Dice of living creatures within a 40' square area
-description: |-
-    This spell will put creatures to sleep for up to 16 turns. It will only affect creatures with 4 + 1 Hit Dice or less—generally, small or man-sized creatures. The spell will not affect creatures outside the 4 0 ' * 40' area which the player chooses as the spell's target area. The spell will not work against undead or very large creatures, such as dragons.
-    When a character is first hit with a sleep spell, falling or sagging to the ground will not wake him up. However, characters affected by a sleep spell are not in a deep sleep. Any sleeping character or creature will awaken if slapped, kicked, or shaken.
-    Characters can kill a sleeping victim with a single blow of any edged weapon, regardless of the creature's hit points.
-    Your Dungeon Master will roll 2d8 to find the total Hit Dice or experience levels of monsters affected by the spell.
-    The victims get no saving throw against this spell.
+range: 72m / 240e
+duration: 4-16 (4w4) Phasen
+effect: 2-16 2w8 TW an Lebewesen innerhalb von 12 x 12m / 40 x 40e
+description: |
+    Dieser Zauber versetzt Wesen 4w4 Phasen lang in Schlaf. Er betrifft nur Wesen mit 4 + 1 TW oder weniger - gewöhnlich kleine oder menschengroße Wesen. Alle Wesen, die getroffen werden sollen, müssen sich in einem Bereich von 12 x 12 m befinden. Der Zauber wirkt nicht bei Untoten oder sehr großen Wesen wie Drachen. Wenn ein Charakter einem Schlafzauber unterliegt, wird das Zusammensinken oder Umfallen ihn nicht aufwecken. jedes schlafende Wesen kann "gewaltsam" geweckt werden (durch einen Klaps oder einen Tritt). jedes schlafende Wesen kann, ungeachtet seiner TP durch einen einzigen Streich mit irgendeiner Klingenwaffe getötet werden.
+    
+    Der SL würfelt 2w8, um die gesamten TW an Wesen zu ermitteln, die betroffen sind. RW sind nicht zulässig.

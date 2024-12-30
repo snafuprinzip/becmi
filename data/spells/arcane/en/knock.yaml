@@ -1,0 +1,10 @@
+id: Knock
+name: Knock
+level: 2
+reversible: false
+range: 60'
+duration: See below
+effect: One lock or bar
+description: |
+  This spell will open any type of lock. This spell will open any normal or magically locked door (one affected by a hold portal or wizard lock spell), and any secret door (but a secret door must be found before it can be knocked open).
+  Any locking magic will remain, however, and will take effect once again when the door is closed. This spell will also unlock a gate, or unstick it if it is stuck, and will cause any treasure chest to open easily. It will also cause a barred door to open, magically forcing the bar to fall to the floor. If a door is locked and barred, only one type of lock will be opened.

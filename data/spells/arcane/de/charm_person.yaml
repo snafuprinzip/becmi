@@ -1,20 +1,27 @@
 id: Charm Person
-name: Charm Person
+name: Personen bezaubern
 level: 1
 reversible: false
-range: 120'
-duration: See below
-effect: One living person (see below)
-description: |-
-    This spell will only affect humans, demihumans, and certain other creatures. The victim is allowed a saving throw vs. spells. If the savingthrow is successful, the spell has no effect. If it fails, the victim will believe that the spellcaster is its "best friend," and will try to defend the spell- caster against any threat, whether real or imagined. The victim is charmed.
-    As a general rule, the spell only affects creatures which look similar to humans in various ways—humans, demihumans, certain giantclass creatures, etc. It will not affect animals, magical creatures (such as living statues), undead monsters, or human-like creatures larger than ogres.
-    If the spellcaster can speak a language that the charmed victim understands, the spellcaster may give orders to the victim. These orders should sound like suggestions, as if "just between friends." The chaxmed victim will usually obey, but the victim may resist orders that are contrary to the victim's nature (alignment and habits)— he doesn't need to roll anything to resist. A victim will refuse to obey if ordered to kill itself.
-    A charm may last for months. The victim may make another saving throw every so often, depending on its Intelligence score.
-    Charm Person Duration
-    If the Victim Has:               He Saves Every:
-    High Intelligence (13-18):       1 day
-    Average Intelligence (9-12):     1 week
-    Low Intelligence (3-8):          1 month
-    A more complex system for determining the duration of a charm spell appears in Chapter 13, on page 144.
-    A victim who is given conflicting orders and impressions by his old adventuring friends and his new "best friend" should react as any person would in real life: with confusion. He will not automatically assume that one party or the other is lying . . . even if the player wants him to.
-    The charm is automatically broken if the spellcaster attacks the victim, whether by spell or by weapon. The victim will fight normally if attacked by the spellcaster's allies.
+range: 36m / 120e
+duration: Siehe unten
+effect: Eine lebende Person
+description: |
+    Dieser Zauber wirkt nur auf Menschen, Halbmenschen und bestimmte andere Lebewesen. Das Opfer erhält einen Rettungswurf gegen Zauber. Falls der RW gelingt, hat der Zauber keine Wirkung. Falls der RW mißlingt, glaubt das Opfer, der Zaubernde sei sein "bester Freund " und versucht, den Zaubernden vor allen Bedrohungen zu schützen, seien sie real oder imaginär. Das Opfer ist bezaubert.
+    
+    Als Grundregel gilt, daß der Zauber nur auf Lebewesen wirkt, die Menschen in mehrerer Hinsicht ähneln - Menschen , Halbmenschen , bestimmte Kreaturen aus der Klasse der Riesen usw. Er wirkt nicht auf Tiere, magische Kreaturen (wie lebende Statuen ), untote Monster oder menschenähnliche Kreaturen, die größer als Oger sind.
+   
+    Wenn der Zaubernde eine Sprache spricht, die das bezauberte Opfer versteht, kann er dem Opfer Befehle geben. Diese Befehle sollten wie Vorschläge "unter Freunden" klingen. Das bezauberte Opfer gehorcht gewöhnlich, es wird aber Befehlen, die im Widerspruch zu seiner eigenen Natur (Gesinnung und Gewohnheit) stehen, nicht befolgen. Es muß nicht würfeln, um dem Befehl zu widerstehen. Ein Opfer wird sich weigern, einen selbstmörderischen Befehl auszuführen.
+   
+    Eine Bezauberung kann monatelang anhalten. Das Opfer kann dann und wann einen weiteren Rettungswurf ausführen, je nach Intelligenzwert.
+    
+    Wirkungsdauer von Personen bezaubern
+    Intelligenzwert des Opfers              Häufigkeit der RW
+    Hohe Intelligenz ( 13- 18)              1 x pro Tag
+    Durchschnittliche Intelligenz (9-12)    1 x pro Woche
+    Niedrige Intelligenz (3-8)              1 x pro Monat
+    
+    Ein komplexeres System für die Ermittlung der Wirkungsdauer einer Bezauberung findet sich in Kapitel 13 auf Seite 210.
+
+    Ein SC-Opfer, für das die Befehle und Eindrücke von den alten Abenteurerfreunden und dem neuen "besten Freund" einen offenen Widerspruch bilden, reagiert so, wie alle Personen im wirklichen Leben reagieren würden: mit Verwirrung. Es nimmt nicht automatisch an, daß die eine oder andere Partei lügt, selbst wenn der Spieler dies so will.
+    Die Bezauberung wird augenblicklich gebrochen, wenn der Zaubernde das Opfer angreift, sei es mittels einer Waffe oder Zauber. Das Opfer kämpft normal, wenn es von
+    den Verbündeten des Zaubernden angegriffen wird.

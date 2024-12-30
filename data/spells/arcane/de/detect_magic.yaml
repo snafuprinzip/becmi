@@ -1,11 +1,11 @@
 id: Detect Magic
-name: Detect Magic
+name: Magie entdecken
 level: 1
 reversible: false
 range: 0
-duration: 2 turns
-effect: Everything within 60'
-description: |-
-    When he casts this spell, the spellcaster will see a glow surround all magical objects, creatures, and places which are visible and within range of the spell. No saving throw is allowed.
-    Example: Shortly after casting this spell, a magic-user walks into a room containing a door locked by magic, a magical potion lying nearby, and a treasure chest containing a magical wand.
-    All the magic will glow, but the spellcaster can see only the door and potion; the light of the glowing wand is hidden by the treasure chest.
+duration: 2 Phasen
+effect: Alles innerhalb von 18m / 60e
+description: |
+    Dieser Zauber befähigt den Zaubernden die Ausstrahlungen aller magischen Objekte, Wesen und Orte innerhalb der Reichweite wahrzunehmen. Die Wirkung hält nicht sehr lange an, und wird am besten aufgespart, bis der Zauberkundige wissen möchte, ob etwas, was während des Abenteuers gefunden wurde, magisch ist.
+    
+    Beispiel: Kurz nachdem der Zauberkundige diesen Zauber gewirkt hat, geht er in einen Raum, der eine Tür enthält, die magisch verschlossen ist, sowie einen Zaubertrank, der auf einem Tisch steht und eine Schatztruhe mit einem Zauberstab darin. Alle magischen Gegenstände leuchten, doch nur die Tür und der Trank sind sichtbar. Das Licht des leuchtenden Stabes wird durch die Truhe verborgen.

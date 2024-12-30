@@ -1,0 +1,11 @@
+id: Levitate
+name: Levitate
+level: 2
+reversible: false
+range: 0
+duration: 6 turns + 1 turn/level of the caster
+effect: The spellcaster only
+description: |
+  When this spell is cast, the spellcaster may move up or down in the air without any support. This spell does not, however, allow the spellcaster to move from side to side. For example, a spellcaster could levitate to a ceiling, and then could slowly move sideways by pushing and pulling. His movement up or down is at the rate of 20' per round.
+  The spell cannot be cast on another person or object. The spellcaster may carry a normal amount of weight while levitating, up to 2,000cn (200 lbs) in weight, possibly another mansized creature (if it isn't wearing metal armor).
+  Any creature smaller than man-sized can be carried, unless heavily laden. No saving throw is allowed.
