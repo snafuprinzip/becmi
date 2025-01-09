@@ -1,12 +1,117 @@
+["Any town, village or city"]
+description = "Hometown: Any town, village or city"
+hash = "sha1-6234871804d57a391d938176734bd0808fdde076"
+other = "Jedes Dorf oder jede Stadt"
+
 [Attributes]
 description = "Character Attributes"
 hash = "sha1-a5c27fef6b3de4c03f7b7a4b2a005a5c94bb6954"
 other = "ST Stärke           %2d \t (%s Angriffswurf [Nahkampf, Unbewaffnet], Schadenswurf [Nahkampf, Wurfwaffe], Türen öffnen, optional: Rettungswurf: Lähmung, Versteinern)\nIN Intelligenz      %2d \t (%s Allgemeine Fertigkeiten, %s, optional: Rettungswurf gg. Geistige Angriffe)\nWE Weisheit         %2d \t (%s Rettungswurf gg. Sprüche)\nGE Geschicklichkeit %2d \t (%s Angriffswurf [Wurfwaffe, Geschosse], Rüstungsklasse, optional: Rettungswurf: Zauberstäbe, Drachenodem)\nKO Konstitution     %2d \t (%s Trefferpunkte pro Erfahrungsstufe, optional: Rettungswurf: Gift)\nCH Charisma         %2d \t (%s Reaktionsmodifikator von NPCs, %d max. Gefolgsleute, %d Moral der Gefolgsleute)\n"
 
+["Black Eagle Barony"]
+description = "Hometown: Black Eagle Barony"
+hash = "sha1-3dc35ff5c295663e51dc48f789e7ca5731057efa"
+other = "Baronie Schwarzaar"
+
+["Callarii Clan"]
+description = "Ethnicity: Callarii Clan"
+hash = "sha1-06a937d5a8f8bd25968ce27675ed0a83b26723e5"
+other = "Callarii Klan"
+
+[CharacterRecordSheet]
+description = "Character record sheet"
+hash = "sha1-81026e5cfeaba5b21d3818a39d608b28dca03e65"
+other = "Name:   %-32s \t Spieler:           %s\nKlasse: %-32s \t Gesinnung:         %s\nStufe: %2d %c (max. %2d) \t EP: %8d (%s%%) \t Nächste Stufe bei: %d\n\n%s\n%s\nRüstungsklasse: %3d \t Trefferpunkte: %3d\nBewegung:       %3d \t ETW0:          %3d\n\n%s\nErlaubte Rüstung: %s\nErlaubte Waffen:  %s\n\nHintergrund\n===========\nGeschlecht: %-12s \t Alter:  %4d (%s)\nGröße:      %s \t Gewicht: %d M (%d lb)\n%sStartgeld: %d GM\n\nBesondere Fähigkeiten\n=====================\n%s\n%s\nBeschreibungen\n==============\n%s\n%s\n"
+
+["Church of Karameikos"]
+description = "Church of Karameikos"
+hash = "sha1-d3f3126a3414940f1b36119e764b5b1bbf0105dd"
+other = "Kirche von Karameikos"
+
+["Church of Traladara"]
+description = "Church of Traladara"
+hash = "sha1-62e7996b24b89193c4cd2b33783b2ca4f8b465a6"
+other = "Kirche von Traladara"
+
+[Comfortable]
+description = "Social Status: Comfortable"
+hash = "sha1-38b9500198e3134aa962f68f69e6c9d9a4d36e54"
+other = "Mittelschicht"
+
+[Common]
+description = "Social Status: Common"
+hash = "sha1-a8a033ec1ab151e7e04edc59b113f683af271667"
+other = "Gemein"
+
+["Cult of Halav"]
+description = "Cult of Halav"
+hash = "sha1-2ba5435537bcf88ce78d50fb3e3911a10de553c1"
+other = "Kult von Halav"
+
+[Highforge]
+description = "Hometown: Highforge"
+hash = "sha1-6d17c6b06aca7762c5828236daacb5a90a59d883"
+other = "Hochbinge"
+
+[Homestead]
+description = "Hometown: Homestead"
+hash = "sha1-dcc74169853a5c16bf2395eb0b2168a47dabec7b"
+other = "Gutshof"
+
+[Karameikos]
+description = "Nation: Karameikos"
+hash = "sha1-5a564d3ba8c057a02db056a978150012db16173f"
+other = "Großherzogtum Karameikos"
+
+[Kelvin]
+description = "Hometown: Kelvin"
+hash = "sha1-e858d9060394008da570222219465baa355b3535"
+other = "Kelvin"
+
+[Lord]
+description = "Social Status: Lord"
+hash = "sha1-957b942ade29a59560f8b85e9a5092879c7015f6"
+other = "Lord"
+
+["Mixed Traladaran/Thyatian"]
+description = "Ethnicity: Mixed Traladaran/Thyatian"
+hash = "sha1-4e0b5b3d9c73797eb5eb5b835f3ba396d8ecffa8"
+other = "Kind Traladarischer und Thyatischer Eltern"
+
+[Penniless]
+description = "Social Status: Penniless"
+hash = "sha1-acc24c5076219c2f8801db5f42b5222229244c14"
+other = "Bettelarm"
+
+[RetainerStats]
+description = "Charisma Retainer Statistics"
+hash = "sha1-fb3c7cf6a7f175e825a3f16c162461388a7e07d1"
+other = "%d max. Gefolgsleute, %d Moral der Gefolgsleute"
+
+["Rifflian or Specularum"]
+description = "Hometown: Elf"
+hash = "sha1-c9f60af192a75b28c98a6e885670bac5091aa58b"
+other = "Rifflian oder Spekularum (Callarii) or Dymrak Wälder (Vyalia)"
+
+["Royal Family"]
+description = "Social Status: Royal Family"
+hash = "sha1-4dab6ff5349114b45599c5f3377d4ba239fa6140"
+other = "Herzogliche Familie"
+
+[Ruling]
+description = "Social Status: Ruling"
+hash = "sha1-49301bce56c7ec210e2c3133a36eae0bcbf25fee"
+other = "Regierend"
+
 [SavingThrows]
 description = "Character Saving Throws"
 hash = "sha1-47ba9ddc0f04e47574a91a9dd5790f05a1df8e5a"
 other = "Gift, Todesstrahlen              %2d\nZauberstäbe                      %2d\nLähmung, Versteinerung           %2d\nDrachenodem                      %2d\nZauberruten, -stecken, -sprüche  %2d\n"
+
+[Specularum]
+description = "Hometown: Specularum"
+hash = "sha1-6dd875d8e89027f0f5d1a74fb30dfd3918d03df4"
+other = "Spekularum"
 
 [Spell]
 description = "Spell Description"
@@ -18,15 +123,80 @@ description = "Header for Spell Descriptions"
 hash = "sha1-1fbd1a1d813033b92d1a4cf481e63ad4ab6bec73"
 other = "Zauberspruchbeschreibungen\n==========================\n\n"
 
+["Spell Description Obsidian Header"]
+description = "Header for Spell Descriptions for Obsidian"
+hash = "sha1-b3ad827e6f0f47059ed2ed72e9560109b728a2fa"
+other = "### Beschreibung der Zaubersprüche\n\n"
+
 ["Spell Level Header"]
 description = "Header for Spell Level"
 hash = "sha1-4caf22ffa941dac6f4a32f9f93edc624685222ea"
 other = "Grad %d\n------\n"
 
+["Spell Level Obsidian Header"]
+description = "Header for Spell Level for Obsidian"
+hash = "sha1-e25f2b689954ecf1d33b3523becabd0958bf71fc"
+other = "#### Grad %d\n\n"
+
 ["Spell List Header"]
 description = "Header for Spell List"
 hash = "sha1-9f3b6e9199c17fe83bee7f9953de0ae12fa49520"
 other = "Zaubersprüche\n=============\n\n"
+
+["Spell Obsidian"]
+description = "Spell Description for Obsidian"
+hash = "sha1-dc03060589d50992190db5582f864871d633f91d"
+other = "##### %s\n|              |      |\n| :----------- | ---: |\n| **Reichweite**    | %s |\n| **Wirkungsdauer** | %s |\n| ** Wirkungsbereich**  | %s |\n\n%s\n"
+
+["Spell Slots Magic-User"]
+description = "Spell Slots for Magic-User"
+hash = "sha1-e91188070995d646537c2d048855b0d6e031a7c5"
+other = "Zauber pro Stufe nach Grad\n--------------------------\n1. Grad: %2d\n2. Grad: %2d\n3. Grad: %2d\n4. Grad: %2d\n5. Grad: %2d\n6. Grad: %2d\n7. Grad: %2d\n8. Grad: %2d\n9. Grad: %2d\n"
+
+["Spell Slots Magic-User (Obsidian)"]
+description = "Spell Slots for Magic-User for Obsidian"
+hash = "sha1-e8608fed9eb6446a789e2f5f46ad2581630296ae"
+other = "> [!infobox]\n> ### Zauber pro Stufe nach Grad\n>| Grad    | \\#Zauber |\n>| --- | ---: |\n>| 1. Grad | %2d |\n>| 2. Grad | %2d |\n>| 3. Grad | %2d |\n>| 4. Grad | %2d |\n>| 5. Grad | %2d |\n>| 6. Grad | %2d |\n>| 7. Grad | %2d |\n>| 8. Grad | %2d |\n>| 9. Grad | %2d |\n"
+
+["Stronghollow Clan"]
+description = "Ethnicity: Stronghollow Clan"
+hash = "sha1-eeaf31a1a3eba2c7f7ca7b2f8e83b8cbeba3090b"
+other = "Starksenke Klan"
+
+[Struggling]
+description = "Social Status: Struggling"
+hash = "sha1-8bb4bddbcb926e87244e0bfd5a5066f926ab6347"
+other = "Unterschicht"
+
+[Thyatian]
+description = "Ethnicity: Thyatian"
+hash = "sha1-fd1805bf62178d28f0ea2611540ea2bcfe2ec44c"
+other = "Thyatisch"
+
+[Traladaran]
+description = "Ethnicity: Traladaran"
+hash = "sha1-3825f552bb84233ec23fe1221a72a78ac18d720d"
+other = "Traladarisch"
+
+["Very Wealthy"]
+description = "Social Status: Very Wealthy"
+hash = "sha1-f4f1fe161fb012aeae232eb2ea57080555db244d"
+other = "Stinkreich"
+
+["Village or Town (choice)"]
+description = "Hometown: Village or Town (choice)"
+hash = "sha1-6b2d8464b64390d2cc0ca3b7b0dff7686beb7f80"
+other = "Dorf oder Kleinstadt (nach Wahl)"
+
+["Vyalia Clan"]
+description = "Ethnicity: Vyalia Clan"
+hash = "sha1-386e4f1dbe6120e831d450a326a0acf778cd1508"
+other = "Vyalia Klan"
+
+[Wealthy]
+description = "Social Status: Wealthy"
+hash = "sha1-fb63607916553dc24c1b2482ae3d1ac1a1389ccc"
+other = "Vermögend"
 
 [can_write]
 description = "Can read and write"
@@ -53,7 +223,17 @@ description = "Karameikos Background"
 hash = "sha1-df088b78b7eb1ac8be3bf40973aa2c3e56be3807"
 other = "Ethnie:          %s\nSozialer Status: %s %s\nHerkunft:        %s\n"
 
-[CharacterRecordSheet]
-description = "Character record sheet"
-hash = "sha1-3eba969ac8622a636671530409e7b0ce81d4ed9f"
-other = "Name:   %-32s \t Spieler:           %s\nKlasse: %-32s \t Gesinnung:         %s\nStufe: %2d %c (max. %2d) \t EP: %8d (%s%%) \t Nächste Stufe bei: %d\n\n%s\n%s\nRüstungsklasse: %3d \t Trefferpunkte: %3d\nBewegung:       %3d \t ETW0:          %3d\n\n%s\nErlaubte Rüstung: %s\nErlaubte Waffen:  %s\n\nHintergrund\n===========\nGeschlecht: %-12s \t Alter:  %4d (%s)\nGröße:      %s \t Gewicht: %d M (%d lb)\n%s\nBesondere Fähigkeiten\n=====================\n%s\n%s\nBeschreibungen\n==============\n%s\n%s\n"
+[titled]
+description = "Social Status: Titled"
+hash = "sha1-2f3ed95131d446af61c940eb00196f5137afe654"
+other = "tituliert"
+
+["Obsidian Turn Undead"]
+description = "Obsidian Turn Undead Table"
+hash = "sha1-c97f5fbc926cac3f1b395e0caf7a5bd62e4d981c"
+other = "|      |       || :--- | :---: || Skelett   | %2s |\n| Zombie     | %2s |\n| Ghul      | %2s |\n| Gruftschrecken      | %2s |\n| Todesalb     | %2s |\n| Mumie      | %2s |\n| Schreckgespenst    | %2s |\n| Vampir    | %2s |\n| Phantom    | %2s |\n| Spuk      | %2s |\n| Böse Seele     | %2s |\n| Nachtschatten | %2s |\n| Leichnam       | %2s |\n| Speziell    | %2s |\n"
+
+["Turn Undead"]
+description = "Turn Undead Table"
+hash = "sha1-f4b41dad31e6817f33194db3716e763311b16f99"
+other = "Skelett   \t %2s\nZombie     \t %2s\nGhul      \t %2s\nGruftschrecken      \t %2s\nTodesalb     \t %2s\nMumie      \t %2s\nSchreckgespenst    \t %2s\nVampir    \t %2s\nPhantom    \t %2s\nSpuk      \t %2s\nBöse Seele     \t %2s\nNachtschatten \t %2s\nLeichnam       \t %2s\nSpeziell    \t %2s\n"

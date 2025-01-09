@@ -282,6 +282,10 @@ func (c Halfling) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 
+func (c Halfling) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
+	return ""
+}
+
 func (c Halfling) SpecialAbilities(xp int) ClassAbilities {
 	return c.Abilities
 }

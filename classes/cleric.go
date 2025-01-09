@@ -428,24 +428,92 @@ func (c Cleric) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return spells
 }
 
+func (c Cleric) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
+	var spells string
+	currentLevel := c.Level(xp)
+
+	slots := ClericSpellSlotsPerLevel[currentLevel-1]
+	for idx := 0; idx < 7; idx++ {
+		if slots[idx] == 0 {
+			break
+		}
+		if idx == 0 { // Print Header
+			spellListHeader := &i18n.Message{
+				ID:          "Spell Description Obsidian Header",
+				Description: "Header for Spell Descriptions for Obsidian",
+				Other:       "### Spelldescriptions\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+			spells += translation
+		}
+		spellLevelHeader := &i18n.Message{
+			ID:          "Spell Level Obsidian Header",
+			Description: "Header for Spell Level for Obsidian",
+			Other:       "#### Level %d\n\n",
+		}
+		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+		spells += fmt.Sprintf(translation, idx+1)
+
+		for _, spell := range magic.AllDivineSpells[idx] {
+			spells += spell.String() + "\n"
+		}
+		spells += "\n"
+	}
+	return spells
+}
+
 func (a TurnUndeadAbilities) String() string {
-	return fmt.Sprintf(""+
-		"Skeleton   \t %2s\n"+
-		"Zombie     \t %2s\n"+
-		"Ghoul      \t %2s\n"+
-		"Wight      \t %2s\n"+
-		"Wraith     \t %2s\n"+
-		"Mummy      \t %2s\n"+
-		"Spectre    \t %2s\n"+
-		"Vampire    \t %2s\n"+
-		"Phantom    \t %2s\n"+
-		"Haunt      \t %2s\n"+
-		"Spirit     \t %2s\n"+
-		"Nightshade \t %2s\n"+
-		"Lich       \t %2s\n"+
-		"Special    \t %2s\n",
-		a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13],
-	)
+	turnUndead := &i18n.Message{
+		ID:          "Turn Undead",
+		Description: "Turn Undead Table",
+		Other: "" +
+			"Skeleton   \t %2s\n" +
+			"Zombie     \t %2s\n" +
+			"Ghoul      \t %2s\n" +
+			"Wight      \t %2s\n" +
+			"Wraith     \t %2s\n" +
+			"Mummy      \t %2s\n" +
+			"Spectre    \t %2s\n" +
+			"Vampire    \t %2s\n" +
+			"Phantom    \t %2s\n" +
+			"Haunt      \t %2s\n" +
+			"Spirit     \t %2s\n" +
+			"Nightshade \t %2s\n" +
+			"Lich       \t %2s\n" +
+			"Special    \t %2s\n",
+	}
+
+	turnUndeadMsg := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: turnUndead})
+
+	return fmt.Sprintf(turnUndeadMsg, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13])
+}
+
+func (a TurnUndeadAbilities) ObsidianString() string {
+	turnUndead := &i18n.Message{
+		ID:          "Obsidian Turn Undead",
+		Description: "Obsidian Turn Undead Table",
+		Other: "" +
+			"|      |       |" +
+			"| :--- | :---: |" +
+			"| Skeleton   | %2s |\n" +
+			"| Zombie     | %2s |\n" +
+			"| Ghoul      | %2s |\n" +
+			"| Wight      | %2s |\n" +
+			"| Wraith     | %2s |\n" +
+			"| Mummy      | %2s |\n" +
+			"| Spectre    | %2s |\n" +
+			"| Vampire    | %2s |\n" +
+			"| Phantom    | %2s |\n" +
+			"| Haunt      | %2s |\n" +
+			"| Spirit     | %2s |\n" +
+			"| Nightshade | %2s |\n" +
+			"| Lich       | %2s |\n" +
+			"| Special    | %2s |\n",
+	}
+
+	turnUndeadMsg := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: turnUndead})
+
+	return fmt.Sprintf(turnUndeadMsg, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13])
 }
 
 func (c Cleric) SpecialAbilities(xp int) ClassAbilities {

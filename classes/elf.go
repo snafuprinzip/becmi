@@ -435,6 +435,43 @@ func (c Elf) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return spells
 }
 
+func (c Elf) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
+	var spells string
+
+	for idx := 0; idx < 9; idx++ {
+		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
+			break
+		}
+		if idx == 0 { // Print Header
+			spellListHeader := &i18n.Message{
+				ID:          "Spell Description Obsidian Header",
+				Description: "Header for Spell Descriptions for Obsidian",
+				Other:       "### Spelldescriptions\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+			spells += translation
+		}
+
+		spellLevelHeader := &i18n.Message{
+			ID:          "Spell Level Obsidian Header",
+			Description: "Header for Spell Level for Obsidian",
+			Other:       "#### Level %d\n\n",
+		}
+		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+		spells += fmt.Sprintf(translation, idx+1)
+
+		for _, spell := range spellbook[idx] {
+			for _, spelldesc := range magic.AllArcaneSpells[idx] {
+				if spelldesc.ID == spell {
+					spells += spelldesc.ObsidianString() + "\n"
+				}
+			}
+		}
+		spells += "\n"
+	}
+	return spells
+}
+
 func (c Elf) SpecialAbilities(xp int) ClassAbilities {
 	currentLevel := c.LevelIncludingRank(xp)
 	spellslots := ElfSpellSlotsPerLevel[currentLevel-1]

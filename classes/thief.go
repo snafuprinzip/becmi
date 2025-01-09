@@ -321,6 +321,10 @@ func (c Thief) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 
+func (c Thief) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
+	return ""
+}
+
 func (s ThiefSkills) String() string {
 	return fmt.Sprintf(""+
 		"Open Locks:      %d%%\n"+

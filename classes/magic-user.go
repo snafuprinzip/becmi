@@ -299,9 +299,46 @@ func (c MagicUser) ThAC0Table(xp int) string {
 func (c MagicUser) Magic() string { return "Arcane" }
 
 func (s MagicUserSpellSlots) String() string {
-	return fmt.Sprintf("1st: %d, 2nd: %d, 3rd: %d, 4th: %d, 5th: %d, 6th: %d, 7th: %d, 8th: %d, 9th: %d\n", s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8])
+	slots := &i18n.Message{
+		ID:          "Spell Slots Magic-User",
+		Description: "Spell Slots for Magic-User",
+		Other: "" +
+			"Spell Slots\n" +
+			"-----------\n" +
+			"1st: %2d\n2nd: %2d\n3rd: %2d\n4th: %2d\n5th: %2d\n6th: %2d\n7th: %2d\n8th: %2d\n9th: %2d\n",
+	}
+
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: slots})
+
+	return fmt.Sprintf(translation, s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8])
 }
 
+func (s MagicUserSpellSlots) ObsidianString() string {
+	slots := &i18n.Message{
+		ID:          "Spell Slots Magic-User (Obsidian)",
+		Description: "Spell Slots for Magic-User for Obsidian",
+		Other: "" +
+			"> [!infobox]\n" +
+			"> ### Spell Slots per Level\n" +
+			">| Level    | \\#Spells |\n" +
+			">| --- | ---: |\n" +
+			">| 1st | %2d |\n" +
+			">| 2nd | %2d |\n" +
+			">| 3rd | %2d |\n" +
+			">| 4th | %2d |\n" +
+			">| 5th | %2d |\n" +
+			">| 6th | %2d |\n" +
+			">| 7th | %2d |\n" +
+			">| 8th | %2d |\n" +
+			">| 9th | %2d |\n",
+	}
+
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: slots})
+
+	return fmt.Sprintf(translation, s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8])
+}
+
+// Grimoire generates a new grimoire for a spell caster character
 func (c MagicUser) Grimoire(xp int) *magic.Spellbook {
 	currentLevel := c.Level(xp)
 	var book magic.Spellbook
@@ -355,6 +392,7 @@ func (c MagicUser) Grimoire(xp int) *magic.Spellbook {
 	return &book
 }
 
+// SpellList returns the list of available spells for a character, either from their grimoire or from the whole available spell list
 func (c MagicUser) SpellList(xp int, spellbook *magic.Spellbook) string {
 	var spellList string
 
@@ -387,7 +425,7 @@ func (c MagicUser) SpellList(xp int, spellbook *magic.Spellbook) string {
 		for _, spell := range spellbook[idx] {
 			for _, spelldesc := range magic.AllArcaneSpells[idx] {
 				if spelldesc.ID == spell {
-					spellList += spelldesc.Name + "\n"
+					spellList += "- " + spelldesc.Name + "\n"
 				}
 			}
 		}
@@ -437,17 +475,53 @@ func (c MagicUser) SpellDescriptions(xp int, spellbook *magic.Spellbook) string 
 	return spells
 }
 
+func (c MagicUser) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
+	var spells string
+
+	for idx := 0; idx < 9; idx++ {
+		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
+			break
+		}
+		if idx == 0 { // Print Header
+			spellListHeader := &i18n.Message{
+				ID:          "Spell Description Obsidian Header",
+				Description: "Header for Spell Descriptions for Obsidian",
+				Other:       "### Spelldescriptions\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+			spells += translation
+		}
+
+		spellLevelHeader := &i18n.Message{
+			ID:          "Spell Level Obsidian Header",
+			Description: "Header for Spell Level for Obsidian",
+			Other:       "#### Level %d\n\n",
+		}
+		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+		spells += fmt.Sprintf(translation, idx+1)
+
+		for _, spell := range spellbook[idx] {
+			for _, spelldesc := range magic.AllArcaneSpells[idx] {
+				if spelldesc.ID == spell {
+					spells += spelldesc.ObsidianString() + "\n"
+				}
+			}
+		}
+		spells += "\n"
+	}
+	return spells
+}
+
 func (c MagicUser) SpecialAbilities(xp int) ClassAbilities {
 	currentLevel := c.LevelIncludingRank(xp)
 	spellslots := MagicUserSpellSlotsPerLevel[currentLevel-1]
-	for ability := range c.Abilities {
-		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Spell Slots" {
-			formatstr := c.Abilities[ability].Table
-			c.Abilities[ability].Table = fmt.Sprintf(formatstr, spellslots[0], spellslots[1], spellslots[2],
-				spellslots[3], spellslots[4], spellslots[5], spellslots[6], spellslots[7], spellslots[8])
-			break
-		}
-	}
+	c.Abilities.Add("Spell Slots", 1, spellslots.String(), "")
+	//for ability := range c.Abilities {
+	//	if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Spell Slots" {
+	//		c.Abilities[ability].Table = spellslots.String()
+	//		break
+	//	}
+	//}
 
 	return c.Abilities
 	//currentLevel := c.Level(xp)

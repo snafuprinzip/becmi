@@ -12,7 +12,7 @@ import (
 	"path"
 )
 
-type Dwarf struct {
+type Gnome struct {
 	ID                    string         `yaml:"id"`
 	ClassName             string         `yaml:"class"`
 	ClassRace             string         `yaml:"race"`
@@ -25,10 +25,10 @@ type Dwarf struct {
 	Abilities             ClassAbilities `yaml:"abilities"`
 }
 
-var DwarfXPLevel XPLevel = XPLevel{-1, 2200, 4400, 8800, 17000, 35000, 70000, 140000, 270000, 400000,
-	530000, 660000, 800000, 1000000, 1200000, 1400000, 1600000, 1800000, 2000000, 2200000, 2400000, 2600000}
+var GnomeXPLevel XPLevel = XPLevel{-1, 2000, 4000, 8000, 16000, 32000, 60000, 120000, 250000, 510000,
+	810000, 1110000, 1310000, 1610000, 1910000, 2210000, 2510000, 2810000, 3110000, 3410000, 3710000, 4010000}
 
-var DwarfSavingThrows savingthrows.ByLevel = savingthrows.ByLevel{
+var GnomeSavingThrows savingthrows.ByLevel = savingthrows.ByLevel{
 	// Level 1-3
 	{8, 9, 10, 13, 12},
 	{8, 9, 10, 13, 12},
@@ -58,15 +58,15 @@ var DwarfSavingThrows savingthrows.ByLevel = savingthrows.ByLevel{
 }
 
 func init() {
-	ClassIndices = append(ClassIndices, "Dwarf")
+	ClassIndices = append(ClassIndices, "Gnome")
 	if Classes == nil {
 		Classes = make(map[string]Class)
 	}
-	Classes["Dwarf"] = Dwarf{}
+	Classes["Gnome"] = Gnome{}
 }
 
-func (c Dwarf) Load() Class {
-	fileContent, err := os.ReadFile(path.Join("data", "classes", localization.LanguageSetting, "dwarf.yaml"))
+func (c Gnome) Load() Class {
+	fileContent, err := os.ReadFile(path.Join("data", "classes", localization.LanguageSetting, "gnome.yaml"))
 	if err != nil {
 		log.Fatal("Error reading file:", err)
 	}
@@ -80,23 +80,23 @@ func (c Dwarf) Load() Class {
 	return c
 }
 
-func (c Dwarf) Name() string {
+func (c Gnome) Name() string {
 	return c.ClassName
 }
 
-func (c Dwarf) Race() string { return c.ClassRace }
+func (c Gnome) Race() string { return c.ClassRace }
 
-func (c Dwarf) Requirement(attr attributes.Attributes) bool {
-	if attr["CON"].Value >= 9 {
+func (c Gnome) Requirement(attr attributes.Attributes) bool {
+	if attr["DEX"].Value >= 8 && attr["CON"].Value >= 6 {
 		return true
 	}
 	return false
 }
 
-func (c Dwarf) Level(xp int) int {
-	for idx := range len(DwarfXPLevel) {
-		if xp < DwarfXPLevel[idx] {
-			return idx
+func (c Gnome) Level(xp int) int {
+	for idx := range len(GnomeXPLevel) {
+		if xp < GnomeXPLevel[idx] {
+			return idx - 1
 		}
 		if idx >= c.MaxClassLevel {
 			return c.MaxClassLevel
@@ -105,136 +105,81 @@ func (c Dwarf) Level(xp int) int {
 	return 0
 }
 
-func (c Dwarf) Rank(xp int) rune {
-	level := c.LevelIncludingRank(xp)
-	switch level {
-	case 12:
-		return 'C'
-	case 13:
-		return 'D'
-	case 14:
-		return 'E'
-	case 15:
-		return 'F'
-	case 16:
-		return 'G'
-	case 17:
-		return 'H'
-	case 18:
-		return 'I'
-	case 19:
-		return 'J'
-	case 20:
-		return 'K'
-	case 21:
-		return 'L'
-	case 22:
-		return 'M'
-	default:
-		return ' '
-	}
+func (c Gnome) Rank(xp int) rune {
+	return ' '
 }
 
-func (c Dwarf) LevelIncludingRank(xp int) int {
-	for idx := range len(DwarfXPLevel) {
-		if xp < DwarfXPLevel[idx] {
+func (c Gnome) LevelIncludingRank(xp int) int {
+	for idx := range len(GnomeXPLevel) {
+		if xp < GnomeXPLevel[idx] {
 			return idx
 		}
 	}
 	return 0
 }
 
-func (c Dwarf) NextLevelAt(xp int) int {
-	return DwarfXPLevel[c.LevelIncludingRank(xp)]
+func (c Gnome) NextLevelAt(xp int) int {
+	return GnomeXPLevel[c.LevelIncludingRank(xp)]
 }
 
-func (c Dwarf) CheckXPModifier(a attributes.Attributes) int {
+func (c Gnome) CheckXPModifier(a attributes.Attributes) int {
 	switch {
-	case a["STR"].Value < 13:
+	case a["DEX"].Value < 13:
 		return 0
-	case a["STR"].Value < 16:
+	case a["DEX"].Value < 16:
 		return 5
-	case a["STR"].Value > 15:
+	case a["DEX"].Value > 15:
 		return 10
 	}
 	return 0
 }
 
-func (c Dwarf) HitDice() (dice, point int) {
+func (c Gnome) HitDice() (dice, point int) {
 	return c.ClassHD, c.ClassHP
 }
 
-func (c Dwarf) MaxLevel() int {
+func (c Gnome) MaxLevel() int {
 	return c.MaxClassLevel
 }
 
-func (c Dwarf) MaxInternalLevel() int {
+func (c Gnome) MaxInternalLevel() int {
 	return c.MaxInternalClassLevel
 }
 
-func (c Dwarf) ArmorProficiency() string {
+func (c Gnome) ArmorProficiency() string {
 	return c.ClassArmor
 }
 
-func (c Dwarf) WeaponProficiency() string {
+func (c Gnome) WeaponProficiency() string {
 	return c.ClassWeapons
 }
 
-func (c Dwarf) SavingThrows(xp int) savingthrows.SavingThrows {
+func (c Gnome) SavingThrows(xp int) savingthrows.SavingThrows {
 	currentLevel := c.LevelIncludingRank(xp)
-	return DwarfSavingThrows[currentLevel-1]
+	return GnomeSavingThrows[currentLevel-1]
 }
 
-func (c Dwarf) BaseMovement() int {
+func (c Gnome) BaseMovement() int {
 	return 120
 }
 
-func (c Dwarf) ThAC0(xp int) int {
+func (c Gnome) ThAC0(xp int) int {
 	currentLevel := c.Level(xp)
-	currentRank := c.Rank(xp)
 
 	switch {
-	case currentRank == 'A':
-		return 15
-	case currentRank == 'B':
-		return 14
-	case currentRank == 'C':
-		return 13
-	case currentRank == 'D':
-		return 12
-	case currentRank == 'E':
-		return 11
-	case currentRank == 'F':
-		return 10
-	case currentRank == 'G':
-		return 9
-	case currentRank == 'H':
-		return 8
-	case currentRank == 'I':
-		return 7
-	case currentRank == 'J':
-		return 6
-	case currentRank == 'K':
-		return 5
-	case currentRank == 'L':
-		return 4
-	case currentRank == 'M':
-		return 3
-	case currentLevel < 4:
-		return 19
-	case currentLevel < 7:
-		return 17
-	case currentLevel < 10:
-		return 15
-	case currentLevel < 13:
-		return 13
-	case currentLevel < 21:
-		return 11
+	case currentLevel < 9:
+		return 19 - currentLevel
+	case currentLevel < 25:
+		return 10 - (currentLevel/2 - 4)
+	case currentLevel < 35:
+		return 2
+	case currentLevel >= 35:
+		return 1
 	}
 	return 20
 }
 
-func (c Dwarf) ThAC0Table(currentLevel int) string {
+func (c Gnome) ThAC0Table(currentLevel int) string {
 	thac0 := c.ThAC0(currentLevel)
 
 	var table [40]int // -20 to 19 == offset 20
@@ -277,24 +222,24 @@ func (c Dwarf) ThAC0Table(currentLevel int) string {
 		table[10])
 }
 
-func (c Dwarf) Magic() string { return "" }
+func (c Gnome) Magic() string { return "" }
 
-func (c Dwarf) Grimoire(xp int) *magic.Spellbook {
+func (c Gnome) Grimoire(xp int) *magic.Spellbook {
 	return nil
 }
 
-func (c Dwarf) SpellList(xp int, spellbook *magic.Spellbook) string {
+func (c Gnome) SpellList(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 
-func (c Dwarf) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
+func (c Gnome) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 
-func (c Dwarf) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
+func (c Gnome) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 
-func (c Dwarf) SpecialAbilities(xp int) ClassAbilities {
+func (c Gnome) SpecialAbilities(xp int) ClassAbilities {
 	return c.Abilities
 }

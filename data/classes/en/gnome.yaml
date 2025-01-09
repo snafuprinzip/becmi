@@ -1,0 +1,81 @@
+id: Gnome
+class: Gnome
+race: Gnome
+hitdice: 8
+hitpoints: 2
+maxlevel: 22
+maxinternallevel: 22
+armor: Leather or Chain mail, heavier armor will decrease DEX by 2; shields permitted.
+weapons: Any Small melee weapon up to a short sword; short bows and crossbows permitted, but longbows forbidden.
+abilities:
+  - id: Infravision
+    name: Infravision
+    minlevel: 1
+    table: ""
+    description: |
+      Infravision is the ability to see heat (and the lack of heat). Gnomes have infravision in addition to normal sight and can see 90' in the dark.
+      Infravision does not work in the presence of normal and magical light. With infravision, warm things appear red, and cold things appear blue.
+      A creature could be seen as a red shape, leaving faint reddish footprints. A cold pool of water would seem a deep blue color.
+      Characters with infravision can even see items or creatures the same temperature as the surrounding air (such as a table or a skeleton), since air flow will
+      inevitably show the viewer their borders, outlining them in a faint lighter-blue tone. Until they move, they will be very faint to the
+      eye; once they start moving, they become blurry but very obvious light-blue figures.
+      Infravision isn't good enough to read by. A character can use his infravision to recognize an individual only if they are within 10' distance...
+      unless the individual is very, very distinctive (for example, 8' tall or walking with a crutch).
+  - id: Detection
+    name: Detection
+    minlevel: 1
+    table: ""
+    description: |
+      Gnomes can sometimes detect traps (specifically, traps built into stone-work or heavy construction, not other types of traps such as rope-traps in the forest or spring-out needles built into a jewelry box); they can also detect sliding walls, sloping corridors, and new constructions.
+      If your Gnome character wants to search for such things in an area, tell the DM. You have 1 chance in 3 to find them. The DM will roll 1d6, and a 1 or 2 will indicate success if there is anything to find; a result of 3-6 means your Gnome detects nothing. "You may check once for each trap, sliding wall, sloping corridor, or new construction.
+      Ybu must tell the DM if you want to look for anything; the detection is never automatic.
+  - id: Natural Armor Class
+    name: Natural Armor Class
+    minlevel: 1
+    table: ""
+    description: Gnomes have a natural Armor Class of 9.
+  - id: Saving Throw Bonuses
+    name: Saving Throw Bonuses
+    minlevel: 1
+    table: ""
+    description: Gnomes save against earth-based attacks with a + 1 bonus; including acid (e.g., black dragon breath) and petrification (e.g., the gaze of a basilisk).
+  - id: AC Bonus
+    name: AC Bonus against large Creatures
+    minlevel: 1
+    description: Gnomes gain a - 1 AC bonus in combat against creatures larger than man-size.
+  - id: Speak with Burrowing Animals
+    name: Speak with Burrowing Animals
+    minlevel: 1
+    description: Gnomes can speak with natural burrowing animals at will (including badgers, moles, etc.). Keep in mind that such creatures are not masters of intellect!
+  - id: Additional Languages
+    name: Additional Languages
+    minlevel: 1
+    table: ""
+    description: In addition to Common and alignment tongues, a Gnome can speak the languages of the gnome, dwarf, goblin, halfling, and kobold races.
+  - id: Potentia Magia
+    name: Potentia Magia
+    table: ""
+    description: Gnomes with INT 13+ can become wiccas; gnomes with WIS 14+ can become shamans.
+  - id: Saving Throw Increased Earth Bonus
+    name: Saving Throw Increased Earth Bonus
+    minlevel: 3
+    table: ""
+    description: The bonus against earth-based attacks rises to +2.
+  - id: Machinery Bonus
+    name: Machinery Bonus
+    minlevel: 6
+    table: ""
+    description: Gnomes gain a - 1 bonus to any Ability Check they must make when dealing with machinery.
+  - id: Wall of Stone
+    name: Wall of Stone
+    minlevel: 9
+    description: |
+      A gnome of this level may cast a wall of stone spell once per week, even if not a shaman or wicca.
+      The gnome can only do this underground, and NOT if there is any direct access to the open sky. Within their own home burrows, the walls of stone created by gnomes in self-defense may be up to twice the normal size. Ability use is as if the gnome were a 9th level spellcaster for determining volume of stone created.
+  - id: Meddling
+    name: Meddling
+    minlevel: 10
+    table: ""
+    description: |
+      This is a wish-like gift that allows the gnome to overcome the limitations of his technical skills. This confers a - 2 bonus to Ability Checks when using the skill Fantasy Physics. 
+      Useable only on inventions, the intent is such that a device or part of a device functions as the gnome desires it to, regardless of his technical limitations. It's one reason that impossible gnomish inventions work while those of more accomplished inventors fail.

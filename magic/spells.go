@@ -63,11 +63,11 @@ func loadArcaneSpells() {
 
 		AllArcaneSpells[spell.Level-1] = append(AllArcaneSpells[spell.Level-1], spell)
 	}
-	for _, level := range AllArcaneSpells {
-		for idx, spell := range level {
-			fmt.Printf("%2d: %s (%s)\n", idx+1, spell.ID, spell.Name)
-		}
-	}
+	//for _, level := range AllArcaneSpells {
+	//	for idx, spell := range level {
+	//		fmt.Printf("%2d: %s (%s)\n", idx+1, spell.ID, spell.Name)
+	//	}
+	//}
 }
 
 func loadDivineSpells() {
@@ -174,4 +174,28 @@ func (s Spell) String() string {
 	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: outputMessage})
 
 	return fmt.Sprintf(translation, s.Name, s.Range, s.Duration, s.Effect, s.Description)
+}
+
+func (s Spell) ObsidianString() string {
+	outputMessage := &i18n.Message{
+		ID:          "Spell Obsidian",
+		Description: "Spell Description for Obsidian",
+		Other: "" +
+			"##### %s\n" +
+			"|              |      |\n" +
+			"| :----------- | ---: |\n" +
+			"| **Range**    | %s |\n" +
+			"| **Duration** | %s |\n" +
+			"| ** Effect**  | %s |\n\n" +
+			"%s\n",
+	}
+
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: outputMessage})
+
+	name := s.Name
+	if s.Reversible {
+		name += " \\*"
+	}
+
+	return fmt.Sprintf(translation, name, s.Range, s.Duration, s.Effect, s.Description)
 }

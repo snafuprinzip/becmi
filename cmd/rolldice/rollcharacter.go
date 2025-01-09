@@ -14,6 +14,7 @@ import (
 func main() {
 	var name, player, class, alignment, sex, bg string
 	var xp int
+	var save, obsidian bool
 
 	language := "en"
 	if lang, ok := os.LookupEnv("LANG"); ok {
@@ -28,6 +29,8 @@ func main() {
 	flag.StringVar(&bg, "b", "Karameikos", "campaign background "+background.AvailableBackgrounds())
 	flag.IntVar(&xp, "xp", 0, "experience points")
 	flag.StringVar(&language, "lang", language, "application language [en, de]")
+	flag.BoolVar(&save, "save", false, "save character to [name].yaml file")
+	flag.BoolVar(&obsidian, "obsidian", false, "save character to [name].md file for Obsidian")
 	flag.Parse()
 
 	localization.LanguageSetting = language
@@ -37,4 +40,12 @@ func main() {
 
 	char := becmi.NewCharacter(name, player, alignment, sex, class, bg, xp)
 	fmt.Printf("%s\n", char)
+
+	if save {
+		char.Save()
+	}
+
+	if obsidian {
+		char.SaveObsidian()
+	}
 }

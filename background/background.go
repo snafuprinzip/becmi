@@ -4,6 +4,10 @@ type Background interface {
 	Nation() string
 	Nationality() string
 	String() string
+	Ethnicity() string
+	SocialStatus() string
+	Hometown() string
+	Faith() string
 }
 
 var BackgroundIndices []string

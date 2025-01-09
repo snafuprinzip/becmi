@@ -16,6 +16,7 @@ type Class interface {
 	Name() string
 	Requirement(attr attributes.Attributes) bool
 	Level(xp int) int
+	LevelIncludingRank(xp int) int
 	Rank(xp int) rune
 	NextLevelAt(xp int) int
 	CheckXPModifier(a attributes.Attributes) int
@@ -33,6 +34,7 @@ type Class interface {
 	Grimoire(xp int) *magic.Spellbook
 	SpellList(xp int, spellbook *magic.Spellbook) string
 	SpellDescriptions(xp int, spellbook *magic.Spellbook) string
+	SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string
 	Load() Class
 }
 

@@ -1,0 +1,145 @@
+{{define "de/character"}}
+
+# ``=this.Name``
+
+> [!infobox]
+> ![[{{ .Name }}.png]]
+>
+
+
+|        |                 |        |              |                       |                     |
+|:------ | ---------------:|:------ | ------------:|:--------------------- | -------------------:|
+| Name   |  ``=this.Name`` |        |              | **Spieler**           |    ``=this.Player`` |
+| Klasse | ``=this.Class`` |        |              | **Gesinnung**         | ``=this.Alignment`` |
+| Stufe  | ``=this.Level`` | **EP** | ``=this.XP`` | **Nächste Stufe bei** | ``=this.NextLevel`` |
+
+
+|     | Attribut         |                   |                   |                                                                                        | Optional: Rettungswurf   |
+|:---:|:---------------- | -----------------:| -----------------:|:-------------------------------------------------------------------------------------- |:------------------------ |
+| ST  | Stärke           | **``=this.STR``** | ``=this.STR_Mod`` | Angriffswurf [Nahkampf, Unbewaffnet], Schadenswurf [Nahkampf, Wurfwaffe], Türen öffnen | Lähmung, Versteinern     |
+| IN  | Intelligenz      | **``=this.INT``** | ``=this.INT_Mod`` | Allgemeine Fertigkeiten, {{ .INTModText }}  | Geistige Angriffe        |
+| WE  | Weisheit         | **``=this.WIS``** | ``=this.WIS_Mod`` | Rettungswurf gg. Sprüche                                                               |                          |
+| GE  | Geschicklichkeit | **``=this.DEX``** | ``=this.DEX_Mod`` | Angriffswurf [Wurfwaffe, Geschosse], Rüstungsklasse                                    | Zauberstäbe, Drachenodem |
+| KO  | Konstitution     | **``=this.CON``** | ``=this.CON_Mod`` | Trefferpunkte pro Erfahrungsstufe                                                      | Gift                     |
+| CH  | Charisma         | **``=this.CHA``** | ``=this.CHA_Mod`` | Reaktionsmodifikator von NPCs, {{ .CHAModText }}           |                          |
+
+
+| Rettungswurf                    |                            |
+|:------------------------------- | --------------------------:|
+| Gift, Todesstrahlen             |        ``=this.ST_Poison`` |
+| Zauberstäbe                     |         ``=this.ST_Wands`` |
+| Lähmung, Versteinerung          | ``=this.ST_Petrification`` |
+| Drachenodem                     |  ``=this.ST_DragonBreath`` |
+| Zauberruten, -stecken, -sprüche |        ``=this.ST_Spells`` |
+
+---
+
+## Kampf
+
+|                |                |                   |                 |
+|:-------------- | --------------:|:----------------- | ---------------:|
+| Rüstungsklasse |   ``=this.AC`` | **Trefferpunkte** |    ``=this.HP`` |
+| Bewegung       | ``=this.Move`` | **ETW0**          | ``=this.THAC0`` |
+
+| RK   | 10  |  9  |  8  |  7  |  6  |  5  |  4  |  3  |  2  |  1  |      **0**      | -1  | -2  | -3  | -4  | -5  | -6  | -7  | -8  | -9  | -10 |
+| ---- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Wurf |  9  | 10  | 11  | 12  | 13  | 14  | 15  | 16  | 17  | 18  | ``=this.THAC0`` | 20  | 20  | 20  | 20  | 20  | 21  | 22  | 23  | 24  | 25  |
+
+**Erlaubte Rüstung:** ``=this.AllowedArmor``
+
+**Erlaubte Waffen:**  ``=this.AllowedWeapons``
+
+### Waffen
+
+| Waffe        | Primär | TW  | Schaden (P) | Schaden (S) | Abwehr | Reichweite (e) | Spezialeffekte | Anmerkung |
+|:------------ |:------:|:---:|:-----------:|:-----------:|:------:|:--------------:|:-------------- |:--------- |
+|              |        |     |             |             |        |                |                |           |
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+## Fertigkeiten
+
+- !!!col
+    - 1
+      ### Waffen
+      |       |                 |
+      |:----- | ---------------:|
+<% tp.frontmatter.WeaponSkills.map(prop => `      | ${prop} |`).join("\n") %>
+    - 1
+      ### Sprachen
+<% tp.frontmatter.Languages.map(prop => `      - ${prop}`).join("\n") %>
+    - 1
+      ### Allgemein
+      |                                                     |     |
+      |:--------------------------------------------------- | ---:|
+<% tp.frontmatter.Skills.map(prop => `      | [[${prop}]] | |`).join("\n") %>
+
+---
+
+## Besondere Fähigkeiten
+
+{{ .ClassAbilities }}
+
+{{ .Spells }}
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+### Ausrüstung
+
+| Gegenstand | Anmerkung | Ort | Gewicht (M) |
+| ---------- | --------- | --- | ----------- |
+|            |           |     |             |
+
+### Geld & Wertgegenstände
+
+>[!col]
+>| Münzen        |     | Bank | Bar |
+|:------- |:---:| ----:| ---:|
+|         | PM  |      |     |
+| Royale  | GM  |      | {{ .GP }}    |
+|         | EM  |      |     |
+| Kronen  | SM  |      |     |
+| Kopeken | KM  |      |     |
+>
+>> [!col-md-3]
+>> | Wertgegenstände | Wert (GM) |
+>> |:---------- | ---------:|
+>> |            |           |
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+> [!infobox]
+> ## Hintergrund
+>
+> |                 |                     |
+> |:--------------- | -------------------:|
+> | Geschlecht      |    ``=this.Gender`` |
+> | Alter           |       ``=this.Age`` |
+> | Größe           |    ``=this.Height`` |
+> | Gewicht         |    ``=this.Weight`` |
+> | Ethnie          | ``=this.Ethnicity`` |
+> | Sozialer Status |    ``=this.Status`` |
+> | Herkunft        |    ``=this.Origin`` |
+> | Glaube          |     ``=this.Faith`` |
+
+## Hintergrundgeschichte
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+## Beschreibungen
+
+{{ .ClassDescriptions }}
+
+{{ .SpellDescriptions }}
+
+{{ .Descriptions }}
+
+{{end}}

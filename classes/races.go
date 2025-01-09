@@ -6,6 +6,8 @@ func Age(race string) (age int, agespan string) {
 	switch race {
 	case "Human":
 		return humanAge()
+	case "Gnome":
+		fallthrough
 	case "Dwarf":
 		return dwarfAge()
 	case "Elf":
@@ -20,6 +22,8 @@ func Body(race, sex string) (height string, weight int) {
 	switch race {
 	case "Human":
 		return humanBody(sex)
+	case "Gnome":
+		fallthrough
 	case "Dwarf":
 		return dwarfBody(sex)
 	case "Elf":
