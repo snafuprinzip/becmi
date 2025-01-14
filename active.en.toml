@@ -62,10 +62,6 @@ other = "Lord"
 description = "Ethnicity: Mixed Traladaran/Thyatian"
 other = "Mixed Traladaran/Thyatian"
 
-["Obsidian Turn Undead"]
-description = "Obsidian Turn Undead Table"
-other = "|      |       || :--- | :---: || Skeleton   | %2s |\n| Zombie     | %2s |\n| Ghoul      | %2s |\n| Wight      | %2s |\n| Wraith     | %2s |\n| Mummy      | %2s |\n| Spectre    | %2s |\n| Vampire    | %2s |\n| Phantom    | %2s |\n| Haunt      | %2s |\n| Spirit     | %2s |\n| Nightshade | %2s |\n| Lich       | %2s |\n| Special    | %2s |\n"
-
 [Penniless]
 description = "Social Status: Penniless"
 other = "Penniless"
@@ -110,6 +106,10 @@ other = "### Spelldescriptions\n\n"
 description = "Header for Spell Level"
 other = "Level %d\n--------\n"
 
+["Spell Level Header (Obsidian)"]
+description = "Header for Spell Level for Obsidian"
+other = "#### Level %d\n"
+
 ["Spell Level Obsidian Header"]
 description = "Header for Spell Level for Obsidian"
 other = "#### Level %d\n\n"
@@ -118,9 +118,21 @@ other = "#### Level %d\n\n"
 description = "Header for Spell List"
 other = "Spells\n======\n\n"
 
+["Spell List Header (Obsidian)"]
+description = "Header for Spell List for Obsidian"
+other = "### Spells\n\n"
+
 ["Spell Obsidian"]
 description = "Spell Description for Obsidian"
 other = "##### %s\n|              |      |\n| :----------- | ---: |\n| **Range**    | %s |\n| **Duration** | %s |\n| ** Effect**  | %s |\n\n%s\n"
+
+["Spell Slots Cleric"]
+description = "Spell Slots for Cleric"
+other = "Spell Slots\n-----------\n1st: %2d\n2nd: %2d\n3rd: %2d\n4th: %2d\n5th: %2d\n6th: %2d\n7th: %2d\n"
+
+["Spell Slots Cleric (Obsidian)"]
+description = "Spell Slots for Cleric for Obsidian"
+other = "> [!infobox]\n> ### Spell Slots per Level\n>| Level    | \\#Spells |\n>| --- | ---: |\n>| 1st | %2d |\n>| 2nd | %2d |\n>| 3rd | %2d |\n>| 4th | %2d |\n>| 5th | %2d |\n>| 6th | %2d |\n>| 7th | %2d |\n"
 
 ["Spell Slots Magic-User"]
 description = "Spell Slots for Magic-User"
@@ -138,6 +150,14 @@ other = "Stronghollow Clan"
 description = "Social Status: Struggling"
 other = "Struggling"
 
+["Thief Skills"]
+description = "Thief Skills"
+other = "Open Locks:      %d%%\nFind Traps:      %d%%\nRemove Traps:    %d%%\nClimb Walls:     %d%%\nMove Silently:   %d%%\nHide In Shadows: %d%%\nPick Pockets:    %d%%\nHear Noise:      %d%%\n"
+
+["Thief Skills (Obsidian)"]
+description = "Thief Skills for Obsidian"
+other = "|                 |      |\n| :-------------- | ---: |\n| Open Locks      | %d%% |\n| Find Traps      | %d%% |\n| Remove Traps    | %d%% |\n| Climb Walls     | %d%% |\n| Move Silently   | %d%% |\n| Hide In Shadows | %d%% |\n| Pick Pockets    | %d%% |\n| Hear Noise      | %d%% |\n"
+
 [Thyatian]
 description = "Ethnicity: Thyatian"
 other = "Thyatian"
@@ -147,8 +167,16 @@ description = "Ethnicity: Traladaran"
 other = "Traladaran"
 
 ["Turn Undead"]
-description = "Turn Undead Table"
-other = "Skeleton   \t %2s\nZombie     \t %2s\nGhoul      \t %2s\nWight      \t %2s\nWraith     \t %2s\nMummy      \t %2s\nSpectre    \t %2s\nVampire    \t %2s\nPhantom    \t %2s\nHaunt      \t %2s\nSpirit     \t %2s\nNightshade \t %2s\nLich       \t %2s\nSpecial    \t %2s\n"
+description = "Turn Undead Legend Table"
+other = "\n7, 9, or 11 number needed to turn successfully\nT           automatic turn, 2d6 Hit Dice of undead\nD           automatic Destroy, 2d6 Hit Dice of undead\nD+          automatic Destroy, 3d6 Hit Dice of undead\nD#          automatic Destroy, 4d6 Hit Dice of undead\n\n"
+
+["Turn Undead (Obsidian)"]
+description = "Turn Undead Table for Obsidian"
+other = "|           |     |\n| :--- | :---: |\n| Skeleton   | %2s |\n| Zombie     | %2s |\n| Ghoul      | %2s |\n| Wight      | %2s |\n| Wraith     | %2s |\n| Mummy      | %2s |\n| Spectre    | %2s |\n| Vampire    | %2s |\n| Phantom    | %2s |\n| Haunt      | %2s |\n| Spirit     | %2s |\n| Nightshade | %2s |\n| Lich       | %2s |\n| Special    | %2s |\n"
+
+["Turn Undead Legend (Obsidian)"]
+description = "Turn Undead Table Legend for Obsidian"
+other = "\n>[!infobox]\n>| | |\n>| :---: | :--- |\n>| 7, 9, or 11 | number needed to turn successfully |\n>| T           | automatic turn, 2d6 Hit Dice of undead |\n>| D           | automatic Destroy, 2d6 Hit Dice of undead |\n>| D+          | automatic Destroy, 3d6 Hit Dice of undead |\n>| D#          | automatic Destroy, 4d6 Hit Dice of undead |\n\n"
 
 ["Very Wealthy"]
 description = "Social Status: Very Wealthy"
@@ -166,6 +194,10 @@ other = "Vyalia Clan"
 description = "Social Status: Wealthy"
 other = "Wealthy"
 
+[ac]
+description = "AC"
+other = "AC"
+
 [can_write]
 description = "Can read and write"
 other = "Reads and writes (usually two) native languages"
@@ -182,9 +214,41 @@ other = "Cannot read or write Common"
 description = "Cannot speak"
 other = "Has trouble speaking, cannot read or write"
 
+[chaotic]
+description = "Chaotic"
+other = "Chaotic"
+
+[female]
+description = "Female"
+other = "Female"
+
+[hp]
+description = "HP"
+other = "HP"
+
 [karameikos_background]
 description = "Karameikos Background"
 other = "Ethnicity: %s\nSocial Status: %s %s\nHome: %s\n"
+
+[lawful]
+description = "Lawful"
+other = "Lawful"
+
+[male]
+description = "Male"
+other = "Male"
+
+[neutral]
+description = "Neutral"
+other = "Neutral"
+
+[other]
+description = "Other"
+other = "Other"
+
+[roll]
+description = "Roll"
+other = "Roll"
 
 [titled]
 description = "Social Status: Titled"

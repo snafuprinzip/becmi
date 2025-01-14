@@ -29,11 +29,6 @@ abilities:
       Gnomes can sometimes detect traps (specifically, traps built into stone-work or heavy construction, not other types of traps such as rope-traps in the forest or spring-out needles built into a jewelry box); they can also detect sliding walls, sloping corridors, and new constructions.
       If your Gnome character wants to search for such things in an area, tell the DM. You have 1 chance in 3 to find them. The DM will roll 1d6, and a 1 or 2 will indicate success if there is anything to find; a result of 3-6 means your Gnome detects nothing. "You may check once for each trap, sliding wall, sloping corridor, or new construction.
       Ybu must tell the DM if you want to look for anything; the detection is never automatic.
-  - id: Natural Armor Class
-    name: Natural Armor Class
-    minlevel: 1
-    table: ""
-    description: Gnomes have a natural Armor Class of 9.
   - id: Saving Throw Bonuses
     name: Saving Throw Bonuses
     minlevel: 1

@@ -336,9 +336,19 @@ func (c Cleric) ThAC0Table(xp int) string {
 		}
 	}
 
-	return fmt.Sprintf(""+
-		"10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n"+
-		"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n",
+	var formatString string
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		formatString = "10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n" +
+			"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n"
+	case localization.OutputFormatObsidian:
+		formatString = "" +
+			"| 10  | 9   | 8   | 7   | 6   | 5   |  4  |  3  |  2  |  1  | **0** | -1  | -2  | -3  | -4  | -5  | -6  | -7  | -8  | -9  | -10 |\n" +
+			"| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n" +
+			"| %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |  %2d  | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |\n"
+	}
+
+	return fmt.Sprintf(formatString,
 		table[30], table[29], table[28], table[27], table[26], table[25], table[24], table[23], table[22], table[21],
 		table[20], table[19], table[18], table[17], table[16], table[15], table[14], table[13], table[12], table[11],
 		table[10])
@@ -348,7 +358,39 @@ func (c Cleric) Magic() string                    { return "Divine" }
 func (c Cleric) Grimoire(xp int) *magic.Spellbook { return nil }
 
 func (s ClericSpellSlots) String() string {
-	return fmt.Sprintf("1st: %d, 2nd: %d, 3rd: %d, 4th: %d, 5th: %d, 6th: %d, 7th: %d\n", s[0], s[1], s[2], s[3], s[4], s[5], s[6])
+	var slots *i18n.Message
+
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		slots = &i18n.Message{
+			ID:          "Spell Slots Cleric",
+			Description: "Spell Slots for Cleric",
+			Other: "" +
+				"Spell Slots\n" +
+				"-----------\n" +
+				"1st: %2d\n2nd: %2d\n3rd: %2d\n4th: %2d\n5th: %2d\n6th: %2d\n7th: %2d\n",
+		}
+	case localization.OutputFormatObsidian:
+		slots = &i18n.Message{
+			ID:          "Spell Slots Cleric (Obsidian)",
+			Description: "Spell Slots for Cleric for Obsidian",
+			Other: "" +
+				"> [!infobox]\n" +
+				"> ### Spell Slots per Level\n" +
+				">| Level    | \\#Spells |\n" +
+				">| --- | ---: |\n" +
+				">| 1st | %2d |\n" +
+				">| 2nd | %2d |\n" +
+				">| 3rd | %2d |\n" +
+				">| 4th | %2d |\n" +
+				">| 5th | %2d |\n" +
+				">| 6th | %2d |\n" +
+				">| 7th | %2d |\n",
+		}
+	}
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: slots})
+
+	return fmt.Sprintf("\n"+translation, s[0], s[1], s[2], s[3], s[4], s[5], s[6])
 }
 
 func (c Cleric) SpellList(xp int, spellbook *magic.Spellbook) string {
@@ -360,30 +402,54 @@ func (c Cleric) SpellList(xp int, spellbook *magic.Spellbook) string {
 		if slots[idx] == 0 { // Max Level of available Spells
 			break
 		}
-		if idx == 0 { // Print Header
-			spellListHeader := &i18n.Message{
-				ID:          "Spell List Header",
-				Description: "Header for Spell List",
-				Other: "" +
-					"Spells\n" +
-					"======\n\n",
+		switch localization.OutputFormat {
+		case localization.OutputFormatText:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell List Header",
+					Description: "Header for Spell List",
+					Other: "" +
+						"Spells\n" +
+						"======\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spellList += translation
 			}
-			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
-			spellList += translation
-		}
 
-		spellLevelHeader := &i18n.Message{
-			ID:          "Spell Level Header",
-			Description: "Header for Spell Level",
-			Other: "" +
-				"Level %d\n" +
-				"--------\n",
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Header",
+				Description: "Header for Spell Level",
+				Other: "" +
+					"Level %d\n" +
+					"--------\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spellList += fmt.Sprintf(translation, idx+1)
+		case localization.OutputFormatObsidian:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell List Header (Obsidian)",
+					Description: "Header for Spell List for Obsidian",
+					Other: "" +
+						"### Spells\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spellList += translation
+			}
+
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Header (Obsidian)",
+				Description: "Header for Spell Level for Obsidian",
+				Other: "" +
+					"#### Level %d\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spellList += fmt.Sprintf(translation, idx+1)
+
 		}
-		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
-		spellList += fmt.Sprintf(translation, idx+1)
 
 		for _, spell := range magic.AllDivineSpells[idx] {
-			spellList += spell.Name + "\n"
+			spellList += "- " + spell.Name + "\n"
 		}
 		spellList += "\n"
 	}
@@ -399,60 +465,47 @@ func (c Cleric) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 		if slots[idx] == 0 {
 			break
 		}
-		if idx == 0 { // Print Header
-			spellListHeader := &i18n.Message{
-				ID:          "Spell Description Header",
-				Description: "Header for Spell Descriptions",
+		switch localization.OutputFormat {
+		case localization.OutputFormatText:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell Description Header",
+					Description: "Header for Spell Descriptions",
+					Other: "" +
+						"Spelldescriptions\n" +
+						"=================\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spells += translation
+			}
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Header",
+				Description: "Header for Spell Level",
 				Other: "" +
-					"Spelldescriptions\n" +
-					"=================\n\n",
+					"Level %d\n" +
+					"--------\n",
 			}
-			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
-			spells += translation
-		}
-		spellLevelHeader := &i18n.Message{
-			ID:          "Spell Level Header",
-			Description: "Header for Spell Level",
-			Other: "" +
-				"Level %d\n" +
-				"--------\n",
-		}
-		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
-		spells += fmt.Sprintf(translation, idx+1)
-
-		for _, spell := range magic.AllDivineSpells[idx] {
-			spells += spell.String() + "\n"
-		}
-		spells += "\n"
-	}
-	return spells
-}
-
-func (c Cleric) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
-	var spells string
-	currentLevel := c.Level(xp)
-
-	slots := ClericSpellSlotsPerLevel[currentLevel-1]
-	for idx := 0; idx < 7; idx++ {
-		if slots[idx] == 0 {
-			break
-		}
-		if idx == 0 { // Print Header
-			spellListHeader := &i18n.Message{
-				ID:          "Spell Description Obsidian Header",
-				Description: "Header for Spell Descriptions for Obsidian",
-				Other:       "### Spelldescriptions\n\n",
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spells += fmt.Sprintf(translation, idx+1)
+		case localization.OutputFormatObsidian:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell Description Obsidian Header",
+					Description: "Header for Spell Descriptions for Obsidian",
+					Other:       "### Spelldescriptions\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spells += translation
 			}
-			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
-			spells += translation
+
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Obsidian Header",
+				Description: "Header for Spell Level for Obsidian",
+				Other:       "#### Level %d\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spells += fmt.Sprintf(translation, idx+1)
 		}
-		spellLevelHeader := &i18n.Message{
-			ID:          "Spell Level Obsidian Header",
-			Description: "Header for Spell Level for Obsidian",
-			Other:       "#### Level %d\n\n",
-		}
-		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
-		spells += fmt.Sprintf(translation, idx+1)
 
 		for _, spell := range magic.AllDivineSpells[idx] {
 			spells += spell.String() + "\n"
@@ -463,72 +516,90 @@ func (c Cleric) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) st
 }
 
 func (a TurnUndeadAbilities) String() string {
-	turnUndead := &i18n.Message{
-		ID:          "Turn Undead",
-		Description: "Turn Undead Table",
-		Other: "" +
-			"Skeleton   \t %2s\n" +
-			"Zombie     \t %2s\n" +
-			"Ghoul      \t %2s\n" +
-			"Wight      \t %2s\n" +
-			"Wraith     \t %2s\n" +
-			"Mummy      \t %2s\n" +
-			"Spectre    \t %2s\n" +
-			"Vampire    \t %2s\n" +
-			"Phantom    \t %2s\n" +
-			"Haunt      \t %2s\n" +
-			"Spirit     \t %2s\n" +
-			"Nightshade \t %2s\n" +
-			"Lich       \t %2s\n" +
-			"Special    \t %2s\n",
+	var turnUndead, turnUndeadLegend *i18n.Message
+
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		turnUndead = &i18n.Message{
+			ID:          "Turn Undead",
+			Description: "Turn Undead Table",
+			Other: "" +
+				"Skeleton   \t %2s\n" +
+				"Zombie     \t %2s\n" +
+				"Ghoul      \t %2s\n" +
+				"Wight      \t %2s\n" +
+				"Wraith     \t %2s\n" +
+				"Mummy      \t %2s\n" +
+				"Spectre    \t %2s\n" +
+				"Vampire    \t %2s\n" +
+				"Phantom    \t %2s\n" +
+				"Haunt      \t %2s\n" +
+				"Spirit     \t %2s\n" +
+				"Nightshade \t %2s\n" +
+				"Lich       \t %2s\n" +
+				"Special    \t %2s\n",
+		}
+
+		turnUndeadLegend = &i18n.Message{
+			ID:          "Turn Undead",
+			Description: "Turn Undead Legend Table",
+			Other: "\n" +
+				"7, 9, or 11 number needed to turn successfully\n" +
+				"T           automatic turn, 2d6 Hit Dice of undead\n" +
+				"D           automatic Destroy, 2d6 Hit Dice of undead\n" +
+				"D+          automatic Destroy, 3d6 Hit Dice of undead\n" +
+				"D#          automatic Destroy, 4d6 Hit Dice of undead\n\n",
+		}
+	case localization.OutputFormatObsidian:
+		turnUndead = &i18n.Message{
+			ID:          "Turn Undead (Obsidian)",
+			Description: "Turn Undead Table for Obsidian",
+			Other: "" +
+				"|           |     |\n" +
+				"| :--- | :---: |\n" +
+				"| Skeleton   | %2s |\n" +
+				"| Zombie     | %2s |\n" +
+				"| Ghoul      | %2s |\n" +
+				"| Wight      | %2s |\n" +
+				"| Wraith     | %2s |\n" +
+				"| Mummy      | %2s |\n" +
+				"| Spectre    | %2s |\n" +
+				"| Vampire    | %2s |\n" +
+				"| Phantom    | %2s |\n" +
+				"| Haunt      | %2s |\n" +
+				"| Spirit     | %2s |\n" +
+				"| Nightshade | %2s |\n" +
+				"| Lich       | %2s |\n" +
+				"| Special    | %2s |\n",
+		}
+		turnUndeadLegend = &i18n.Message{
+			ID:          "Turn Undead Legend (Obsidian)",
+			Description: "Turn Undead Table Legend for Obsidian",
+			Other: "\n" +
+				">[!infobox]\n" +
+				">| | |\n" +
+				">| :---: | :--- |\n" +
+				">| 7, 9, or 11 | number needed to turn successfully |\n" +
+				">| T           | automatic turn, 2d6 Hit Dice of undead |\n" +
+				">| D           | automatic Destroy, 2d6 Hit Dice of undead |\n" +
+				">| D+          | automatic Destroy, 3d6 Hit Dice of undead |\n" +
+				">| D#          | automatic Destroy, 4d6 Hit Dice of undead |\n\n",
+		}
 	}
-
 	turnUndeadMsg := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: turnUndead})
+	turnUndeadLegendMsg := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: turnUndeadLegend})
 
-	return fmt.Sprintf(turnUndeadMsg, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13])
-}
-
-func (a TurnUndeadAbilities) ObsidianString() string {
-	turnUndead := &i18n.Message{
-		ID:          "Obsidian Turn Undead",
-		Description: "Obsidian Turn Undead Table",
-		Other: "" +
-			"|      |       |" +
-			"| :--- | :---: |" +
-			"| Skeleton   | %2s |\n" +
-			"| Zombie     | %2s |\n" +
-			"| Ghoul      | %2s |\n" +
-			"| Wight      | %2s |\n" +
-			"| Wraith     | %2s |\n" +
-			"| Mummy      | %2s |\n" +
-			"| Spectre    | %2s |\n" +
-			"| Vampire    | %2s |\n" +
-			"| Phantom    | %2s |\n" +
-			"| Haunt      | %2s |\n" +
-			"| Spirit     | %2s |\n" +
-			"| Nightshade | %2s |\n" +
-			"| Lich       | %2s |\n" +
-			"| Special    | %2s |\n",
-	}
-
-	turnUndeadMsg := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: turnUndead})
-
-	return fmt.Sprintf(turnUndeadMsg, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13])
+	return fmt.Sprintf(turnUndeadLegendMsg+turnUndeadMsg, a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13])
 }
 
 func (c Cleric) SpecialAbilities(xp int) ClassAbilities {
 	currentLevel := c.LevelIncludingRank(xp)
 	spellslots := ClericSpellSlotsPerLevel[currentLevel-1]
+	c.Abilities.Add("Spell Slots", 2, spellslots.String(), "")
 	for ability := range c.Abilities {
-		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Spell Slots" {
-			formatstr := c.Abilities[ability].Table
-			c.Abilities[ability].Table = fmt.Sprintf(formatstr, spellslots[0], spellslots[1], spellslots[2],
-				spellslots[3], spellslots[4], spellslots[5], spellslots[6])
-		} else if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Turn Undead" {
-			formatstr := c.Abilities[ability].Table
+		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Turn Undead" {
 			tua := TurnUndeadAbilitiesPerLevel[currentLevel-1]
-			c.Abilities[ability].Table = fmt.Sprintf(formatstr, tua[0], tua[1], tua[2], tua[3], tua[4], tua[5], tua[6],
-				tua[7], tua[8], tua[9], tua[10], tua[11], tua[12], tua[13])
+			c.Abilities[ability].Table = tua.String()
 		}
 
 	}

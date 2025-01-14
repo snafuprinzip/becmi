@@ -244,9 +244,19 @@ func (c Fighter) ThAC0Table(xp int) string {
 		}
 	}
 
-	return fmt.Sprintf(""+
-		"10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n"+
-		"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n",
+	var formatString string
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		formatString = "10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n" +
+			"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n"
+	case localization.OutputFormatObsidian:
+		formatString = "" +
+			"| 10  | 9   | 8   | 7   | 6   | 5   |  4  |  3  |  2  |  1  | **0** | -1  | -2  | -3  | -4  | -5  | -6  | -7  | -8  | -9  | -10 |\n" +
+			"| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n" +
+			"| %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |  %2d  | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |\n"
+	}
+
+	return fmt.Sprintf(formatString,
 		table[30], table[29], table[28], table[27], table[26], table[25], table[24], table[23], table[22], table[21],
 		table[20], table[19], table[18], table[17], table[16], table[15], table[14], table[13], table[12], table[11],
 		table[10])
@@ -258,9 +268,6 @@ func (c Fighter) SpellList(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 func (c Fighter) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
-	return ""
-}
-func (c Fighter) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 

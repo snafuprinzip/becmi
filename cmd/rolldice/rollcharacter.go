@@ -24,7 +24,7 @@ func main() {
 	flag.StringVar(&name, "n", "Bargle", "character's name")
 	flag.StringVar(&player, "p", "NPC", "player's name")
 	flag.StringVar(&class, "c", "Cleric", "character class "+classes.AvailableClasses())
-	flag.StringVar(&alignment, "a", "Lawful", "alignment [ Lawful, Neutral, Chaotic ]")
+	flag.StringVar(&alignment, "a", "Lawful", "alignment [ lawful, neutral, chaotic ]")
 	flag.StringVar(&sex, "s", "male", "sex of the character [male, female, other]")
 	flag.StringVar(&bg, "b", "Karameikos", "campaign background "+background.AvailableBackgrounds())
 	flag.IntVar(&xp, "xp", 0, "experience points")

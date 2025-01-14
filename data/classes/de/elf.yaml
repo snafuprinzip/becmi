@@ -8,16 +8,16 @@ maxinternallevel: 20
 armor: Alle; Schilde erlaubt.
 weapons: Alle.
 abilities:
-  - id: Spell Slots
-    name: Zauber pro Grad
-    minlevel: 1
-    table: |
-      1. Grad:  %2d
-      2. Grad:  %2d
-      3. Grad:  %2d
-      4. Grad:  %2d
-      5. Grad:  %2d
-    description: ""
+#  - id: Spell Slots
+#    name: Zauber pro Grad
+#    minlevel: 1
+#    table: |
+#      1. Grad:  %2d
+#      2. Grad:  %2d
+#      3. Grad:  %2d
+#      4. Grad:  %2d
+#      5. Grad:  %2d
+#    description: ""
   - id: Infravision
     name: Infravision
     minlevel: 1

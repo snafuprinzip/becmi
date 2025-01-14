@@ -133,6 +133,11 @@ description = "Header for Spell Level"
 hash = "sha1-4caf22ffa941dac6f4a32f9f93edc624685222ea"
 other = "Grad %d\n------\n"
 
+["Spell Level Header (Obsidian)"]
+description = "Header for Spell Level for Obsidian"
+hash = "sha1-8a3514f19952369af18c5108c48c600088ccb34c"
+other = "#### Grad %d\n"
+
 ["Spell Level Obsidian Header"]
 description = "Header for Spell Level for Obsidian"
 hash = "sha1-e25f2b689954ecf1d33b3523becabd0958bf71fc"
@@ -143,10 +148,25 @@ description = "Header for Spell List"
 hash = "sha1-9f3b6e9199c17fe83bee7f9953de0ae12fa49520"
 other = "Zaubersprüche\n=============\n\n"
 
+["Spell List Header (Obsidian)"]
+description = "Header for Spell List for Obsidian"
+hash = "sha1-1a966c683bc1ece2542899c939b4dae906aad46b"
+other = "### Zaubersprüche\n\n"
+
 ["Spell Obsidian"]
 description = "Spell Description for Obsidian"
 hash = "sha1-dc03060589d50992190db5582f864871d633f91d"
 other = "##### %s\n|              |      |\n| :----------- | ---: |\n| **Reichweite**    | %s |\n| **Wirkungsdauer** | %s |\n| ** Wirkungsbereich**  | %s |\n\n%s\n"
+
+["Spell Slots Cleric"]
+description = "Spell Slots for Cleric"
+hash = "sha1-f62edae039700b593e8c04cfafe3e881d8f62d4f"
+other = "Zauber pro Stufe nach Grad\n--------------------------\n1. Grad: %2d\n2. Grad: %2d\n3. Grad: %2d\n4. Grad: %2d\n5. Grad: %2d\n6. Grad: %2d\n7. Grad: %2d\n"
+
+["Spell Slots Cleric (Obsidian)"]
+description = "Spell Slots for Cleric for Obsidian"
+hash = "sha1-2fd26d13c27e09e24acb62fbab570035d13945e1"
+other = "> [!infobox]\n> ### Zauber pro Stufe nach Grad\n>| Grad    | \\#Zauber |\n>| --- | ---: |\n>| 1. | %2d |\n>| 2. | %2d |\n>| 3. | %2d |\n>| 4. | %2d |\n>| 5. | %2d |\n>| 6. | %2d |\n>| 7. | %2d |\n"
 
 ["Spell Slots Magic-User"]
 description = "Spell Slots for Magic-User"
@@ -168,6 +188,11 @@ description = "Social Status: Struggling"
 hash = "sha1-8bb4bddbcb926e87244e0bfd5a5066f926ab6347"
 other = "Unterschicht"
 
+["Thief Skills (Obsidian)"]
+description = "Thief Skills for Obsidian"
+hash = "sha1-85766e3f5d588a02b807460e239815b6d72b4d90"
+other = "|                 |      |\n| :-------------- | ---: |\n| Schlösser öffnen      | %d%% |\n| Fallen finden      | %d%% |\n| Fallen entschärfen    | %d%% |\n| Wände erklimmen     | %d%% |\n| Leise bewegen   | %d%% |\n| Im Schatten verstecken | %d%% |\n| Taschendiebstahl   | %d%% |\n| Geräusche hören      | %d%% |\n"
+
 [Thyatian]
 description = "Ethnicity: Thyatian"
 hash = "sha1-fd1805bf62178d28f0ea2611540ea2bcfe2ec44c"
@@ -177,6 +202,21 @@ other = "Thyatisch"
 description = "Ethnicity: Traladaran"
 hash = "sha1-3825f552bb84233ec23fe1221a72a78ac18d720d"
 other = "Traladarisch"
+
+["Turn Undead"]
+description = "Turn Undead Legend Table"
+hash = "sha1-79260fe8f4ffe6b94c2441cfa66425b8ad899754"
+other = "\n7, 9, oder 11 Benötigtes Ergebnis für erfolgreiches Vertreiben\nT           Automatisches Vertreiben, 2w6 Untoten-Trefferwürfel\nD           Automatisches Zerstören,  2w6 Untoten-Trefferwürfel\nD+          Automatisches Zerstören,  3w6 Untoten-Trefferwürfel\nD#          Automatisches Zerstören,  4w6 Untoten-Trefferwürfel\n\n"
+
+["Turn Undead (Obsidian)"]
+description = "Turn Undead Table for Obsidian"
+hash = "sha1-4b00ee1354eab4e1a966d9f32151c5282dc14a24"
+other = "|           |     |\n| :--- | :---: |\n| Skelett   | %2s |\n| Zombie     | %2s |\n| Ghul       | %2s |\n| Gruftschrecken     | %2s |\n| Todesalb     | %2s |\n| Mumie      | %2s |\n| Schreckgespenst    | %2s |\n| Vampir    | %2s |\n| Phantom    | %2s |\n| Spuk      | %2s |\n| Böse Seele     | %2s |\n| Nachtschatten | %2s |\n| Leichnam       | %2s |\n| Speziell    | %2s |\n"
+
+["Turn Undead Legend (Obsidian)"]
+description = "Turn Undead Table Legend for Obsidian"
+hash = "sha1-479d3f424b7f8d1401832aeb7c27e7f5f954c4b1"
+other = "\n>[!infobox]\n>| | |\n>| :---: | :--- |\n>| 7, 9, oder 11 | Benötigtes Ergebnis für erfolgreiches Vertreiben |\n>| T           | Automatisches Vertreiben, 2w6 Untoten-Trefferwürfel |\n>| D           | Automatisches Zerstören, 2w6 Untoten-Trefferwürfel |\n>| D+          | Automatisches Zerstören, 3w6 Untoten-Trefferwürfel |\n>| D#          | Automatisches Zerstören, 4w6 Untoten-Trefferwürfel |\n\n"
 
 ["Very Wealthy"]
 description = "Social Status: Very Wealthy"
@@ -198,6 +238,11 @@ description = "Social Status: Wealthy"
 hash = "sha1-fb63607916553dc24c1b2482ae3d1ac1a1389ccc"
 other = "Vermögend"
 
+[ac]
+description = "AC"
+hash = "sha1-beb2379327a118c1c1dce79a56fb4896997e5fb8"
+other = "RK"
+
 [can_write]
 description = "Can read and write"
 hash = "sha1-bbf650402ef1cc9aa047d1ec0121e6262dfccbd6"
@@ -218,22 +263,57 @@ description = "Cannot speak"
 hash = "sha1-940c06898e60b5ee943f1fca7f2020d23c453cd1"
 other = "Hat Probleme beim artikulieren, kann weder lesen noch schreiben"
 
+[chaotic]
+description = "Chaotic"
+hash = "sha1-fa9d64b0532cdd344a8b36c0784fa1210697882d"
+other = "Chaotisch"
+
+[female]
+description = "Female"
+hash = "sha1-52f97c6da6593fbe1bb2ac8899ccc3b9109742ce"
+other = "Weiblich"
+
+[hp]
+description = "HP"
+hash = "sha1-a87721cd3254793dded8cf2f5de30d9137785553"
+other = "TP"
+
 [karameikos_background]
 description = "Karameikos Background"
 hash = "sha1-df088b78b7eb1ac8be3bf40973aa2c3e56be3807"
 other = "Ethnie:          %s\nSozialer Status: %s %s\nHerkunft:        %s\n"
+
+[lawful]
+description = "Lawful"
+hash = "sha1-d699955193beeb16d1c31780ba5f44d68936571a"
+other = "Rechtschaffen"
+
+[male]
+description = "Male"
+hash = "sha1-5cfd1924b4bcb948d36030eb72f8dcc4930361aa"
+other = "Männlich"
+
+[neutral]
+description = "Neutral"
+hash = "sha1-5b2c25c76054af6130d2b229efff06f37dc148e7"
+other = "Neutral"
+
+[other]
+description = "Other"
+hash = "sha1-10800fdd58edc1456a846446ea63ac11f6bdfd0d"
+other = "Divers"
+
+[roll]
+description = "Roll"
+hash = "sha1-16ad53e03725dcc4ac62d5791b50ead31c340918"
+other = "Wurf"
 
 [titled]
 description = "Social Status: Titled"
 hash = "sha1-2f3ed95131d446af61c940eb00196f5137afe654"
 other = "tituliert"
 
-["Obsidian Turn Undead"]
-description = "Obsidian Turn Undead Table"
-hash = "sha1-c97f5fbc926cac3f1b395e0caf7a5bd62e4d981c"
-other = "|      |       || :--- | :---: || Skelett   | %2s |\n| Zombie     | %2s |\n| Ghul      | %2s |\n| Gruftschrecken      | %2s |\n| Todesalb     | %2s |\n| Mumie      | %2s |\n| Schreckgespenst    | %2s |\n| Vampir    | %2s |\n| Phantom    | %2s |\n| Spuk      | %2s |\n| Böse Seele     | %2s |\n| Nachtschatten | %2s |\n| Leichnam       | %2s |\n| Speziell    | %2s |\n"
-
-["Turn Undead"]
-description = "Turn Undead Table"
-hash = "sha1-f4b41dad31e6817f33194db3716e763311b16f99"
-other = "Skelett   \t %2s\nZombie     \t %2s\nGhul      \t %2s\nGruftschrecken      \t %2s\nTodesalb     \t %2s\nMumie      \t %2s\nSchreckgespenst    \t %2s\nVampir    \t %2s\nPhantom    \t %2s\nSpuk      \t %2s\nBöse Seele     \t %2s\nNachtschatten \t %2s\nLeichnam       \t %2s\nSpeziell    \t %2s\n"
+["Thief Skills"]
+description = "Thief Skills"
+hash = "sha1-708da469d4ea0928e2e648f93cf09b3aa86c5510"
+other = "Schlösser öffnen:      %d%%\nFallen finden:      %d%%\nFallen entschärfen:    %d%%\nWände erklimmen:     %d%%\nLeise bewegen:   %d%%\nIm Schatten verstecken: %d%%\nTaschendiebstahl:    %d%%\nGeräusche hören:      %d%%\n"

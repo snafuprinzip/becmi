@@ -6,6 +6,7 @@ import (
 	"becmi/magic"
 	"becmi/savingthrows"
 	"fmt"
+	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"gopkg.in/yaml.v3"
 	"log"
 	"os"
@@ -265,49 +266,59 @@ func (c Thief) ThAC0(xp int) int {
 	return 20
 }
 
-func (c Thief) ThAC0Table(xp int) string {
-	currentLevel := c.Level(xp)
-	thac0 := c.ThAC0(currentLevel)
-
-	var table [40]int // -20 to 19 == offset 20
-	table[20] = thac0
-	roll := thac0 - 1
-	cnt := 0
-	for i := 21; i < len(table); i++ {
-		table[i] = roll
-		if roll != 20 && roll != 30 {
-			roll--
-		} else if cnt == 4 {
-			cnt = 0
-			roll--
-			continue
-		} else {
-			cnt++
-			continue
-		}
-	}
-	roll = thac0 + 1
-	for i := 19; i >= 0; i-- {
-		table[i] = roll
-		if roll != 20 && roll != 30 {
-			roll++
-		} else if cnt == 4 {
-			cnt = 0
-			roll++
-			continue
-		} else {
-			cnt++
-			continue
-		}
-	}
-
-	return fmt.Sprintf(""+
-		"10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n"+
-		"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n",
-		table[30], table[29], table[28], table[27], table[26], table[25], table[24], table[23], table[22], table[21],
-		table[20], table[19], table[18], table[17], table[16], table[15], table[14], table[13], table[12], table[11],
-		table[10])
-}
+//func (c Thief) ThAC0Table(xp int) string {
+//	currentLevel := c.Level(xp)
+//	thac0 := c.ThAC0(currentLevel)
+//
+//	var table [40]int // -20 to 19 == offset 20
+//	table[20] = thac0
+//	roll := thac0 - 1
+//	cnt := 0
+//	for i := 21; i < len(table); i++ {
+//		table[i] = roll
+//		if roll != 20 && roll != 30 {
+//			roll--
+//		} else if cnt == 4 {
+//			cnt = 0
+//			roll--
+//			continue
+//		} else {
+//			cnt++
+//			continue
+//		}
+//	}
+//	roll = thac0 + 1
+//	for i := 19; i >= 0; i-- {
+//		table[i] = roll
+//		if roll != 20 && roll != 30 {
+//			roll++
+//		} else if cnt == 4 {
+//			cnt = 0
+//			roll++
+//			continue
+//		} else {
+//			cnt++
+//			continue
+//		}
+//	}
+//
+//	var formatString string
+//	switch localization.OutputFormat {
+//	case localization.OutputFormatText:
+//		formatString = "10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n" +
+//			"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n"
+//	case localization.OutputFormatObsidian:
+//		formatString = "" +
+//			"| 10  | 9   | 8   | 7   | 6   | 5   |  4  |  3  |  2  |  1  | **0** | -1  | -2  | -3  | -4  | -5  | -6  | -7  | -8  | -9  | -10 |\n" +
+//			"| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n" +
+//			"| %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |  %2d  | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |\n"
+//	}
+//
+//	return fmt.Sprintf(formatString,
+//		table[30], table[29], table[28], table[27], table[26], table[25], table[24], table[23], table[22], table[21],
+//		table[20], table[19], table[18], table[17], table[16], table[15], table[14], table[13], table[12], table[11],
+//		table[10])
+//}
 
 func (c Thief) Magic() string { return "Arcane" }
 
@@ -321,20 +332,42 @@ func (c Thief) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return ""
 }
 
-func (c Thief) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
-	return ""
-}
-
 func (s ThiefSkills) String() string {
-	return fmt.Sprintf(""+
-		"Open Locks:      %d%%\n"+
-		"Find Traps:      %d%%\n"+
-		"Remove Traps:    %d%%\n"+
-		"Climb Walls:     %d%%\n"+
-		"Move Silently:   %d%%\n"+
-		"Hide In Shadows: %d%%\n"+
-		"Pick Pockets:    %d%%\n"+
-		"Hear Noise:      %d%%\n", s.OpenLocks, s.FindTraps, s.RemoveTraps, s.ClimbWalls, s.MoveSilently, s.HideInShadows, s.PickPockets, s.HearNoise)
+	var formatMsg *i18n.Message
+
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		formatMsg = &i18n.Message{
+			ID:          "Thief Skills",
+			Description: "Thief Skills",
+			Other: "Open Locks:      %d%%\n" +
+				"Find Traps:      %d%%\n" +
+				"Remove Traps:    %d%%\n" +
+				"Climb Walls:     %d%%\n" +
+				"Move Silently:   %d%%\n" +
+				"Hide In Shadows: %d%%\n" +
+				"Pick Pockets:    %d%%\n" +
+				"Hear Noise:      %d%%\n",
+		}
+	case localization.OutputFormatObsidian:
+		formatMsg = &i18n.Message{
+			ID:          "Thief Skills (Obsidian)",
+			Description: "Thief Skills for Obsidian",
+			Other: "" +
+				"|                 |      |\n" +
+				"| :-------------- | ---: |\n" +
+				"| Open Locks      | %d%% |\n" +
+				"| Find Traps      | %d%% |\n" +
+				"| Remove Traps    | %d%% |\n" +
+				"| Climb Walls     | %d%% |\n" +
+				"| Move Silently   | %d%% |\n" +
+				"| Hide In Shadows | %d%% |\n" +
+				"| Pick Pockets    | %d%% |\n" +
+				"| Hear Noise      | %d%% |\n",
+		}
+	}
+	formatString := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: formatMsg})
+	return fmt.Sprintf(formatString, s.OpenLocks, s.FindTraps, s.RemoveTraps, s.ClimbWalls, s.MoveSilently, s.HideInShadows, s.PickPockets, s.HearNoise)
 }
 
 func (c Thief) SpecialAbilities(xp int) ClassAbilities {
@@ -342,9 +375,7 @@ func (c Thief) SpecialAbilities(xp int) ClassAbilities {
 	thiefskills := ThiefSkillsTable[currentLevel-1]
 	for ability := range c.Abilities {
 		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Thief Skills" {
-			formatstr := c.Abilities[ability].Table
-			c.Abilities[ability].Table = fmt.Sprintf(formatstr, thiefskills.OpenLocks, thiefskills.FindTraps, thiefskills.RemoveTraps,
-				thiefskills.ClimbWalls, thiefskills.MoveSilently, thiefskills.HideInShadows, thiefskills.PickPockets, thiefskills.HearNoise)
+			c.Abilities[ability].Table = thiefskills.String()
 			break
 		}
 	}

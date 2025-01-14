@@ -26,7 +26,7 @@ type Elf struct {
 	ClassWeapons          string         `yaml:"weapons"`
 	Abilities             ClassAbilities `yaml:"abilities"`
 }
-type ElfSpellSlots [5]int
+type ElfSpellSlots [9]int
 
 var ElfXPLevel XPLevel = XPLevel{-1, 4000, 8000, 16000, 32000, 64000, 120000, 250000, 400000, 600000,
 	850000, 1100000, 1350000, 1600000, 1850000, 2100000, 2350000, 2600000, 2850000, 3100000}
@@ -297,9 +297,19 @@ func (c Elf) ThAC0Table(currentLevel int) string {
 		}
 	}
 
-	return fmt.Sprintf(""+
-		"10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n"+
-		"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n",
+	var formatString string
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		formatString = "10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n" +
+			"%2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n"
+	case localization.OutputFormatObsidian:
+		formatString = "" +
+			"| 10  | 9   | 8   | 7   | 6   | 5   |  4  |  3  |  2  |  1  | **0** | -1  | -2  | -3  | -4  | -5  | -6  | -7  | -8  | -9  | -10 |\n" +
+			"| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n" +
+			"| %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |  %2d  | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |\n"
+	}
+
+	return fmt.Sprintf(formatString,
 		table[30], table[29], table[28], table[27], table[26], table[25], table[24], table[23], table[22], table[21],
 		table[20], table[19], table[18], table[17], table[16], table[15], table[14], table[13], table[12], table[11],
 		table[10])
@@ -308,7 +318,41 @@ func (c Elf) ThAC0Table(currentLevel int) string {
 func (c Elf) Magic() string { return "Arcane" }
 
 func (s ElfSpellSlots) String() string {
-	return fmt.Sprintf("1st: %d,   2nd: %d,   3rd: %d,   4th: %d,   5th: %d\n", s[0], s[1], s[2], s[3], s[4])
+	var slots *i18n.Message
+
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		slots = &i18n.Message{
+			ID:          "Spell Slots Magic-User",
+			Description: "Spell Slots for Magic-User",
+			Other: "" +
+				"Spell Slots\n" +
+				"-----------\n" +
+				"1st: %2d\n2nd: %2d\n3rd: %2d\n4th: %2d\n5th: %2d\n6th: %2d\n7th: %2d\n8th: %2d\n9th: %2d\n",
+		}
+	case localization.OutputFormatObsidian:
+		slots = &i18n.Message{
+			ID:          "Spell Slots Magic-User (Obsidian)",
+			Description: "Spell Slots for Magic-User for Obsidian",
+			Other: "" +
+				"> [!infobox]\n" +
+				"> ### Spell Slots per Level\n" +
+				">| Level    | \\#Spells |\n" +
+				">| --- | ---: |\n" +
+				">| 1st | %2d |\n" +
+				">| 2nd | %2d |\n" +
+				">| 3rd | %2d |\n" +
+				">| 4th | %2d |\n" +
+				">| 5th | %2d |\n" +
+				">| 6th | %2d |\n" +
+				">| 7th | %2d |\n" +
+				">| 8th | %2d |\n" +
+				">| 9th | %2d |\n",
+		}
+	}
+	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: slots})
+
+	return fmt.Sprintf("\n"+translation, s[0], s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8])
 }
 
 func (c Elf) Grimoire(xp int) *magic.Spellbook {
@@ -356,36 +400,60 @@ func (c Elf) Grimoire(xp int) *magic.Spellbook {
 func (c Elf) SpellList(xp int, spellbook *magic.Spellbook) string {
 	var spellList string
 
-	for idx := 0; idx < 5; idx++ {
+	for idx := 0; idx < 9; idx++ {
 		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
 			break
 		}
-		if idx == 0 { // Print Header
-			spellListHeader := &i18n.Message{
-				ID:          "Spell List Header",
-				Description: "Header for Spell List",
-				Other: "" +
-					"Spells\n" +
-					"======\n\n",
+		switch localization.OutputFormat {
+		case localization.OutputFormatText:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell List Header",
+					Description: "Header for Spell List",
+					Other: "" +
+						"Spells\n" +
+						"======\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spellList += translation
 			}
-			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
-			spellList += translation
-		}
 
-		spellLevelHeader := &i18n.Message{
-			ID:          "Spell Level Header",
-			Description: "Header for Spell Level",
-			Other: "" +
-				"Level %d\n" +
-				"--------\n",
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Header",
+				Description: "Header for Spell Level",
+				Other: "" +
+					"Level %d\n" +
+					"--------\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spellList += fmt.Sprintf(translation, idx+1)
+		case localization.OutputFormatObsidian:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell List Header (Obsidian)",
+					Description: "Header for Spell List for Obsidian",
+					Other: "" +
+						"### Spells\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spellList += translation
+			}
+
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Header (Obsidian)",
+				Description: "Header for Spell Level for Obsidian",
+				Other: "" +
+					"#### Level %d\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spellList += fmt.Sprintf(translation, idx+1)
+
 		}
-		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
-		spellList += fmt.Sprintf(translation, idx+1)
 
 		for _, spell := range spellbook[idx] {
 			for _, spelldesc := range magic.AllArcaneSpells[idx] {
 				if spelldesc.ID == spell {
-					spellList += spelldesc.Name + "\n"
+					spellList += "- " + spelldesc.Name + "\n"
 				}
 			}
 		}
@@ -402,27 +470,47 @@ func (c Elf) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
 			break
 		}
-		if idx == 0 { // Print Header
-			spellListHeader := &i18n.Message{
-				ID:          "Spell Description Header",
-				Description: "Header for Spell Descriptions",
-				Other: "" +
-					"Spelldescriptions\n" +
-					"=================\n\n",
+		switch localization.OutputFormat {
+		case localization.OutputFormatText:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell Description Header",
+					Description: "Header for Spell Descriptions",
+					Other: "" +
+						"Spelldescriptions\n" +
+						"=================\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spells += translation
 			}
-			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
-			spells += translation
-		}
-		spellLevelHeader := &i18n.Message{
-			ID:          "Spell Level Header",
-			Description: "Header for Spell Level",
-			Other: "" +
-				"Level %d\n" +
-				"--------\n",
-		}
-		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
-		spells += fmt.Sprintf(translation, idx+1)
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Header",
+				Description: "Header for Spell Level",
+				Other: "" +
+					"Level %d\n" +
+					"--------\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spells += fmt.Sprintf(translation, idx+1)
+		case localization.OutputFormatObsidian:
+			if idx == 0 { // Print Header
+				spellListHeader := &i18n.Message{
+					ID:          "Spell Description Obsidian Header",
+					Description: "Header for Spell Descriptions for Obsidian",
+					Other:       "### Spelldescriptions\n\n",
+				}
+				translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
+				spells += translation
+			}
 
+			spellLevelHeader := &i18n.Message{
+				ID:          "Spell Level Obsidian Header",
+				Description: "Header for Spell Level for Obsidian",
+				Other:       "#### Level %d\n\n",
+			}
+			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
+			spells += fmt.Sprintf(translation, idx+1)
+		}
 		for _, spell := range spellbook[idx] {
 			for _, spelldesc := range magic.AllArcaneSpells[idx] {
 				if spelldesc.ID == spell {
@@ -435,53 +523,17 @@ func (c Elf) SpellDescriptions(xp int, spellbook *magic.Spellbook) string {
 	return spells
 }
 
-func (c Elf) SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string {
-	var spells string
-
-	for idx := 0; idx < 9; idx++ {
-		if len(spellbook[idx]) == 0 { // Max Level of Spells in Spellbook
-			break
-		}
-		if idx == 0 { // Print Header
-			spellListHeader := &i18n.Message{
-				ID:          "Spell Description Obsidian Header",
-				Description: "Header for Spell Descriptions for Obsidian",
-				Other:       "### Spelldescriptions\n\n",
-			}
-			translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellListHeader})
-			spells += translation
-		}
-
-		spellLevelHeader := &i18n.Message{
-			ID:          "Spell Level Obsidian Header",
-			Description: "Header for Spell Level for Obsidian",
-			Other:       "#### Level %d\n\n",
-		}
-		translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: spellLevelHeader})
-		spells += fmt.Sprintf(translation, idx+1)
-
-		for _, spell := range spellbook[idx] {
-			for _, spelldesc := range magic.AllArcaneSpells[idx] {
-				if spelldesc.ID == spell {
-					spells += spelldesc.ObsidianString() + "\n"
-				}
-			}
-		}
-		spells += "\n"
-	}
-	return spells
-}
-
 func (c Elf) SpecialAbilities(xp int) ClassAbilities {
 	currentLevel := c.LevelIncludingRank(xp)
 	spellslots := ElfSpellSlotsPerLevel[currentLevel-1]
-	for ability := range c.Abilities {
-		if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Spell Slots" {
-			formatstr := c.Abilities[ability].Table
-			c.Abilities[ability].Table = fmt.Sprintf(formatstr, spellslots[0], spellslots[1], spellslots[2], spellslots[3], spellslots[4])
-			break
-		}
-	}
+	c.Abilities.Add("Spell Slots", 1, spellslots.String(), "")
+	//for ability := range c.Abilities {
+	//	if c.Abilities[ability].Table != "" && c.Abilities[ability].ID == "Spell Slots" {
+	//		formatstr := c.Abilities[ability].Table
+	//		c.Abilities[ability].Table = fmt.Sprintf(formatstr, spellslots[0], spellslots[1], spellslots[2], spellslots[3], spellslots[4])
+	//		break
+	//	}
+	//}
 
 	return c.Abilities
 }

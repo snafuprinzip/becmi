@@ -8,17 +8,17 @@ maxinternallevel: 36
 armor: None; no shield permitted.
 weapons: Dagger only. Optional (DM\'s discretion) staff, blowgun, flaming oil, holy  water, net, thrown rock, sling, whip.
 abilities:
-  - id: Spell Slots
-    name: Spell Slots
-    minlevel: 1
-    table: |
-      1st:  %2d
-      2nd:  %2d
-      3rd:  %2d
-      4th:  %2d
-      5th:  %2d
-      6th:  %2d
-      7th:  %2d
-      8th:  %2d
-      9th:  %2d
-    description: ""
+#  - id: Spell Slots
+#    name: Spell Slots
+#    minlevel: 1
+#    table: |
+#      1st:  %2d
+#      2nd:  %2d
+#      3rd:  %2d
+#      4th:  %2d
+#      5th:  %2d
+#      6th:  %2d
+#      7th:  %2d
+#      8th:  %2d
+#      9th:  %2d
+#    description: ""

@@ -8,16 +8,16 @@ maxinternallevel: 20
 armor: All; shields permitted.
 weapons: Any.
 abilities:
-  - id: Spell Slots
-    name: Spell Slots
-    minlevel: 1
-    table: |
-      1st:  %2d
-      2nd:  %2d
-      3rd:  %2d
-      4th:  %2d
-      5th:  %2d
-    description: ""
+#  - id: Spell Slots
+#    name: Spell Slots
+#    minlevel: 1
+#    table: |
+#      1st:  %2d
+#      2nd:  %2d
+#      3rd:  %2d
+#      4th:  %2d
+#      5th:  %2d
+#    description: ""
   - id: Infravision
     name: Infravision
     minlevel: 1

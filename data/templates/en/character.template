@@ -1,0 +1,142 @@
+{{define "en/character"}}
+
+# ``=this.Name``
+
+|        |                 |        |              |                   |                     |
+|:------ | ---------------:|:------ | ------------:|:----------------- | -------------------:|
+| Name   |  ``=this.Name`` |        |              | **Player**        |    ``=this.Player`` |
+| Class  | ``=this.Class`` |        |              | **Alignment**     | ``=this.Alignment`` |
+| Level  | ``=this.Level`` | **XP** | ``=this.XP`` | **Next Level at** | ``=this.NextLevel`` |
+
+
+|     | Attribute    |                   |                   |                                                                       | Optional: Saving Throws  |
+|:---:|:------------ | -----------------:| -----------------:|:--------------------------------------------------------------------- |:------------------------ |
+| STR | Strength     | **``=this.STR``** | ``=this.STR_Mod`` | Attack Roll [Melee, Unarmed], Damage Roll [Melee, Thrown], Open Doors | Paralysis, Turn to Stone |
+| INT | Intelligence | **``=this.INT``** | ``=this.INT_Mod`` | General Skills, {{ .INTModText }}                                     | vs. Mind Attacks         |
+| WIS | Wisdom       | **``=this.WIS``** | ``=this.WIS_Mod`` | Saving Throw vs. Spells                                               |                          |
+| DEX | Dexterity    | **``=this.DEX``** | ``=this.DEX_Mod`` | Attack Roll [Thrown, Missiles], Armor Class                           | Wands, Dragon Breath     |
+| CON | Constitution | **``=this.CON``** | ``=this.CON_Mod`` | Hit Points per XP Level                                               | Poison                   |
+| CHA | Charisma     | **``=this.CHA``** | ``=this.CHA_Mod`` | Reaction Adjustment from NPCs, {{ .CHAModText }}                      |                          |
+
+
+> [!infobox]
+> ![[{{ .Name }}.png]]
+>
+
+| Saving Throws                   |                            |
+|:------------------------------- | --------------------------:|
+| Death Ray, Poison               |        ``=this.ST_Poison`` |
+| Magic Wands                     |         ``=this.ST_Wands`` |
+| Paralysis, Turn to Stone        | ``=this.ST_Petrification`` |
+| Dragon Breath                   |  ``=this.ST_DragonBreath`` |
+| Rod, Staff, Spells              |        ``=this.ST_Spells`` |
+
+---
+
+## Combat
+
+|             |                |                |                 |
+|:----------- | --------------:|:-------------- | ---------------:|
+| Armor Class |   ``=this.AC`` | **Hit Points** |    ``=this.HP`` |
+| Movement    | ``=this.Move`` | **ThAC0**      | ``=this.THAC0`` |
+
+{{ .THAC0Table }}
+
+**Armor Proficiencies:** ``=this.AllowedArmor``
+
+**Weapon Proficiencies:** ``=this.AllowedWeapons``
+
+### Weapons
+
+| Weapon       | HR | Primary  | Damage | Defense | Ranges | Special Effects | Notes |
+|:------------ |:--:|:--------:|:------:|:-------:|:------:|:--------------- |:----- |
+|              |    |          |        |         |        |                 |       |
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+## Skills
+
+- !!!col
+    - 1
+      ### Weapon Skills
+      |       |                 |
+      |:----- | ---------------:|
+<% tp.frontmatter.WeaponSkills.map(prop => `      | ${prop} |`).join("\n") %>
+    - 1
+      ### Languages
+<% tp.frontmatter.Languages.map(prop => `      - ${prop}`).join("\n") %>
+    - 1
+      ### General Skills
+      |                                                     |     |
+      |:--------------------------------------------------- | ---:|
+<% tp.frontmatter.Skills.map(prop => `      | [[${prop}]] | |`).join("\n") %>
+
+---
+
+## Special Abilities
+
+{{ .ClassAbilities }}
+
+{{ .Spells }}
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+### Equipment
+
+| Item | Notes | Location | Encumbrance (M) |
+| :--- | :---- | :------- | --------------: |
+|      |       |          |                 |
+
+### Coins & Valuables
+
+>[!col]
+>| Coin   |     | Bank | Pocket |
+|:------- |:---:| ----:| -----: |
+|         | pp  |      |        |
+| Royale  | gp  |      | {{ .GP }} |
+|         | ep  |      |        |
+| Kronen  | sp  |      |        |
+| Kopeken | cp  |      |        |
+>
+>> [!col-md-3]
+>> | Valuables | Value (gp) |
+>> |:--------- | ---------: |
+>> |           |            |
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+> [!infobox]
+> ## Background
+>
+> |               |                     |
+> |:------------- | -------------------:|
+> | Sex           |    ``=this.Gender`` |
+> | Age           |       ``=this.Age`` |
+> | Height        |    ``=this.Height`` |
+> | Weight        |    ``=this.Weight`` |
+> | Ethnicity     | ``=this.Ethnicity`` |
+> | Social Status |    ``=this.Status`` |
+> | Origin        |    ``=this.Origin`` |
+> | Faith         |     ``=this.Faith`` |
+
+## Background Story
+
+---
+
+<div class="page-break" style="page-break-before: always;"></div>
+
+## Descriptions
+
+{{ .ClassDescriptions }}
+
+{{ .SpellDescriptions }}
+
+{{ .Descriptions }}
+
+{{end}}

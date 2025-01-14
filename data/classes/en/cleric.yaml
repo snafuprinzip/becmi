@@ -48,15 +48,15 @@ abilities:
       D: The attempt at turning the undead automatically succeeds—in fact, it succeeds so well that the affected monsters are destroyed instead of merely turned. To determine how many Hit Dice of undead will be destroyed, the DM rolls 2d6 as described above; regardless of his roll, at least one undead will be destroyed. (The DM decides what happens when the monsters are destroyed: They might fade away, burst into flame and crumble away, or disintegrate like a vampire in sunlight, for instance.)
       D + : This is the same as the " D " result above, except that the DM rolls 3d6 to find out how many Hit Dice of undead will be destroyed. Regardless of the roll, at least one undead will be destroyed.
       D#: This is the same as the "D" result above, except that the DM rolls 4d6 to find out how many Hit Dice of undead will be destroyed. Regardless of the roll, at least one undead will be destroyed.
-  - id: Spell Slots
-    name: Spell Slots
-    minlevel: 2
-    table: |
-      1st:  %2d
-      2nd:  %2d
-      3rd:  %2d
-      4th:  %2d
-      5th:  %2d
-      6th:  %2d
-      7th:  %2d
-    description: ""
+#  - id: Spell Slots
+#    name: Spell Slots
+#    minlevel: 2
+#    table: |
+#      1st:  %2d
+#      2nd:  %2d
+#      3rd:  %2d
+#      4th:  %2d
+#      5th:  %2d
+#      6th:  %2d
+#      7th:  %2d
+#    description: ""

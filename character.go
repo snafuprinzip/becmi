@@ -15,6 +15,7 @@ import (
 	"gopkg.in/yaml.v3"
 	"log"
 	"os"
+	"path"
 	"strings"
 	"text/template"
 	"unicode"
@@ -69,7 +70,8 @@ type CharacterRecordSheet struct {
 	ArmorClass        int      `yaml:"AC,omitempty"`
 	HitPoints         int      `yaml:"HP"`
 	Movement          string   `yaml:"Move,omitempty"`
-	ThAC0             int      `yaml:"THAC0,omitempty"`
+	THAC0             int      `yaml:"THAC0,omitempty"`
+	THAC0Table        string   `yaml:"THAC0Table,omitempty"`
 	STPoison          int      `yaml:"ST_Poison,omitempty"`
 	STWands           int      `yaml:"ST_Wands,omitempty"`
 	STPetrification   int      `yaml:"ST_Petrification,omitempty"`
@@ -184,18 +186,73 @@ func NewCharacter(name, player, alignment, sex, class, campaign string, xp int) 
 	return &ch
 }
 
+func (c Character) THAC0Table() string {
+	currentLevel := c.Class.Level(c.XP)
+	thac0 := c.Class.ThAC0(currentLevel)
+
+	var table [40]int // -20 to 19 == offset 20
+	table[20] = thac0
+	roll := thac0 - 1
+	cnt := 0
+	for i := 21; i < len(table); i++ {
+		table[i] = roll
+		if roll != 20 && roll != 30 {
+			roll--
+		} else if cnt == 4 {
+			cnt = 0
+			roll--
+			continue
+		} else {
+			cnt++
+			continue
+		}
+	}
+	roll = thac0 + 1
+	for i := 19; i >= 0; i-- {
+		table[i] = roll
+		if roll != 20 && roll != 30 {
+			roll++
+		} else if cnt == 4 {
+			cnt = 0
+			roll++
+			continue
+		} else {
+			cnt++
+			continue
+		}
+	}
+
+	var formatString string
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		formatString = "%4s 10   9   8   7   6   5   4   3   2   1     0    -1   -2   -3   -4   -5   -6   -7   -8   -9  -10\n" +
+			"%4s %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d  %2d    %2d    %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d   %2d\n"
+	case localization.OutputFormatObsidian:
+		formatString = "" +
+			"| %4s     | 10  | 9   | 8   | 7   | 6   | 5   |  4  |  3  |  2  |  1  | **0** | -1  | -2  | -3  | -4  | -5  | -6  | -7  | -8  | -9  | -10 |\n" +
+			"| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n" +
+			"| **%4s** | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | **%2d** | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d |\n"
+	}
+
+	return fmt.Sprintf(formatString, localization.Translations[localization.LanguageSetting]["ac"],
+		localization.Translations[localization.LanguageSetting]["roll"],
+		table[30], table[29], table[28], table[27], table[26], table[25], table[24], table[23], table[22], table[21],
+		table[20], table[19], table[18], table[17], table[16], table[15], table[14], table[13], table[12], table[11],
+		table[10])
+}
+
 func (c Character) String() string {
 	abilities := c.Class.SpecialAbilities(c.XP)
 	var classabilities, abilitydescriptions string
+
+	localization.OutputFormat = localization.OutputFormatText
+
 	for _, ab := range abilities {
 		if ab.MinLevel <= c.Class.LevelIncludingRank(c.XP) {
 			classabilities += ab.ListString() + "\n"
 			abilitydescriptions += ab.DescriptionString() + "\n"
 		}
 	}
-
-	fmt.Println("classabilities: ", classabilities)
-	fmt.Println("abilitydescriptions: ", abilitydescriptions)
 
 	outputMessage := &i18n.Message{
 		ID:          "CharacterRecordSheet",
@@ -235,16 +292,18 @@ func (c Character) String() string {
 	output := fmt.Sprintf(translation,
 		c.Name,
 		c.Player,
-		c.Class.Name(), c.Alignment,
+		c.Class.Name(),
+		localization.Translations[localization.LanguageSetting][strings.ToLower(c.Alignment)],
 		c.Class.Level(c.XP), c.Class.Rank(c.XP), c.Class.MaxLevel(), c.XP, attributes.SignedInt(c.Class.CheckXPModifier(c.Attributes)), c.Class.NextLevelAt(c.XP),
 		c.Attributes,
 		c.SavingThrows,
 		c.ArmorClass, c.HitPoints,
 		c.Movement, c.ThAC0,
-		c.Class.ThAC0Table(c.XP),
+		c.THAC0Table(),
 		c.Class.ArmorProficiency(),
 		c.Class.WeaponProficiency(),
-		c.Sex, c.Age, c.AgeSpan,
+		localization.Translations[localization.LanguageSetting][strings.ToLower(c.Sex)],
+		c.Age, c.AgeSpan,
 		c.Height, c.Weight, c.Weight/10,
 		c.Background,
 		c.GP,
@@ -278,6 +337,8 @@ func (c Character) Save() {
 func (c Character) SaveObsidian() {
 	var crs CharacterRecordSheet
 
+	localization.OutputFormat = localization.OutputFormatObsidian
+
 	chaModMessage := &i18n.Message{
 		ID:          "RetainerStats",
 		Description: "Charisma Retainer Statistics",
@@ -297,7 +358,7 @@ func (c Character) SaveObsidian() {
 	crs.Name = c.Name
 	crs.Player = c.Player
 	crs.Class = c.Class.Name()
-	crs.Alignment = c.Alignment
+	crs.Alignment = localization.Translations[localization.LanguageSetting][strings.ToLower(c.Alignment)]
 	crs.Level = fmt.Sprintf("%d %c", c.Class.Level(c.XP), c.Class.Rank(c.XP))
 	crs.NextLevel = c.Class.NextLevelAt(c.XP)
 	crs.XP = fmt.Sprintf("%d (%s%%)", c.XP, attributes.SignedInt(c.Class.CheckXPModifier(c.Attributes)))
@@ -318,7 +379,8 @@ func (c Character) SaveObsidian() {
 	crs.ArmorClass = c.ArmorClass
 	crs.HitPoints = c.HitPoints
 	crs.Movement = fmt.Sprintf("%de (%de)", c.Movement, c.Movement/3)
-	crs.ThAC0 = c.ThAC0
+	crs.THAC0 = c.ThAC0
+	crs.THAC0Table = c.THAC0Table()
 	crs.STPoison = c.SavingThrows[0]
 	crs.STWands = c.SavingThrows[1]
 	crs.STPetrification = c.SavingThrows[2]
@@ -326,7 +388,7 @@ func (c Character) SaveObsidian() {
 	crs.STSpells = c.SavingThrows[4]
 	crs.AllowedArmor = c.Class.ArmorProficiency()
 	crs.AllowedWeapons = c.Class.WeaponProficiency()
-	crs.Gender = c.Sex
+	crs.Gender = localization.Translations[localization.LanguageSetting][strings.ToLower(c.Sex)]
 	crs.Age = c.Age
 	crs.Height = c.Height
 	crs.Weight = c.Weight
@@ -345,12 +407,7 @@ func (c Character) SaveObsidian() {
 	crs.ClassDescriptions = abilitydescriptions
 
 	crs.Spells = c.Class.SpellList(c.XP, c.Grimoire)
-	crs.Descriptions = c.Class.SpellDescriptionsObsidian(c.XP, c.Grimoire)
-
-	//fmt.Println("classabilities: ", classabilities)
-	//fmt.Println("abilitydescriptions: ", abilitydescriptions)
-	//fmt.Println("spells: ", c.Class.SpellList(c.XP, c.Grimoire))
-	//fmt.Println("spelldescriptions: ", c.Class.SpellDescriptions(c.XP, c.Grimoire))
+	crs.Descriptions = c.Class.SpellDescriptions(c.XP, c.Grimoire)
 
 	file, err := os.Create(c.Name + ".md")
 	if err != nil {
@@ -370,9 +427,9 @@ func (c Character) SaveObsidian() {
 
 	fmt.Fprintln(file, "---")
 
-	templ := template.Must(template.ParseFiles("data/templates/character.template"))
+	templ := template.Must(template.ParseFiles(path.Join("data", "templates", localization.LanguageSetting, "character.template")))
 
-	err = templ.ExecuteTemplate(file, "de/character", crs)
+	err = templ.ExecuteTemplate(file, localization.LanguageSetting+"/character", crs)
 	if err != nil {
 		log.Printf("Error executing template: %s\n", err)
 	}

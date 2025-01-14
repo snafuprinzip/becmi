@@ -49,15 +49,15 @@ abilities:
       D: Der Vertreibungsversuch gelingt automatisch - er ist sogar so erfolgreich, daß die betroffenen Monster nicht nur vertrieben, sondern zerstört werden. Um festzustellen, wieviele Monster-Trefferwürfel zerstört werden, würfelt der SL wie oben beschrieben mit 2w6; ungeachtet des Ergebnisses wird mindestens ein Untoter zerstört. (Der SL legt fest, was passiert, wenn die Monster vernichtet werden: Sie könnten beispielsweise verblassen und vergehen, in Flammen aufgehen und zerbröckeln oder sich wie ein Vampir im Sonnenlicht auflösen).
       D+: Dies ist identisch mit dem Ergebnis "D", außer daß der SL mit 3w6 würfelt, um festzustellen wieviele Untoten-Trefferwürfel zerstört werden. Ungeachtet des Ergebnisses wird mindestens ein Untoter zerstört.
       D#: Dies ist identisch mit dem Ergebnis "D", außer daß der SL mit 4w6 würfelt, um festzustellen wieviele Untoten-Trefferwürfel zerstört werden. Ungeachtet des Ergebnisses wird mindestens ein Untoter zerstört.
-  - id: Spell Slots
-    name: Zauber pro Stufe nach Grad
-    minlevel: 2
-    table: |
-      1. Grad:  %2d
-      2. Grad:  %2d
-      3. Grad:  %2d
-      4. Grad:  %2d
-      5. Grad:  %2d
-      6. Grad:  %2d
-      7. Grad:  %2d
-    description: ""
+#  - id: Spell Slots
+#    name: Zauber pro Stufe nach Grad
+#    minlevel: 2
+#    table: |
+#      1. Grad:  %2d
+#      2. Grad:  %2d
+#      3. Grad:  %2d
+#      4. Grad:  %2d
+#      5. Grad:  %2d
+#      6. Grad:  %2d
+#      7. Grad:  %2d
+#    description: ""

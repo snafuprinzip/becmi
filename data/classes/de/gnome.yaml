@@ -26,11 +26,6 @@ abilities:
       Gnome können mitunter Fallen finden (genauer: Fallen, die in Steinkonstruktionen oder schwere Bauten eingebaut sind, nicht jedoch andere Fallen wie Seilfallen in Wäldern oder hervorschnellende Nadeln an einem Juwelenkästchen); sie können außerdem Schiebewände, abschüssige Gänge und neue Bauwerke erkennen.
       
       Falls Ihr Gnom in einem Bereich nach solchen Dingen suchen will, teilen Sie es dem SL mit. Sie haben eine Wahrscheinlichkeit von 1 in 3, sie zu finden. Der SL würfelt mit 1w6; eine 1 oder 2 bedeutet, daß Sie Erfolg haben , falls es etwas zu finden gibt; ein Ergebnis von 3-6 bedeutet, daß Ihr Gnom nichts entdeckt. Sie können für jede Falle, jeden abschüssigen Gang und jedes neu angelegte Bauwerk einmal würfeln. Sie müssen dem SL sagen, wenn Sie nach etwas suchen; Ihre Entdeckungsgabe funktioniert niemals automatisch.
-  - id: Natural Armor Class
-    name: Natürliche Rüstungsklasse
-    minlevel: 1
-    table: ""
-    description: Gnome haben eine natürliche Rüstungsklasse von 9.
   - id: Saving Throw Bonuses
     name: Boni auf Rettungswürfe
     minlevel: 1

@@ -138,58 +138,34 @@ func LoadSpells() {
 	loadPrimalSpells()
 }
 
-//func SaveSpell() {
-//	spell := Spell{Name: "Cure Light Wounds", Level: 1, Reversible: true, Range: "Touch", Duration: "Permanent",
-//		Effect: "Any one living Creature", Description: "" +
-//			"This spell either heals damage or removes paralysis. If used to heal, it can cure 2-7 (1d6 + 1) points of damage. " +
-//			"It cannot heal damage if used to cure paralysis. The cleric may cast it on himself if desired.\n" +
-//			"This spell cannot increase a creature's total hit points above the original amount.\n" +
-//			"When reversed, this spell, cause light wounds, causes 1d6+1 (2-7) points of damage to any creature or character " +
-//			"touched (no saving throw is allowed). The cleric must make a normal attack roll to inflict this damage."}
-//	out, err := yaml.Marshal(spell)
-//	if err != nil {
-//		fmt.Fprintln(os.Stderr, err)
-//		return
-//	}
-//	err = os.WriteFile("data/spells/cure_light_wounds.yaml", out, 0644)
-//	if err != nil {
-//		fmt.Fprintln(os.Stderr, err)
-//		return
-//	}
-//	fmt.Println(string(out))
-//}
-
 func (s Spell) String() string {
-	outputMessage := &i18n.Message{
-		ID:          "Spell",
-		Description: "Spell Description",
-		Other: "" +
-			"%s\n" +
-			"Range: %s\n" +
-			"Duration: %s\n" +
-			"Effect: %s\n" +
-			"%s\n",
+	var outputMessage *i18n.Message
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		outputMessage = &i18n.Message{
+			ID:          "Spell",
+			Description: "Spell Description",
+			Other: "" +
+				"%s\n" +
+				"Range: %s\n" +
+				"Duration: %s\n" +
+				"Effect: %s\n" +
+				"%s\n",
+		}
+	case localization.OutputFormatObsidian:
+		outputMessage = &i18n.Message{
+			ID:          "Spell Obsidian",
+			Description: "Spell Description for Obsidian",
+			Other: "" +
+				"##### %s\n" +
+				"|              |      |\n" +
+				"| :----------- | ---: |\n" +
+				"| **Range**    | %s |\n" +
+				"| **Duration** | %s |\n" +
+				"| ** Effect**  | %s |\n\n" +
+				"%s\n",
+		}
 	}
-
-	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: outputMessage})
-
-	return fmt.Sprintf(translation, s.Name, s.Range, s.Duration, s.Effect, s.Description)
-}
-
-func (s Spell) ObsidianString() string {
-	outputMessage := &i18n.Message{
-		ID:          "Spell Obsidian",
-		Description: "Spell Description for Obsidian",
-		Other: "" +
-			"##### %s\n" +
-			"|              |      |\n" +
-			"| :----------- | ---: |\n" +
-			"| **Range**    | %s |\n" +
-			"| **Duration** | %s |\n" +
-			"| ** Effect**  | %s |\n\n" +
-			"%s\n",
-	}
-
 	translation := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: outputMessage})
 
 	name := s.Name

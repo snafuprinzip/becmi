@@ -2,6 +2,7 @@ package classes
 
 import (
 	"becmi/attributes"
+	"becmi/localization"
 	"becmi/magic"
 	"becmi/savingthrows"
 	"strings"
@@ -28,13 +29,12 @@ type Class interface {
 	SavingThrows(xp int) savingthrows.SavingThrows
 	SpecialAbilities(xp int) ClassAbilities
 	ThAC0(xp int) int
-	ThAC0Table(xp int) string
+	//ThAC0Table(xp int) string
 	Race() string
 	Magic() string
 	Grimoire(xp int) *magic.Spellbook
 	SpellList(xp int, spellbook *magic.Spellbook) string
 	SpellDescriptions(xp int, spellbook *magic.Spellbook) string
-	SpellDescriptionsObsidian(xp int, spellbook *magic.Spellbook) string
 	Load() Class
 }
 
@@ -67,11 +67,25 @@ func (c ClassAbility) String() string {
 
 func (c ClassAbility) ListString() string {
 	var out string
-	out = c.Name
-	if c.Table != "" { // Ability does contain a table
-		out += "\n"
-		out += strings.Repeat("-", len(c.Name)) + "\n"
-		out += c.Table + "\n"
+
+	switch localization.OutputFormat {
+	case localization.OutputFormatText:
+		out = "- " + c.Name
+		if c.Table != "" { // Ability does contain a table
+			out += "\n"
+			out += strings.Repeat("-", len(c.Name)) + "\n"
+			out += c.Table + "\n"
+		}
+	case localization.OutputFormatObsidian:
+		if c.Table != "" { // Ability does contain a table
+			if c.Name == "Spell Slots" {
+				out = c.Table + "\n"
+			} else {
+				out = "#### " + c.Name + "\n" + c.Table + "\n"
+			}
+		} else {
+			out = "- " + c.Name
+		}
 	}
 	return out
 }
@@ -79,9 +93,14 @@ func (c ClassAbility) ListString() string {
 func (c ClassAbility) DescriptionString() string {
 	var out string
 	if c.Description != "" {
-		out = c.Name + "\n"
-		out += strings.Repeat("-", len(c.Name)) + "\n"
-		out += c.Description + "\n"
+		switch localization.OutputFormat {
+		case localization.OutputFormatText:
+			out = c.Name + "\n"
+			out += strings.Repeat("-", len(c.Name)) + "\n"
+			out += c.Description + "\n"
+		case localization.OutputFormatObsidian:
+			out = "#### " + c.Name + "\n" + c.Description + "\n"
+		}
 	}
 	return out
 }

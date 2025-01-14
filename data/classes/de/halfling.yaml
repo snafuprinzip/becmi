@@ -26,9 +26,9 @@ abilities:
     table: ""
     description: |
       Alle Halblinge erhalten die folgenden Boni, wenn sie kämpfen:
-        -2  Bonus auf Rüstungsklasse, wenn sie von übermannsgroßen Kreaturen angegriffen werden
-        +1  Bonus auf den Trefferwurf beim Einsatz von Fernkampfwaffen
-        +1  Bonus auf Einzelinitiative (vgl. Kapitel 8 für Einzelheiten über Initiative)
+        -2  Bonus auf Rüstungsklasse, wenn sie von übermannsgroßen Kreaturen angegriffen werden, 
+        +1  Bonus auf den Trefferwurf beim Einsatz von Fernkampfwaffen, 
+        +1  Bonus auf Einzelinitiative (vgl. Kapitel 8 für Einzelheiten über Initiative). 
       Eine Kreatur ist übermannsgroß, wenn sie in einer Monsterbeschreibung als "riesig", "gigantisch " oder "gewaltig" beschrieben wird. Sie ist ebenfalls übermannsgroß, wenn es sich um eine Kreatur der wirklichen Welt handelt, die der SL als größer als einen Menschen einstuft (beispielsweise ein Pferd ).
       Als Faustregel kann gelten, daß man bei allen Kreaturen von nichtmenschlicher Gestalt, deren Größe in der Beschreibung nicht näher spezifiziert wird, davon ausgehen kann, daß sie übermannsgroß sind, wenn sie 4 oder mehr TW haben.
   - id: Set Spear vs. Charge
