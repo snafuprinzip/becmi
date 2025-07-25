@@ -83,6 +83,26 @@ description = "Social Status: Penniless"
 hash = "sha1-acc24c5076219c2f8801db5f42b5222229244c14"
 other = "Bettelarm"
 
+["Reaction Aggressive"]
+hash = "sha1-189db84a6d4a1016e10ecbfe2a4c2d69497b3843"
+other = "Monster ist aggressiv (faucht, droht, etc.)."
+
+["Reaction Attack"]
+hash = "sha1-190867d2833f47b41b3f906f48d542c7fa4113b9"
+other = "Monster greift an."
+
+["Reaction Cautious"]
+hash = "sha1-4a8f724a65bca70cadcd72449f9c4e37eced4973"
+other = "Monster ist vorsichtig."
+
+["Reaction Friendly"]
+hash = "sha1-e8e2788128a31b368ee26278d579ec0ee551808c"
+other = "Monster verhält sich freundlich."
+
+["Reaction Neutral"]
+hash = "sha1-74033e05a5594494a0d4a78fe54807374bab3913"
+other = "Monster verhält sich neutral."
+
 [RetainerStats]
 description = "Charisma Retainer Statistics"
 hash = "sha1-fb3c7cf6a7f175e825a3f16c162461388a7e07d1"
@@ -187,6 +207,11 @@ other = "Starksenke Klan"
 description = "Social Status: Struggling"
 hash = "sha1-8bb4bddbcb926e87244e0bfd5a5066f926ab6347"
 other = "Unterschicht"
+
+["Thief Skills"]
+description = "Thief Skills"
+hash = "sha1-708da469d4ea0928e2e648f93cf09b3aa86c5510"
+other = "Schlösser öffnen:      %d%%\nFallen finden:      %d%%\nFallen entschärfen:    %d%%\nWände erklimmen:     %d%%\nLeise bewegen:   %d%%\nIm Schatten verstecken: %d%%\nTaschendiebstahl:    %d%%\nGeräusche hören:      %d%%\n"
 
 ["Thief Skills (Obsidian)"]
 description = "Thief Skills for Obsidian"
@@ -313,7 +338,6 @@ description = "Social Status: Titled"
 hash = "sha1-2f3ed95131d446af61c940eb00196f5137afe654"
 other = "tituliert"
 
-["Thief Skills"]
-description = "Thief Skills"
-hash = "sha1-708da469d4ea0928e2e648f93cf09b3aa86c5510"
-other = "Schlösser öffnen:      %d%%\nFallen finden:      %d%%\nFallen entschärfen:    %d%%\nWände erklimmen:     %d%%\nLeise bewegen:   %d%%\nIm Schatten verstecken: %d%%\nTaschendiebstahl:    %d%%\nGeräusche hören:      %d%%\n"
+[Round]
+hash = "sha1-ec7b59833520bb2b53fd4d44b3d581720b55c442"
+other = "Runde"

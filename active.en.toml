@@ -1,3 +1,10 @@
+"Reaction Aggressive" = "Monster is aggressive (growls, threatens, etc.)."
+"Reaction Attack" = "Monster attacks."
+"Reaction Cautious" = "Monster is cautious."
+"Reaction Friendly" = "Monster is friendly."
+"Reaction Neutral" = "Monster is neutral."
+Round = "Round"
+
 ["Any town, village or city"]
 description = "Hometown: Any town, village or city"
 other = "Any town, village or city"
