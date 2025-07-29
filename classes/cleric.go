@@ -541,7 +541,7 @@ func (a TurnUndeadAbilities) String() string {
 		}
 
 		turnUndeadLegend = &i18n.Message{
-			ID:          "Turn Undead",
+			ID:          "Turn Undead Legend",
 			Description: "Turn Undead Legend Table",
 			Other: "\n" +
 				"7, 9, or 11 number needed to turn successfully\n" +

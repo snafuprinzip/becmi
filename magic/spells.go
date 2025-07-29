@@ -35,6 +35,7 @@ var AllArcaneSpells ArcaneSpells
 var AllPrimalSpells PrimalSpells
 
 func loadArcaneSpells() {
+	AllArcaneSpells = ArcaneSpells{}
 	dirName := path.Join("data", "spells", "arcane", localization.LanguageSetting)
 
 	files, err := os.ReadDir(dirName)
@@ -71,6 +72,7 @@ func loadArcaneSpells() {
 }
 
 func loadDivineSpells() {
+	AllDivineSpells = DivineSpells{}
 	dirName := path.Join("data", "spells", "divine", localization.LanguageSetting)
 
 	files, err := os.ReadDir(dirName)
@@ -102,6 +104,7 @@ func loadDivineSpells() {
 }
 
 func loadPrimalSpells() {
+	AllPrimalSpells = PrimalSpells{}
 	dirName := path.Join("data", "spells", "primal", localization.LanguageSetting)
 
 	files, err := os.ReadDir(dirName)
@@ -141,17 +144,6 @@ func LoadSpells() {
 func (s Spell) String() string {
 	var outputMessage *i18n.Message
 	switch localization.OutputFormat {
-	case localization.OutputFormatText:
-		outputMessage = &i18n.Message{
-			ID:          "Spell",
-			Description: "Spell Description",
-			Other: "" +
-				"%s\n" +
-				"Range: %s\n" +
-				"Duration: %s\n" +
-				"Effect: %s\n" +
-				"%s\n",
-		}
 	case localization.OutputFormatObsidian:
 		outputMessage = &i18n.Message{
 			ID:          "Spell Obsidian",
@@ -163,6 +155,19 @@ func (s Spell) String() string {
 				"| **Range**    | %s |\n" +
 				"| **Duration** | %s |\n" +
 				"| ** Effect**  | %s |\n\n" +
+				"%s\n",
+		}
+	case localization.OutputFormatText:
+		fallthrough
+	default:
+		outputMessage = &i18n.Message{
+			ID:          "Spell",
+			Description: "Spell Description",
+			Other: "" +
+				"%s\n" +
+				"Range: %s\n" +
+				"Duration: %s\n" +
+				"Effect: %s\n" +
 				"%s\n",
 		}
 	}

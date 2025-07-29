@@ -113,6 +113,10 @@ description = "Hometown: Elf"
 hash = "sha1-c9f60af192a75b28c98a6e885670bac5091aa58b"
 other = "Rifflian oder Spekularum (Callarii) or Dymrak Wälder (Vyalia)"
 
+[Round]
+hash = "sha1-ec7b59833520bb2b53fd4d44b3d581720b55c442"
+other = "Runde"
+
 ["Royal Family"]
 description = "Social Status: Royal Family"
 hash = "sha1-4dab6ff5349114b45599c5f3377d4ba239fa6140"
@@ -228,11 +232,6 @@ description = "Ethnicity: Traladaran"
 hash = "sha1-3825f552bb84233ec23fe1221a72a78ac18d720d"
 other = "Traladarisch"
 
-["Turn Undead"]
-description = "Turn Undead Legend Table"
-hash = "sha1-79260fe8f4ffe6b94c2441cfa66425b8ad899754"
-other = "\n7, 9, oder 11 Benötigtes Ergebnis für erfolgreiches Vertreiben\nT           Automatisches Vertreiben, 2w6 Untoten-Trefferwürfel\nD           Automatisches Zerstören,  2w6 Untoten-Trefferwürfel\nD+          Automatisches Zerstören,  3w6 Untoten-Trefferwürfel\nD#          Automatisches Zerstören,  4w6 Untoten-Trefferwürfel\n\n"
-
 ["Turn Undead (Obsidian)"]
 description = "Turn Undead Table for Obsidian"
 hash = "sha1-4b00ee1354eab4e1a966d9f32151c5282dc14a24"
@@ -338,6 +337,13 @@ description = "Social Status: Titled"
 hash = "sha1-2f3ed95131d446af61c940eb00196f5137afe654"
 other = "tituliert"
 
-[Round]
-hash = "sha1-ec7b59833520bb2b53fd4d44b3d581720b55c442"
-other = "Runde"
+["Turn Undead"]
+description = "Turn Undead Table"
+hash = "sha1-f4b41dad31e6817f33194db3716e763311b16f99"
+other = "Skelett    \t %2s\nZombie     \t %2s\nGhul       \t %2s\nGruftschrecken \t %2s \nTodesalb     \t %2s\nMumie      \t %2s\nSchreckgespenst\t %2s\nVampir    \t %2s\nPhantom    \t %2s \nSpuk      \t %2s \nBöse Seele     \t %2s \nNachtschatten \t %2s \nLeichnam       \t %2s \nSpeziell    \t %2s \n"
+
+["Turn Undead Legend"]
+description = "Turn Undead Legend Table"
+hash = "sha1-79260fe8f4ffe6b94c2441cfa66425b8ad899754"
+other = "\n7, 9, oder 11 Benötigtes Ergebnis für erfolgreiches Vertreiben \nT           Automatisches Vertreiben, 2w6 Untoten-Trefferwürfel \nD           Automatisches Zerstören, 2w6 Untoten-Trefferwürfel \nD+          Automatisches Zerstören, 3w6 Untoten-Trefferwürfel \nD#          Automatisches Zerstören, 4w6 Untoten-Trefferwürfel\n\n"
+

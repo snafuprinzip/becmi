@@ -174,12 +174,16 @@ description = "Ethnicity: Traladaran"
 other = "Traladaran"
 
 ["Turn Undead"]
-description = "Turn Undead Legend Table"
-other = "\n7, 9, or 11 number needed to turn successfully\nT           automatic turn, 2d6 Hit Dice of undead\nD           automatic Destroy, 2d6 Hit Dice of undead\nD+          automatic Destroy, 3d6 Hit Dice of undead\nD#          automatic Destroy, 4d6 Hit Dice of undead\n\n"
+description = "Turn Undead Table"
+other = "Skeleton   \t %2s\nZombie     \t %2s\nGhoul      \t %2s\nWight      \t %2s\nWraith     \t %2s\nMummy      \t %2s\nSpectre    \t %2s\nVampire    \t %2s\nPhantom    \t %2s\nHaunt      \t %2s\nSpirit     \t %2s\nNightshade \t %2s\nLich       \t %2s\nSpecial    \t %2s\n"
 
 ["Turn Undead (Obsidian)"]
 description = "Turn Undead Table for Obsidian"
 other = "|           |     |\n| :--- | :---: |\n| Skeleton   | %2s |\n| Zombie     | %2s |\n| Ghoul      | %2s |\n| Wight      | %2s |\n| Wraith     | %2s |\n| Mummy      | %2s |\n| Spectre    | %2s |\n| Vampire    | %2s |\n| Phantom    | %2s |\n| Haunt      | %2s |\n| Spirit     | %2s |\n| Nightshade | %2s |\n| Lich       | %2s |\n| Special    | %2s |\n"
+
+["Turn Undead Legend"]
+description = "Turn Undead Legend Table"
+other = "\n7, 9, or 11 number needed to turn successfully\nT           automatic turn, 2d6 Hit Dice of undead\nD           automatic Destroy, 2d6 Hit Dice of undead\nD+          automatic Destroy, 3d6 Hit Dice of undead\nD#          automatic Destroy, 4d6 Hit Dice of undead\n\n"
 
 ["Turn Undead Legend (Obsidian)"]
 description = "Turn Undead Table Legend for Obsidian"
