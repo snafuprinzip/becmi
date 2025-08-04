@@ -277,7 +277,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	// Register handlers
-	mux.HandleFunc("/", IndexHandler)
+	mux.HandleFunc("/{$}", IndexHandler)
 
 	// Start server
 	port := "8080"
