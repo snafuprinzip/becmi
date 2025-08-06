@@ -82,7 +82,7 @@ func (r Reaction) String() string {
 			Other: "Monster is friendly.",
 		}
 	default:
-		log.Fatal("Error: Reaction %d out of range.", r.Reaction)
+		log.Fatalf("Error: Reaction %d out of range.", r.Reaction)
 	}
 
 	reaction := localization.Locale[localization.LanguageSetting].MustLocalize(&i18n.LocalizeConfig{DefaultMessage: reactionMsg})

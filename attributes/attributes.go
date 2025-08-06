@@ -3,10 +3,11 @@ package attributes
 import (
 	"becmi/localization"
 	"fmt"
+
 	"github.com/nicksnyder/go-i18n/v2/i18n"
 )
 
-var AttributeIndices [6]string = [6]string{"STR", "INT", "WIS", "DEX", "CON", "CHA"}
+var AttributeIndices = [6]string{"STR", "INT", "WIS", "DEX", "CON", "CHA"}
 
 type Attribute struct {
 	Name  string

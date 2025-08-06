@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-var ClassIndices = []string{}
+var ClassIndices []string
 var Classes map[string]Class
 
 type XPLevel [36]int
